@@ -56,7 +56,9 @@ public class Dog {
         thirstLevel = thirstLevel++;
     }
 
-    public void addBoredom() { boredomLevel = boredomLevel++; }
+    public void addBoredom() {
+        boredomLevel = boredomLevel++;
+    }
 
     public void tick() {
         hungerLevel++;
