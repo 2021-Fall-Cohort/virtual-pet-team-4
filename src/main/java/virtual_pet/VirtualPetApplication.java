@@ -5,6 +5,7 @@ public class VirtualPetApplication {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        Boolean running = true;
 
         //Interact with a VirtualPet object in this method
         System.out.println("Welcome to your very own Virtual Dog simulator");
@@ -12,7 +13,13 @@ public class VirtualPetApplication {
         String dogName = scanner.nextLine();
         Dog dog1 = new Dog(dogName);
         dog1.tick();
-        dog1.status();
+        dog1.tick();
+        dog1.tick();
+        dog1.tick();
+        while(running) {
+            dog1.tick();
+            dog1.status();
+        }
     }
 
 }
