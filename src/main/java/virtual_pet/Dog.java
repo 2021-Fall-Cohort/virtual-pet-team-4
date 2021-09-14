@@ -56,14 +56,16 @@ public class Dog {
         thirstLevel = thirstLevel++;
     }
 
-    public void addBoredom() {
-        boredomLevel = boredomLevel++;
-    }
+    public void addBoredom() { boredomLevel = boredomLevel++; }
 
     public void tick() {
-        hungerLevel = hungerLevel++;
-        thirstLevel = thirstLevel++;
-        boredomLevel = boredomLevel++;
+        hungerLevel++;
+        thirstLevel++;
+        boredomLevel++;
+
+        if (hungerLevel >= 75) {
+            System.out.println(name + " is barking at their bowl. Maybe they're hungry");
+        }
     }
 
     public void status() {
