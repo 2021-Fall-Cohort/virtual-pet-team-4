@@ -6,11 +6,18 @@ public class Dog {
     private int thirstLevel;
     private int boredomLevel;
 
-    public Dog(String name, int hungerLevel, int thirstLevel, int boredomLevel) {
+    public Dog(String name) {
         this.name = name;
         this.hungerLevel = 50;
         this.thirstLevel = 50;
         this.boredomLevel = 50;
+    }
+
+    public Dog(String name, int hungerLevel, int thirstLevel, int boredomLevel) {
+        this.name = name;
+        this.hungerLevel = hungerLevel;
+        this.thirstLevel = thirstLevel;
+        this.boredomLevel = boredomLevel;
     }
 
     public String getName() {
@@ -40,4 +47,35 @@ public class Dog {
     public void playWithDog() {
         boredomLevel = boredomLevel - 20;
     }
+
+    public void addHunger() {
+        hungerLevel = hungerLevel++;
+    }
+
+    public void addThirst() {
+        thirstLevel = thirstLevel++;
+    }
+
+    public void addBoredom() {
+        boredomLevel = boredomLevel++;
+    }
+
+    public void tick() {
+        hungerLevel++;
+        thirstLevel++;
+        boredomLevel++;
+
+        if (hungerLevel >= 75) {
+            System.out.println(name + " is barking at their bowl. Maybe they're hungry");
+        }
+    }
+
+    public void status() {
+        System.out.println(name + "'s current stats are: " + "\n" +
+                "Hunger Level: " + hungerLevel + "\n" +
+                "Thirst Level: " + thirstLevel + "\n" +
+                "Boredom Level: " + boredomLevel
+        );
+    }
+
 }
