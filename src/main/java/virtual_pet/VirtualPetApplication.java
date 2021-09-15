@@ -17,31 +17,31 @@ public class VirtualPetApplication {
         // Game Loop
         do {
             System.out.println("What would you like to do with your dog " + dogName);
-            System.out.println("1. Play with dog");
-            System.out.println("2. Give dog water");
-            System.out.println("3. Give dog food");
+            System.out.println("1. Play with " + dogName);
+            System.out.println("2. Give " + dogName + " water");
+            System.out.println("3. Give " + dogName + " food");
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
                     dog1.playWithDog();
-                    System.out.println("Let's play with the dog");
+                    System.out.println("Let's play with " + dogName + "!");
                     dog1.tick();
                     dog1.status();
                     break;
                 case 2:
                     dog1.waterDog();
-                    System.out.println("Let's give our dog some water");
+                    System.out.println("Let's give " + dogName + " some water");
                     dog1.tick();
                     dog1.status();
                     break;
                 case 3:
                     dog1.feedDog();
-                    System.out.println("Let's feed our dog");
+                    System.out.println("Let's feed " + dogName);
                     dog1.tick();
                     dog1.status();
                     break;
                 default:
-                    System.out.println("Our dog gets nothing >:(");
+                    System.out.println(dogName + " gets nothing >:(");
                     dog1.tick();
                     dog1.status();
                     break;
@@ -50,15 +50,4 @@ public class VirtualPetApplication {
         while (running);
     }
 }
-
-
-
-        /*dog1.tick();
-        dog1.tick();
-        dog1.tick();
-        dog1.tick();
-        // while(running) {
-            dog1.tick();
-            dog1.status();
-        //} */
 
