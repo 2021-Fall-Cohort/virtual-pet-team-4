@@ -66,7 +66,13 @@ public class Dog {
         boredomLevel++;
 
         if (hungerLevel >= 75) {
-            System.out.println(name + " is barking at their bowl. Maybe they're hungry");
+            Boolean dogIsHungry = true;
+        }
+        if (thirstLevel >= 75) {
+            Boolean dogIsThirsty = true;
+        }
+        if (boredomLevel >= 75) {
+            Boolean dogIsBored = true;
         }
     }
 
