@@ -1,7 +1,7 @@
 # Required Tasks
 ## VirtualPet class
-- [ ] You will need to create a VirtualPet class.
-- [ ] Create at least three instance variables (aka attributes aka properties aka fields).
+- [x] You will need to create a VirtualPet class.
+- [x] Create at least three instance variables (aka attributes aka properties aka fields).
 - [ ] Create at least three methods (messages you send to your pet).
 - [ ] Create a tick() method that represents the passage of time.
 ## VirtualPetApp class
