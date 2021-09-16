@@ -16,9 +16,9 @@ public class Dog {
 
     public Dog(String name) {
         this.name = name;
-        this.hungerLevel = 50;
-        this.thirstLevel = 50;
-        this.boredomLevel = 50;
+        this.hungerLevel = 20;
+        this.thirstLevel = 20;
+        this.boredomLevel = 20;
         this.dogIsBored = false;
         this.dogIsHungry = false;
         this.dogIsThirsty = false;
