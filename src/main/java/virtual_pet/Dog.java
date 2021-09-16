@@ -8,6 +8,10 @@ public class Dog {
     private int hungerLevel;
     private int thirstLevel;
     private int boredomLevel;
+    private boolean dogIsBored;
+    private boolean dogIsHungry;
+    private boolean dogIsThirsty;
+
     // Clock clock = Clock();
 
     public Dog(String name) {
@@ -15,6 +19,9 @@ public class Dog {
         this.hungerLevel = 50;
         this.thirstLevel = 50;
         this.boredomLevel = 50;
+        this.dogIsBored = false;
+        this.dogIsHungry = false;
+        this.dogIsThirsty = false;
     }
 
     public Dog(String name, int hungerLevel, int thirstLevel, int boredomLevel) {
@@ -22,6 +29,9 @@ public class Dog {
         this.hungerLevel = hungerLevel;
         this.thirstLevel = thirstLevel;
         this.boredomLevel = boredomLevel;
+        this.dogIsBored = false;
+        this.dogIsHungry = false;
+        this.dogIsThirsty = false;
     }
 
     public String getName() {
@@ -42,8 +52,8 @@ public class Dog {
 
     public void feedDog() {
         hungerLevel = hungerLevel - 20;
-        thirstLevel = thirstLevel + 10;
-        boredomLevel = boredomLevel -5;
+        thirstLevel = thirstLevel + 5;
+        boredomLevel = boredomLevel - 5;
     }
 
     public void waterDog() {
@@ -53,8 +63,8 @@ public class Dog {
 
     public void playWithDog() {
         boredomLevel = boredomLevel - 20;
-        thirstLevel = thirstLevel + 20;
-        hungerLevel = hungerLevel + 20;
+        thirstLevel = thirstLevel + 10;
+        hungerLevel = hungerLevel + 10;
     }
 
     public void addHunger() {
@@ -158,37 +168,44 @@ public class Dog {
         }
     }
 
-    public void status() {
-
-        clearScreen();
-
-        Boolean dogIsHungry = null;
-        Boolean dogIsThirsty = null;
-        Boolean dogIsBored = null;
-
+    public void statusCheck() {
         if (hungerLevel >= 75) {
             dogIsHungry = true;
-            System.out.println(getName() + " is getting hungry");
-        }
-        else if (hungerLevel > 90) {
-            System.out.println("!!!!!!!!!!!!! " + getName() + " is getting EXTREMELY HUNGRY");
-            // Clock.getTime();
+        }else {
+            dogIsHungry = false;
         }
         if (thirstLevel >= 75) {
             dogIsThirsty = true;
-            System.out.println(getName() + " is thirsty");
-        }
-        else if (thirstLevel > 90) {
-            System.out.println("!!!!!!!!!!!!! " + getName() + " is getting EXTREMELY THIRSTY");
+        }else {
+            dogIsThirsty = false;
         }
         if (boredomLevel >= 75) {
             dogIsBored = true;
-            System.out.println(" your dog is dead bored");
+        }else {
+            dogIsBored = false;
+        }
+    }
+
+    public void status() {
+        statusCheck();
+        clearScreen();
+
+        if (dogIsBored) {
+            System.out.println("WARNING: " + name + " is getting really bored! Maybe you guys should play.");
+        }
+
+        if (dogIsThirsty) {
+            System.out.println("WARNING: " + name + " is getting thirty. Better get them some water!");
+        }
+
+        if (dogIsHungry) {
+            System.out.println("WARNING: " + name + " is withering away. Time for another meal!");
         }
 
         System.out.println(name + "'s current stats are: " + "\n" +
-                    "Hunger Level: " + hungerLevel + "\n" +
-                    "Thirst Level: " + thirstLevel + "\n" +
-                    "Boredom Level: " + boredomLevel);
+                "Hunger Level: " + hungerLevel + "\n" +
+                "Thirst Level: " + thirstLevel + "\n" +
+                "Boredom Level: " + boredomLevel);
+
     }
 }
