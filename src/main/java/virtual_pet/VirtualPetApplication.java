@@ -45,20 +45,18 @@ public class VirtualPetApplication {
             switch (choice) {
                 case "1":
                     dog1.playWithDog();
-                    System.out.println("Let's play with " + dogName + "!");
                     dog1.dogPlaying();
                     dog1.tick();
                     dog1.status();
                     break;
                 case "2":
                     dog1.waterDog();
-                    System.out.println("Let's give " + dogName + " some water");
+                    dog1.dogDrinking();
                     dog1.tick();
                     dog1.status();
                     break;
                 case "3":
                     dog1.feedDog();
-                    System.out.println("Let's feed " + dogName);
                     dog1.dogEating();
                     dog1.tick();
                     dog1.status();
@@ -79,7 +77,7 @@ public class VirtualPetApplication {
 
         public static void checkQuit(String userInput) {
             if(userInput.equalsIgnoreCase("quit")) {
-                System.out.println("Thank you for playing");
+                System.out.println("Thank you for playing Dog Simulator");
                 System.exit(0);
             }
         }

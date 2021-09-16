@@ -87,6 +87,8 @@ public class Dog {
     }
 
     public void dogPlaying() {
+        clearScreen();
+        System.out.println("Let's play with " + name + "!");
         System.out.println("             .--~~,__\n" +
                 ":-....,-------`~~'._.'\n" +
                 " `-,,,  ,_      ;'~U'\n" +
@@ -103,6 +105,8 @@ public class Dog {
     }
 
     public void dogEating() {
+        clearScreen();
+        System.out.println("Let's feed " + name);
         System.out.println("    ,    /-.\n" +
                 "   ((___/ __>\n" +
                 "   /      }\n" +
@@ -118,7 +122,33 @@ public class Dog {
         }
     }
 
+    public void dogDrinking() {
+        clearScreen();
+        System.out.println("Let's give " + name + " some water");
+        System.out.println("    ,    /-.\n" +
+                "   ((___/ __>\n" +
+                "   /      }\n" +
+                "   \\ .--.(    ___\n" +
+                " \\\\   \\\\  /___\\");
+        try
+        {
+            Thread.sleep(2000);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    public void clearScreen() {
+        for (int i = 0; i < 50; i++) {
+            System.out.println("\n");
+        }
+    }
+
     public void status() {
+
+        clearScreen();
 
         Boolean dogIsHungry = null;
         Boolean dogIsThirsty = null;
