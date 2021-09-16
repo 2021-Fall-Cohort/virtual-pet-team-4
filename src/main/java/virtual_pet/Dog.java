@@ -1,12 +1,13 @@
 package virtual_pet;
 
+import java.sql.Time;
 
 public class Dog {
     private String name;
     private int hungerLevel;
     private int thirstLevel;
     private int boredomLevel;
-    Clock clock = new Clock();
+    // Clock clock = Clock();
 
     public Dog(String name) {
         this.name = name;
@@ -78,7 +79,76 @@ public class Dog {
 //        }
     }
 
+    public void dogNeutral() {
+        System.out.println(" \\ ______/ V`-,\n" +
+                "  }        /~~\n" +
+                " /_)^ --,r'\n" +
+                "|b      |b");
+    }
+
+    public void dogPlaying() {
+        clearScreen();
+        System.out.println("Let's play with " + name + "!");
+        System.out.println("             .--~~,__\n" +
+                ":-....,-------`~~'._.'\n" +
+                " `-,,,  ,_      ;'~U'\n" +
+                "  _,-' ,'`-__; '--.\n" +
+                " (_/'~~      ''''(;");
+        try
+        {
+            Thread.sleep(2000);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    public void dogEating() {
+        clearScreen();
+        System.out.println("Let's feed " + name);
+        System.out.println("    ,    /-.\n" +
+                "   ((___/ __>\n" +
+                "   /      }\n" +
+                "   \\ .--.(    ___\n" +
+                " \\\\   \\\\  /___\\");
+        try
+        {
+            Thread.sleep(2000);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    public void dogDrinking() {
+        clearScreen();
+        System.out.println("Let's give " + name + " some water");
+        System.out.println("    ,    /-.\n" +
+                "   ((___/ __>\n" +
+                "   /      }\n" +
+                "   \\ .--.(    ___\n" +
+                " \\\\   \\\\  /___\\");
+        try
+        {
+            Thread.sleep(2000);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    public void clearScreen() {
+        for (int i = 0; i < 50; i++) {
+            System.out.println("\n");
+        }
+    }
+
     public void status() {
+
+        clearScreen();
 
         Boolean dogIsHungry = null;
         Boolean dogIsThirsty = null;
@@ -90,7 +160,7 @@ public class Dog {
         }
         else if (hungerLevel > 90) {
             System.out.println("!!!!!!!!!!!!! " + getName() + " is getting EXTREMELY HUNGRY");
-            Clock.getTime();
+            // Clock.getTime();
         }
         if (thirstLevel >= 75) {
             dogIsThirsty = true;
@@ -104,7 +174,7 @@ public class Dog {
             System.out.println(" your dog is dead bored");
         }
 
-        System.out.println(name + "'s current stats are: " + Clock.getTime() + "\n" + "\n" +
+        System.out.println(name + "'s current stats are: " + "\n" +
                     "Hunger Level: " + hungerLevel + "\n" +
                     "Thirst Level: " + thirstLevel + "\n" +
                     "Boredom Level: " + boredomLevel);
