@@ -1,6 +1,7 @@
 package virtual_pet;
 
 import java.sql.Time;
+import java.util.Random;
 
 public class Dog {
     private String name;
@@ -41,14 +42,19 @@ public class Dog {
 
     public void feedDog() {
         hungerLevel = hungerLevel - 20;
+        thirstLevel = thirstLevel + 10;
+        boredomLevel = boredomLevel -5;
     }
 
     public void waterDog() {
         thirstLevel = thirstLevel - 20;
+        hungerLevel++;
     }
 
     public void playWithDog() {
         boredomLevel = boredomLevel - 20;
+        thirstLevel = thirstLevel + 20;
+        hungerLevel = hungerLevel + 20;
     }
 
     public void addHunger() {
@@ -64,9 +70,15 @@ public class Dog {
     }
 
     public void tick() {
-        hungerLevel++;
-        thirstLevel++;
-        boredomLevel++;
+        int min = 1;
+        int max = 5;
+        Random random = new Random();
+        int randomHunger = random.nextInt(max + min) + min;
+        int randomThirst = random.nextInt(max + min) + min;
+        int randomBoredom = random.nextInt(max + min) + min;
+        hungerLevel = hungerLevel + randomHunger;
+        thirstLevel = thirstLevel + randomThirst;
+        boredomLevel = boredomLevel + randomBoredom;
 
 //        if (hungerLevel >= 75) {                             //block moved to the status method//
 //             Boolean dogIsHungry = true;

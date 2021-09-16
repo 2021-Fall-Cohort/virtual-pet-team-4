@@ -62,6 +62,7 @@ public class VirtualPetApplication {
                     dog1.status();
                     break;
                 case "4":
+                    dog1.tick();
                     dog1.status();
                     break;
                 default:
