@@ -20,21 +20,23 @@ public class VirtualPetApplication {
             System.out.println("1. Play with " + dogName);
             System.out.println("2. Give " + dogName + " water");
             System.out.println("3. Give " + dogName + " food");
-            int choice = scanner.nextInt();
+            System.out.println("Type quit to quit");
+            String choice = scanner.nextLine();
+            checkQuit(choice);
             switch (choice) {
-                case 1:
+                case "1":
                     dog1.playWithDog();
                     System.out.println("Let's play with " + dogName + "!");
                     dog1.tick();
                     dog1.status();
                     break;
-                case 2:
+                case "2":
                     dog1.waterDog();
                     System.out.println("Let's give " + dogName + " some water");
                     dog1.tick();
                     dog1.status();
                     break;
-                case 3:
+                case "3":
                     dog1.feedDog();
                     System.out.println("Let's feed " + dogName);
                     dog1.tick();
@@ -47,7 +49,15 @@ public class VirtualPetApplication {
                     break;
             }
         }
-        while (running);
+        while (!scanner.nextLine().equalsIgnoreCase("quit"));
+
     }
+
+        public static void checkQuit(String userInput) {
+            if(userInput.equalsIgnoreCase("quit")) {
+                System.out.println("Thank you for playing");
+                System.exit(0);
+            }
+        }
 }
 
