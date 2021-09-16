@@ -21,24 +21,24 @@ public class VirtualPetApplication {
                 "!!:  !!!     !!:  !!!     :!!   !!:     :!!   !!:     !!:  !!!               !:!     \n" +
                 ":!:  !:!     :!:  !:!     :!:   !::     :!:   !::     :!:  !:!              !:!      \n" +
                 " :::: ::     ::::: ::      ::: ::::      ::: ::::     ::::: ::          :::: ::      \n" +
-                ":: :  :       : :  :       :: :: :       :: :: :       : :  :           :: : : Trademark '97\n" +
+                ":: :  :       : :  :       :: :: :       :: :: :       : :  :           :: : :       \n" +
                 "                                                                                      ");
 
         System.out.println("Welcome to your very own Virtual Dog simulator");
-        System.out.println("Please type \"random\" to randomize your dog name or \n");
         System.out.println("Enter your Dog's name below: ");
-        Clock clock = new Clock();    //call Clock.getTime(); to print "Time: HH:MM"   //or delete line
+        // Clock clock = new Clock();    //call Clock.getTime(); to print "Time: HH:MM"   //or delete line
         String dogName = scanner.nextLine();
         Dog dog1 = new Dog(dogName);
 
 
         // Game Loop
         do {
+            dog1.dogNeutral();
             System.out.println("What would you like to do with your dog " + dogName);
             System.out.println("1. Play with " + dogName);
             System.out.println("2. Give " + dogName + " water");
             System.out.println("3. Give " + dogName + " food");
-            System.out.println("4. Get " + dogName + "'s current status");
+            System.out.println("4. Just get " + dogName + "'s current status");
             System.out.println("Type quit to quit");
             String choice = scanner.nextLine();
             checkQuit(choice);
@@ -46,6 +46,7 @@ public class VirtualPetApplication {
                 case "1":
                     dog1.playWithDog();
                     System.out.println("Let's play with " + dogName + "!");
+                    dog1.dogPlaying();
                     dog1.tick();
                     dog1.status();
                     break;
@@ -58,7 +59,11 @@ public class VirtualPetApplication {
                 case "3":
                     dog1.feedDog();
                     System.out.println("Let's feed " + dogName);
+                    dog1.dogEating();
                     dog1.tick();
+                    dog1.status();
+                    break;
+                case "4":
                     dog1.status();
                     break;
                 default:
@@ -66,12 +71,9 @@ public class VirtualPetApplication {
                     dog1.tick();
                     dog1.status();
                     break;
-                case 4:
-                    dog1.status();
-                    break;
             }
         }
-        while (!scanner.nextLine().equalsIgnoreCase("quit"));
+        while (running);
 
     }
 
