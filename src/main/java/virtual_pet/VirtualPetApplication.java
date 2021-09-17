@@ -7,7 +7,6 @@ public class VirtualPetApplication {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Boolean running = true;
 
         // Build Your Dog / Header
 
@@ -52,6 +51,7 @@ public class VirtualPetApplication {
         System.out.println("Enter your dogs breed below: ");
         String dogBreed = scanner.nextLine();
         Dog dog1 = new Dog(dogName, dogSex, dogBreed);
+        Boolean dogLiving = dog1.getDogIsAlive();
 
         // Game Loop //
         do {
@@ -64,7 +64,7 @@ public class VirtualPetApplication {
             System.out.println("5. Get " + dogName + "'s info");
             System.out.println("Type quit to quit");
             String choice = scanner.nextLine();
-            checkQuit(choice);
+            checkQuit(choice, dogLiving, dogName);
             switch (choice) {
                 case "1":
                     dog1.playWithDog();
@@ -97,9 +97,12 @@ public class VirtualPetApplication {
                     dog1.status();
                     break;
             }
+            dogLiving = dog1.getDogIsAlive();
         }
-        while (running);
-
+        while (dogLiving);
+        System.out.println("Oh no! " + dogName + " has died :( ");
+        System.out.println("Maybe you'll do better with the next one!");
+        System.out.println("Thank you for playing Dog Simulator");
     }
 
         public static void checkQuit(String userInput) {
