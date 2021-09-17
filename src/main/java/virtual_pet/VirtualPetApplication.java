@@ -12,30 +12,30 @@ public class VirtualPetApplication {
         // Build Your Dog / Header
 
         System.out.println("                                                                                     \n" +
-                "@@@@@@@       @@@@@@       @@@@@@@@      @@@@@@@@      @@@@@@         @@@@@@      \n" +
-                "@@@@@@@@     @@@@@@@@     @@@@@@@@@     @@@@@@@@@     @@@@@@@@       @@@@@@@      \n" +
-                "@@!  @@@     @@!  @@@     !@@           !@@           @@!  @@@       !@@          \n" +
-                "!@!  @!@     !@!  @!@     !@!           !@!           !@!  @!@       !@!          \n" +
-                "@!@  !@!     @!@  !@!     !@! @!@!@     !@! @!@!@     @!@  !@!       !!@@!!       \n" +
-                "!@!  !!!     !@!  !!!     !!! !!@!!     !!! !!@!!     !@!  !!!        !!@!!!      \n" +
-                "!!:  !!!     !!:  !!!     :!!   !!:     :!!   !!:     !!:  !!!            !:!     \n" +
-                ":!:  !:!     :!:  !:!     :!:   !::     :!:   !::     :!:  !:!           !:!      \n" +
-                " :::: ::     ::::: ::      ::: ::::      ::: ::::     ::::: ::       :::: ::      \n" +
-                ":: :  :       : :  :       :: :: :       :: :: :       : :  :        :: : :       \n" +
+                "@@@@@@@       @@@@@@       @@@@@@@@      @@@@@@@@      @@@@@@        @@@@@@      \n" +
+                "@@@@@@@@     @@@@@@@@     @@@@@@@@@     @@@@@@@@@     @@@@@@@@      @@@@@@@      \n" +
+                "@@!  @@@     @@!  @@@     !@@           !@@           @@!  @@@      !@@          \n" +
+                "!@!  @!@     !@!  @!@     !@!           !@!           !@!  @!@      !@!          \n" +
+                "@!@  !@!     @!@  !@!     !@! @!@!@     !@! @!@!@     @!@  !@!      !!@@!!       \n" +
+                "!@!  !!!     !@!  !!!     !!! !!@!!     !!! !!@!!     !@!  !!!       !!@!!!      \n" +
+                "!!:  !!!     !!:  !!!     :!!   !!:     :!!   !!:     !!:  !!!           !:!     \n" +
+                ":!:  !:!     :!:  !:!     :!:   !::     :!:   !::     :!:  !:!          !:!      \n" +
+                " :::: ::     ::::: ::      ::: ::::      ::: ::::     ::::: ::      :::: ::      \n" +
+                ":: :  :       : :  :       :: :: :       :: :: :       : :  :       :: : :       \n" +
                 "                                                                                      ");
 
         NameGen nameGen = new NameGen();
         String randName = nameGen.getName();
         System.out.println("Welcome to your very own Virtual Dog simulator");
-        System.out.println("Enter your Dog's name below or type Random to Randomize: ");
+        System.out.println("Enter your dog's name below or type Random to Randomize: ");
         String dogName = scanner.nextLine();
         if (dogName.toLowerCase().contains("random")) {                   //apply random name if asked.
             dogName = randName;
-            System.out.println("your dogs name will be: " + randName);
+            System.out.println("your dog's name will be: " + randName);
         }
-        System.out.println("Enter your Dog's sex below: ");
+        System.out.println("Enter your dog's sex below: ");
         String dogSex = scanner.nextLine();
-        System.out.println("Enter your dogs breed below: ");               // added breed field.
+        System.out.println("Enter your dog's breed below: ");               // added breed field.
         String dogBreed = scanner.nextLine();
 
         Dog dog1 = new Dog(dogName, dogSex, dogBreed);
@@ -48,6 +48,7 @@ public class VirtualPetApplication {
             System.out.println("2. Give " + dogName + " water");
             System.out.println("3. Give " + dogName + " food");
             System.out.println("4. Get " + dogName + "'s current status");
+            System.out.println("5. Get " + dogName + "'s info");
             System.out.println("Type quit to quit");
             String choice = scanner.nextLine();
             checkQuit(choice);
@@ -65,13 +66,15 @@ public class VirtualPetApplication {
                     break;
                 case "3":
                     dog1.feedDog();
-                    dog1.dogEating();
                     dog1.tick();
                     dog1.status();
                     break;
                 case "4":
                     dog1.tick();
                     dog1.status();
+                    break;
+                case "5":
+                    dog1.info();
                     break;
                 default:
                     System.out.println(dogName + " gets nothing >:(");
