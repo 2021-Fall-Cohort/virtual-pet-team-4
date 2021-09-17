@@ -130,7 +130,29 @@ public class Dog {
     }
 
     public void waterDog() {
-        thirstLevel = thirstLevel - 20;
+        clearScreen();
+        System.out.println("What would you like to give " + name + " to drink?");
+        System.out.println("1. Water");
+        System.out.println("2. Orange Juice");
+        System.out.println("3. Milk");
+        int drinkChoice = scanner.nextInt();
+        switch (drinkChoice) {
+            case 1:
+                dogDrinkingWater();
+                thirstLevel = thirstLevel - 20;
+                outputMessage = (name + " was refreshed by " + pronoun.toLowerCase() + " water and lost 20 thirst" + "\n");
+                break;
+            case 2:
+                dogDrinkingOrangeJuice();
+                thirstLevel = thirstLevel - 10;
+                outputMessage = (name + " loved " + pronoun.toLowerCase() + " orange juice and lost 10 thirst" + "\n");
+                break;
+            case 3:
+                dogDrinkingMilk();
+                thirstLevel = thirstLevel - 15;
+                outputMessage = (name + " really enjoyed " + pronoun.toLowerCase() + " milk and lost 15 thirst" + "\n");
+                break;
+        }
         hungerLevel++;
     }
 
@@ -328,14 +350,74 @@ public class Dog {
         }
     }
 
-    public void dogDrinking() {
+    public void dogDrinkingWater() {
         clearScreen();
-        System.out.println("Let's give " + name + " some water" + "!");
+        System.out.println("Let's give " + name + " some water!");
         System.out.println("    ,    /-.\n" +
                 "   ((___/ __>\n" +
                 "   /      }\n" +
                 "   \\ .--.(    ___\n" +
                 " \\\\   \\\\  /___\\");
+        try
+        {
+            Thread.sleep(2000);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    public void dogDrinkingOrangeJuice() {
+        clearScreen();
+        System.out.println("Let's give "  + name + " some orange juice");
+        System.out.println(
+                "                        /.-\n" +
+                "                ______ //\n" +
+                "               /______'/|\n" +
+                "               [       ]|\n" +
+                "               [ Orange]|\n" +
+                "               [ Juice ]|\n" +
+                "               [  _\\_ ]|\n" +
+                "               [  :::  ]|\n" +
+                "               [   :'  ]/\n" +
+                "               '-------'");
+        try
+        {
+            Thread.sleep(2000);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    public void dogDrinkingMilk() {
+        clearScreen();
+        System.out.println("Let's give " + name + " some milk");
+        System.out.println("         ===                                           ===\n" +
+                "         ===                                           ===\n" +
+                "      ___===____________oooo___________oooo____________===___\n" +
+                "     |___===___________________________________________===___|\n" +
+                "         ===            | /O           O\\ |            ===\n" +
+                "         dwb            ||               ||            jrb\n" +
+                "         ===            ||               ||            ===\n" +
+                "                       ( |       _       | )\n" +
+                "                        ||      ( )      ||         _\n" +
+                "                        ||    _/_-_\\_    ||          \\\n" +
+                "                       ooooO /___|___\\ Ooooo         ==\n" +
+                "                       ((( )|____^____|( )))        /  \\\n" +
+                "                        (|)MMMMM| |#####(|)        |MILK|\n" +
+                "                        (_)MMMM/   \\####(_)        |____|\n" +
+                "---------------------------------------------------------------------\n" +
+                "                 __  ____    ___    __  ___  ___\n" +
+                "                (  )(_  _)  (   \\  /  \\(  _)/ __)\n" +
+                "                 )(   )(     ) ) )( () )) _)\\__ \\\n" +
+                "                (__) (__)   (___/  \\__/(___)(___/\n" +
+                " ____  _  _  ___    ___   __  ___  _  _     __   __    __  ___   _\n" +
+                "(_  _)( )( )(  _)  (  ,) /  \\(   \\( \\/ )   / _) /  \\  /  \\(   \\ / \\\n" +
+                "  )(   )__(  ) _)   ) ,\\( () )) ) )\\  /   ( (/\\( () )( () )) ) )\\_/\n" +
+                " (__) (_)(_)(___)  (___/ \\__/(___/(__/     \\__/ \\__/  \\__/(___/ (_)");
         try
         {
             Thread.sleep(2000);
