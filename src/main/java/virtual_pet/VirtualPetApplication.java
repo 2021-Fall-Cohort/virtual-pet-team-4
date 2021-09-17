@@ -38,14 +38,14 @@ public class VirtualPetApplication {
         if (dogName.toLowerCase().contains("random")) {
             dogName = randName;
             dogBreed = randBreed;
-            System.out.println("Your dog's name is " + randName + "! It's a " + dogBreed);
+            System.out.println("Wow! You got a " + dogBreed + "! Their name is " + dogName);
             if (nameGen.getSex().equalsIgnoreCase("male") ) {
                 dogSex = "Male";
-                System.out.println("He is male");
+                System.out.println("He's a male");
             }
             else if (nameGen.getSex().equalsIgnoreCase("female")) {
                 dogSex = "Female";
-                System.out.println("She is female");
+                System.out.println("She's a female");
             }
         } else {
             System.out.println("Enter your Dog's sex below: ");
