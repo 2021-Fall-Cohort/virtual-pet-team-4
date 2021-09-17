@@ -19,6 +19,9 @@ public class Dog {
     private boolean dogIsDying;
     private boolean dogIsAlive;
     private String outputMessage;
+    private int age;
+    private int ageInTicks;
+    private boolean dogDiedOld;
 
     Scanner scanner = new Scanner(System.in);
     public Dog(String name, String sex, String breed) {
@@ -34,6 +37,7 @@ public class Dog {
         this.dogIsThirsty = false;
         this.dogIsDying = false;
         this.dogIsAlive = true;
+        this.age = 0;
     }
 
     public Dog(String name, String sex, String breed, int healthLevel, int hungerLevel, int thirstLevel, int boredomLevel) {
@@ -49,6 +53,7 @@ public class Dog {
         this.dogIsThirsty = false;
         this.dogIsDying = false;
         this.dogIsAlive = true;
+        this.age = 0;
     }
     public int getHealthLevel() {
         return healthLevel;
@@ -75,6 +80,14 @@ public class Dog {
 
     public boolean getDogIsAlive() {
         return dogIsAlive;
+    }
+
+    public boolean getDogDiedOld() {
+        return dogDiedOld;
+    }
+
+    public int getAge() {
+        return age;
     }
 
     public void feedDog() {
@@ -153,6 +166,7 @@ public class Dog {
     }
 
     public void tick() {
+        ageInTicks++;
         int min = 1;
         int max = 5;
         Random random = new Random();
@@ -370,6 +384,11 @@ public class Dog {
         if (boredomLevel > 100) {
             boredomLevel = 100;
         }
+        age = (ageInTicks / 15);
+        if (age > 14) {
+            dogIsAlive = false;
+            dogDiedOld = true;
+        }
     }
 
     public void status() {
@@ -405,6 +424,7 @@ public class Dog {
         clearScreen();
         System.out.println(name + "'s information: \n" +
                 "Name: " + name + "\n" +
+                "Age: " + age + "\n" +
                 "Breed: " + breed + "\n" +
                 "Gender: " + sex + "\n");
         try
