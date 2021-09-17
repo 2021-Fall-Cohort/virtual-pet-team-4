@@ -21,6 +21,7 @@ public class Dog {
     private String outputMessage;
     private int age;
     private int ageInTicks;
+    private boolean dogDiedOld;
 
     Scanner scanner = new Scanner(System.in);
     public Dog(String name, String sex, String breed) {
@@ -79,6 +80,10 @@ public class Dog {
 
     public boolean getDogIsAlive() {
         return dogIsAlive;
+    }
+
+    public boolean getDogDiedOld() {
+        return dogDiedOld;
     }
 
     public int getAge() {
@@ -380,6 +385,10 @@ public class Dog {
             boredomLevel = 100;
         }
         age = (ageInTicks / 15);
+        if (age > 14) {
+            dogIsAlive = false;
+            dogDiedOld = true;
+        }
     }
 
     public void status() {

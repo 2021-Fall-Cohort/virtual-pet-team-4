@@ -56,6 +56,7 @@ public class VirtualPetApplication {
 
         Dog dog1 = new Dog(dogName, dogSex, dogBreed);
         Boolean dogLiving = dog1.getDogIsAlive();
+        Boolean dogDiedOld = dog1.getDogDiedOld();
 
         // Game Loop //
         do {
@@ -102,12 +103,19 @@ public class VirtualPetApplication {
                     break;
             }
             dogLiving = dog1.getDogIsAlive();
+            dogDiedOld = dog1.getDogDiedOld();
         }
         while (dogLiving);
-        System.out.println("Oh no! " + dogName + " has died :( ");
-        System.out.println("Maybe you'll do better with the next one!");
-        System.out.println("Thank you for playing Dog Simulator");
-        System.out.println("Created by Josh Wright and William Robson");
+        if (dogDiedOld) {
+            System.out.println("You gave your dog " + dogName + " a full life, you win!");
+            System.out.println("Thank you for playing Dog Simulator");
+            System.out.println("Created by Josh Wright and William Robson");
+        } else {
+            System.out.println("Oh no! " + dogName + " has died :( ");
+            System.out.println("Maybe you'll do better with the next one!");
+            System.out.println("Thank you for playing Dog Simulator");
+            System.out.println("Created by Josh Wright and William Robson");
+        }
     }
 
         public static void checkQuit(String userInput) {
