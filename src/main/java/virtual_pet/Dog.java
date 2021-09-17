@@ -352,6 +352,24 @@ public class Dog {
         } else {
             dogIsDying = false;
         }
+        if (hungerLevel < 0) {
+            hungerLevel = 0;
+        }
+        if (thirstLevel < 0) {
+            thirstLevel = 0;
+        }
+        if (boredomLevel < 0) {
+            boredomLevel = 0;
+        }
+        if (hungerLevel > 100 ) {
+            hungerLevel = 100;
+        }
+        if (thirstLevel > 100) {
+            thirstLevel = 100;
+        }
+        if (boredomLevel > 100) {
+            boredomLevel = 100;
+        }
     }
 
     public void status() {
