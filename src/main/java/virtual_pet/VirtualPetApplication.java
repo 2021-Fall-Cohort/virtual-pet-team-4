@@ -26,7 +26,7 @@ public class VirtualPetApplication {
         NameGen nameGen = new NameGen();
         String randName = nameGen.getName();
         System.out.println("Welcome to your very own Virtual Dog simulator");
-        System.out.println("Enter your dog's name below or type Random to Randomize: ");
+        System.out.println("Enter your dog's name below or type \"random\" for a random dog: ");
         String dogName = scanner.nextLine();
         String dogSex = "";
 
