@@ -1,6 +1,6 @@
 package virtual_pet;
 import java.util.Random;
-
+//
 
 public class NameGen {
     private static String[] maleNameList = new String[10];

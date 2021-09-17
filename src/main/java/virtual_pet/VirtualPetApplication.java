@@ -52,7 +52,7 @@ public class VirtualPetApplication {
 
         Dog dog1 = new Dog(dogName, dogSex, dogBreed);
 
-        // Game Loop
+        // Game Loop //
         do {
             dog1.dogNeutral();
             System.out.println("What would you like to do with your dog " + dogName + "?");
