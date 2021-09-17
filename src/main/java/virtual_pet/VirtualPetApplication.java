@@ -107,11 +107,13 @@ public class VirtualPetApplication {
         System.out.println("Oh no! " + dogName + " has died :( ");
         System.out.println("Maybe you'll do better with the next one!");
         System.out.println("Thank you for playing Dog Simulator");
+        System.out.println("Created by Josh Wright and William Robson");
     }
 
         public static void checkQuit(String userInput) {
             if(userInput.equalsIgnoreCase("quit")) {
                 System.out.println("Thank you for playing Dog Simulator");
+                System.out.println("Created by William Robson and Josh Wright");
                 System.exit(0);
             }
         }
