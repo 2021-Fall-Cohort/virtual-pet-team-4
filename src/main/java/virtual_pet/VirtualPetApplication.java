@@ -29,13 +29,13 @@ public class VirtualPetApplication {
         System.out.println("Welcome to your very own Virtual Dog simulator");
         System.out.println("Enter your dog's name below or type Random to Randomize: ");
         String dogName = scanner.nextLine();
+        String dogSex = "";
 
         // If the user chooses to have a random name, grab the random name and set the corresponding gender
 
         if (dogName.toLowerCase().contains("random")) {
             dogName = randName;
             System.out.println("Your dogs name will be: " + randName);
-            String dogSex = "";
             if (nameGen.getSex().equalsIgnoreCase("male") ) {
                 dogSex = "Male";
                 System.out.println("He is male");
@@ -44,10 +44,9 @@ public class VirtualPetApplication {
                 dogSex = "Female";
                 System.out.println("She is female");
             }
-            else {
-                System.out.println("Enter your Dog's sex below: ");
-                dogSex = scanner.nextLine();
-            }
+        } else {
+            System.out.println("Enter your Dog's sex below: ");
+            dogSex = scanner.nextLine();
         }
 
         System.out.println("Enter your dogs breed below: ");
