@@ -7,7 +7,6 @@ public class VirtualPetApplication {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Boolean running = true;
 
         // Build Your Dog / Header
 
@@ -27,31 +26,32 @@ public class VirtualPetApplication {
         NameGen nameGen = new NameGen();
         String randName = nameGen.getName();
         System.out.println("Welcome to your very own Virtual Dog simulator");
-        System.out.println("Enter your dog's name below or type Random to Randomize: ");
+        System.out.println("Enter your dog's name below or type \"random\" for a random dog: ");
         String dogName = scanner.nextLine();
-        if (dogName.toLowerCase().contains("random")) {                   //apply random name if asked.
+        String dogSex = "";
+
+        // If the user chooses to have a random name, grab the random name and set the corresponding gender
+
+        if (dogName.toLowerCase().contains("random")) {
             dogName = randName;
             System.out.println("Your dogs name will be: " + randName);
-        }
-        String dogSex = "";
-        if (nameGen.getSex().equalsIgnoreCase("male") ) {
-            dogSex = "Male";
-            System.out.println("He is male");
-        }
-        else if (nameGen.getSex().equalsIgnoreCase("female")) {
-           dogSex = "Female";
-            System.out.println("She is female");
-        }
-        else {
+            if (nameGen.getSex().equalsIgnoreCase("male") ) {
+                dogSex = "Male";
+                System.out.println("He is male");
+            }
+            else if (nameGen.getSex().equalsIgnoreCase("female")) {
+                dogSex = "Female";
+                System.out.println("She is female");
+            }
+        } else {
             System.out.println("Enter your Dog's sex below: ");
             dogSex = scanner.nextLine();
         }
-      
-        System.out.println("Enter your dogs breed below: ");
-        
-        String dogBreed = scanner.nextLine();
 
+        System.out.println("Enter your dogs breed below: ");
+        String dogBreed = scanner.nextLine();
         Dog dog1 = new Dog(dogName, dogSex, dogBreed);
+        Boolean dogLiving = dog1.getDogIsAlive();
 
         // Game Loop //
         do {
@@ -97,9 +97,12 @@ public class VirtualPetApplication {
                     dog1.status();
                     break;
             }
+            dogLiving = dog1.getDogIsAlive();
         }
-        while (running);
-
+        while (dogLiving);
+        System.out.println("Oh no! " + dogName + " has died :( ");
+        System.out.println("Maybe you'll do better with the next one!");
+        System.out.println("Thank you for playing Dog Simulator");
     }
 
         public static void checkQuit(String userInput) {
