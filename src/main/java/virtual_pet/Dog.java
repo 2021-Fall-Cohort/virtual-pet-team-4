@@ -1,11 +1,15 @@
 package virtual_pet;
 
 import java.sql.Time;
+import java.time.LocalTime;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Dog {
     private String name;
+    private String sex;                         //added sex needs display in status
+    private String breed;                       //added breed needs display in status
+    private int healthLevel;
     private int hungerLevel;
     private int thirstLevel;
     private int boredomLevel;
@@ -13,10 +17,12 @@ public class Dog {
     private boolean dogIsHungry;
     private boolean dogIsThirsty;
 
-    // Clock clock = Clock();
     Scanner scanner = new Scanner(System.in);
-    public Dog(String name) {
+    public Dog(String name, String sex, String breed) {
         this.name = name;
+        this.sex = sex;
+        this.breed = breed;
+        this.healthLevel = 100;
         this.hungerLevel = 20;
         this.thirstLevel = 20;
         this.boredomLevel = 20;
@@ -25,14 +31,20 @@ public class Dog {
         this.dogIsThirsty = false;
     }
 
-    public Dog(String name, int hungerLevel, int thirstLevel, int boredomLevel) {
+    public Dog(String name, String sex, String breed, int healthLevel, int hungerLevel, int thirstLevel, int boredomLevel) {
         this.name = name;
+        this.sex = sex;
+        this.breed = breed;
+        this.healthLevel = healthLevel;
         this.hungerLevel = hungerLevel;
         this.thirstLevel = thirstLevel;
         this.boredomLevel = boredomLevel;
         this.dogIsBored = false;
         this.dogIsHungry = false;
         this.dogIsThirsty = false;
+    }
+    public int getHealthLevel() {
+        return healthLevel;
     }
 
     public String getName() {
@@ -230,22 +242,26 @@ public class Dog {
     public void statusCheck() {
         if (hungerLevel >= 75) {
             dogIsHungry = true;
+            healthLevel = healthLevel - 10;
         }else {
             dogIsHungry = false;
         }
         if (thirstLevel >= 75) {
             dogIsThirsty = true;
+            healthLevel = healthLevel - 15;
         }else {
             dogIsThirsty = false;
         }
         if (boredomLevel >= 75) {
             dogIsBored = true;
+            healthLevel = healthLevel - 3;
         }else {
             dogIsBored = false;
         }
     }
 
     public void status() {
+        LocalTime clock = LocalTime.of(LocalTime.now().getHour(), LocalTime.now().getMinute());
         statusCheck();
         clearScreen();
 
@@ -261,7 +277,8 @@ public class Dog {
             System.out.println("WARNING: " + name + " is withering away. Time for another meal!");
         }
 
-        System.out.println(name + "'s current stats are: " + "\n" +
+        System.out.println(name + "'s current stats are:              Current Time: " + clock + "\n" +
+                "Health:       " + healthLevel + "\n" +
                 "Hunger Level: " + hungerLevel + "\n" +
                 "Thirst Level: " + thirstLevel + "\n" +
                 "Boredom Level: " + boredomLevel);
