@@ -1,12 +1,12 @@
 package virtual_pet;
 import java.util.Random;
-
+//
 
 public class NameGen {
     private static String[] maleNameList = new String[10];
     private static String[] femaleNameList = new String[10];
     private static String name;
-
+    private static String gS;
     public NameGen(String name) {
         this.name = name;
     }
@@ -39,12 +39,17 @@ public class NameGen {
 
         if (r <= 10) {
             name = maleNameList[r];
+            gS = "Male";
         }
         else if (r >= 11) {
             name = femaleNameList[r2];
+            gS = "Female";
         }
     }
     public String getName() {
         return name;
+    }
+    public String getSex() {
+        return gS;
     }
 }

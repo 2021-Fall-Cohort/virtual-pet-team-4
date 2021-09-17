@@ -31,16 +31,30 @@ public class VirtualPetApplication {
         String dogName = scanner.nextLine();
         if (dogName.toLowerCase().contains("random")) {                   //apply random name if asked.
             dogName = randName;
-            System.out.println("Your dog's name will be: " + randName);
+            System.out.println("Your dogs name will be: " + randName);
         }
-        System.out.println("Enter your dog's sex below: ");
-        String dogSex = scanner.nextLine();
-        System.out.println("Enter your dog's breed below: ");               // added breed field.
+        String dogSex = "";
+        if (nameGen.getSex().toLowerCase().contains("male") ) {
+            dogSex = "male";
+            System.out.println("He is male");
+        }
+        else if (nameGen.getSex().toLowerCase().contains("male")) {
+           dogSex = "Female";
+            System.out.println("She is Female");
+        }
+        else {
+            System.out.println("Enter your Dog's sex below: ");
+            dogSex = scanner.nextLine();
+        }
+      
+        System.out.println("Enter your dogs breed below: ");
+        System.out.println("Your dog's name will be: " + randName)
+        
         String dogBreed = scanner.nextLine();
 
         Dog dog1 = new Dog(dogName, dogSex, dogBreed);
 
-        // Game Loop
+        // Game Loop //
         do {
             dog1.dogNeutral();
             System.out.println("What would you like to do with your dog " + dogName + "?");
