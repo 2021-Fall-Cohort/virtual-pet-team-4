@@ -12,16 +12,16 @@ public class VirtualPetApplication {
         // Build Your Dog / Header
 
         System.out.println("                                                                                     \n" +
-                "@@@@@@@       @@@@@@       @@@@@@@@      @@@@@@@@      @@@@@@   @@@      @@@@@@      \n" +
-                "@@@@@@@@     @@@@@@@@     @@@@@@@@@     @@@@@@@@@     @@@@@@@@   @@     @@@@@@@      \n" +
-                "@@!  @@@     @@!  @@@     !@@           !@@           @@!  @@@  @!      !@@          \n" +
-                "!@!  @!@     !@!  @!@     !@!           !@!           !@!  @!@          !@!          \n" +
-                "@!@  !@!     @!@  !@!     !@! @!@!@     !@! @!@!@     @!@  !@!          !!@@!!       \n" +
-                "!@!  !!!     !@!  !!!     !!! !!@!!     !!! !!@!!     !@!  !!!           !!@!!!      \n" +
-                "!!:  !!!     !!:  !!!     :!!   !!:     :!!   !!:     !!:  !!!               !:!     \n" +
-                ":!:  !:!     :!:  !:!     :!:   !::     :!:   !::     :!:  !:!              !:!      \n" +
-                " :::: ::     ::::: ::      ::: ::::      ::: ::::     ::::: ::          :::: ::      \n" +
-                ":: :  :       : :  :       :: :: :       :: :: :       : :  :           :: : :       \n" +
+                "@@@@@@@       @@@@@@       @@@@@@@@      @@@@@@@@      @@@@@@         @@@@@@      \n" +
+                "@@@@@@@@     @@@@@@@@     @@@@@@@@@     @@@@@@@@@     @@@@@@@@       @@@@@@@      \n" +
+                "@@!  @@@     @@!  @@@     !@@           !@@           @@!  @@@       !@@          \n" +
+                "!@!  @!@     !@!  @!@     !@!           !@!           !@!  @!@       !@!          \n" +
+                "@!@  !@!     @!@  !@!     !@! @!@!@     !@! @!@!@     @!@  !@!       !!@@!!       \n" +
+                "!@!  !!!     !@!  !!!     !!! !!@!!     !!! !!@!!     !@!  !!!        !!@!!!      \n" +
+                "!!:  !!!     !!:  !!!     :!!   !!:     :!!   !!:     !!:  !!!            !:!     \n" +
+                ":!:  !:!     :!:  !:!     :!:   !::     :!:   !::     :!:  !:!           !:!      \n" +
+                " :::: ::     ::::: ::      ::: ::::      ::: ::::     ::::: ::       :::: ::      \n" +
+                ":: :  :       : :  :       :: :: :       :: :: :       : :  :        :: : :       \n" +
                 "                                                                                      ");
 
         System.out.println("Welcome to your very own Virtual Dog simulator");
@@ -34,18 +34,17 @@ public class VirtualPetApplication {
         // Game Loop
         do {
             dog1.dogNeutral();
-            System.out.println("What would you like to do with your dog " + dogName);
+            System.out.println("What would you like to do with your dog " + dogName + "?");
             System.out.println("1. Play with " + dogName);
             System.out.println("2. Give " + dogName + " water");
             System.out.println("3. Give " + dogName + " food");
-            System.out.println("4. Just get " + dogName + "'s current status");
+            System.out.println("4. Get " + dogName + "'s current status");
             System.out.println("Type quit to quit");
             String choice = scanner.nextLine();
             checkQuit(choice);
             switch (choice) {
                 case "1":
                     dog1.playWithDog();
-                    dog1.dogPlaying();
                     dog1.tick();
                     dog1.status();
                     break;
