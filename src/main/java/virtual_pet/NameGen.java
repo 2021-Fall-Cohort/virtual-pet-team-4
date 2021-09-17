@@ -7,9 +7,7 @@ public class NameGen {
     private static String[] femaleNameList = new String[10];
     private static String name;
     private static String gS;
-    public NameGen(String name) {
-        this.name = name;
-    }
+
     public NameGen() {
         this.name = name;
         Random rand = new Random();

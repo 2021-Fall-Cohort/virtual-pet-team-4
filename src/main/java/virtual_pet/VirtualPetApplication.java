@@ -34,13 +34,13 @@ public class VirtualPetApplication {
             System.out.println("Your dogs name will be: " + randName);
         }
         String dogSex = "";
-        if (nameGen.getSex().toLowerCase().contains("male") ) {
-            dogSex = "male";
+        if (nameGen.getSex().equalsIgnoreCase("male") ) {
+            dogSex = "Male";
             System.out.println("He is male");
         }
-        else if (nameGen.getSex().toLowerCase().contains("male")) {
+        else if (nameGen.getSex().equalsIgnoreCase("female")) {
            dogSex = "Female";
-            System.out.println("She is Female");
+            System.out.println("She is female");
         }
         else {
             System.out.println("Enter your Dog's sex below: ");
