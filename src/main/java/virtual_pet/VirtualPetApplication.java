@@ -24,17 +24,21 @@ public class VirtualPetApplication {
                 "                                                                                      ");
 
         NameGen nameGen = new NameGen();
+        BreedGen breedGen = new BreedGen();
         String randName = nameGen.getName();
+        String randBreed = breedGen.getBreed();
         System.out.println("Welcome to your very own Virtual Dog simulator");
         System.out.println("Enter your dog's name below or type \"random\" for a random dog: ");
         String dogName = scanner.nextLine();
         String dogSex = "";
+        String dogBreed = "";
 
         // If the user chooses to have a random name, grab the random name and set the corresponding gender
 
         if (dogName.toLowerCase().contains("random")) {
             dogName = randName;
-            System.out.println("Your dogs name will be: " + randName);
+            dogBreed = randBreed;
+            System.out.println("Your dog's name is " + randName + "! It's a " + dogBreed);
             if (nameGen.getSex().equalsIgnoreCase("male") ) {
                 dogSex = "Male";
                 System.out.println("He is male");
@@ -46,10 +50,10 @@ public class VirtualPetApplication {
         } else {
             System.out.println("Enter your Dog's sex below: ");
             dogSex = scanner.nextLine();
+            System.out.println("Enter your dogs breed below: ");
+            dogBreed = scanner.nextLine();
         }
 
-        System.out.println("Enter your dogs breed below: ");
-        String dogBreed = scanner.nextLine();
         Dog dog1 = new Dog(dogName, dogSex, dogBreed);
         Boolean dogLiving = dog1.getDogIsAlive();
 
