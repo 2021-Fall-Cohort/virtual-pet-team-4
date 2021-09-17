@@ -64,7 +64,7 @@ public class VirtualPetApplication {
             System.out.println("5. Get " + dogName + "'s info");
             System.out.println("Type quit to quit");
             String choice = scanner.nextLine();
-            checkQuit(choice, dogLiving, dogName);
+            checkQuit(choice);
             switch (choice) {
                 case "1":
                     dog1.playWithDog();
