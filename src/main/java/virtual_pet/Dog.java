@@ -391,7 +391,7 @@ public class Dog {
         if (boredomLevel > 100) {
             boredomLevel = 100;
         }
-        age = (ageInTicks / 15);
+        age = (ageInTicks / 5);
         if (age > 14) {
             dogIsAlive = false;
             dogDiedOld = true;
@@ -420,10 +420,10 @@ public class Dog {
         }
 
         System.out.println(name + "'s current stats are: \n" +
-                "Health: " + healthLevel + "\n" +
-                "Hunger Level: " + hungerLevel + "\n" +
+                "Boredom Level: " + boredomLevel + "\n" +
                 "Thirst Level: " + thirstLevel + "\n" +
-                "Boredom Level: " + boredomLevel + "\n");
+                "Hunger Level: " + hungerLevel + "\n" +
+                "Health: " + healthLevel + "\n");
 
     }
 
