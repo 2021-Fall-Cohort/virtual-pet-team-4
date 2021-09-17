@@ -2,6 +2,7 @@ package virtual_pet;
 
 import java.sql.Time;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Dog {
     private String name;
@@ -13,7 +14,7 @@ public class Dog {
     private boolean dogIsThirsty;
 
     // Clock clock = Clock();
-
+    Scanner scanner = new Scanner(System.in);
     public Dog(String name) {
         this.name = name;
         this.hungerLevel = 20;
@@ -62,6 +63,24 @@ public class Dog {
     }
 
     public void playWithDog() {
+        clearScreen();
+        System.out.println("What game would you like to play with " + name + "?");
+        System.out.println("1. Fetch");
+        System.out.println("2. Tug-of-War");
+        System.out.println("3. Frisbee");
+        int playChoice = scanner.nextInt();
+        switch (playChoice) {
+            case 1:
+                dogPlayingFetch();
+                break;
+            case 2:
+                dogPlayingTugofWar();
+                break;
+            case 3:
+                dogPlayingFrisbee();
+                break;
+
+        }
         boredomLevel = boredomLevel - 20;
         thirstLevel = thirstLevel + 10;
         hungerLevel = hungerLevel + 10;
@@ -108,9 +127,9 @@ public class Dog {
                 "|b      |b");
     }
 
-    public void dogPlaying() {
+    public void dogPlayingFetch() {
         clearScreen();
-        System.out.println("Let's play with " + name + "!");
+        System.out.println("Let's play Fetch with " + name + "!");
         System.out.println("             .--~~,__\n" +
                 ":-....,-------`~~'._.'\n" +
                 " `-,,,  ,_      ;'~U'\n" +
@@ -126,9 +145,49 @@ public class Dog {
         }
     }
 
+    public void dogPlayingTugofWar() {
+        clearScreen();
+        System.out.println("Let's play Tug-of-War with " + name + "!");
+        System.out.println("    ___\n" +
+                " __/_  `.  .-\"\"\"-.\n" +
+                " \\_,` | \\-'  /   )`-')\n" +
+                "  \"\") `\"`    \\  ((`\"`\n" +
+                " ___Y  ,    .'7 /|\n" +
+                "(_,___/...-` (_/_/");
+        try
+        {
+            Thread.sleep(2000);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    public void dogPlayingFrisbee() {
+        clearScreen();
+        System.out.println("Let's play Frisbee with " + name + "!");
+        System.out.println("          \"\",_o\n" +
+                "!       ( (  _)\n" +
+                "`\\ ,,,,_'),)=~\n" +
+                " (          )\n" +
+                "  ,   ,,,,  ,\n" +
+                "  ) ,)   < (\n" +
+                " < <      \",\\\n" +
+                "  \",)      \"_)");
+        try
+        {
+            Thread.sleep(2000);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
+    }
+
     public void dogEating() {
         clearScreen();
-        System.out.println("Let's feed " + name);
+        System.out.println("Let's feed " + name + "!");
         System.out.println("    ,    /-.\n" +
                 "   ((___/ __>\n" +
                 "   /      }\n" +
@@ -146,7 +205,7 @@ public class Dog {
 
     public void dogDrinking() {
         clearScreen();
-        System.out.println("Let's give " + name + " some water");
+        System.out.println("Let's give " + name + " some water" + "!");
         System.out.println("    ,    /-.\n" +
                 "   ((___/ __>\n" +
                 "   /      }\n" +
