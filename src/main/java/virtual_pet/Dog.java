@@ -16,6 +16,8 @@ public class Dog {
     private boolean dogIsBored;
     private boolean dogIsHungry;
     private boolean dogIsThirsty;
+    private boolean dogIsDying;
+    private boolean dogIsAlive;
     private String outputMessage;
 
     Scanner scanner = new Scanner(System.in);
@@ -30,6 +32,8 @@ public class Dog {
         this.dogIsBored = false;
         this.dogIsHungry = false;
         this.dogIsThirsty = false;
+        this.dogIsDying = false;
+        this.dogIsAlive = true;
     }
 
     public Dog(String name, String sex, String breed, int healthLevel, int hungerLevel, int thirstLevel, int boredomLevel) {
@@ -43,6 +47,8 @@ public class Dog {
         this.dogIsBored = false;
         this.dogIsHungry = false;
         this.dogIsThirsty = false;
+        this.dogIsDying = false;
+        this.dogIsAlive = true;
     }
     public int getHealthLevel() {
         return healthLevel;
@@ -65,6 +71,10 @@ public class Dog {
     }
     public void getOutputMessage() {
         System.out.println(outputMessage);
+    }
+
+    public boolean getDogIsAlive() {
+        return dogIsAlive;
     }
 
     public void feedDog() {
@@ -155,6 +165,11 @@ public class Dog {
         statusCheck();
         if (dogIsBored || dogIsThirsty || dogIsHungry) {
             healthLevel = healthLevel - 5;
+        } else if (healthLevel < 100 ) {
+            healthLevel = healthLevel + 5;
+        }
+        if (healthLevel <= 0) {
+            dogIsAlive = false;
         }
     }
 
@@ -332,6 +347,11 @@ public class Dog {
         }else {
             dogIsBored = false;
         }
+        if (healthLevel <= 25) {
+            dogIsDying = true;
+        } else {
+            dogIsDying = false;
+        }
     }
 
     public void status() {
@@ -349,6 +369,10 @@ public class Dog {
 
         if (dogIsHungry) {
             System.out.println("WARNING: " + name + " is withering away. Time for another meal!");
+        }
+
+        if (dogIsDying) {
+            System.out.println("WARNING: " + name + " is dying! Take care of their needs!!");
         }
 
         System.out.println(name + "'s current stats are: \n" +
