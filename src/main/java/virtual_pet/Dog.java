@@ -64,6 +64,23 @@ public class Dog {
     }
 
     public void feedDog() {
+        clearScreen();
+        System.out.println("What would you like to feed " + name + "?");
+        System.out.println("1. Kibble");
+        System.out.println("2. Treat");
+        System.out.println("3. Peanut Butter");
+        int foodChoice = scanner.nextInt();
+        switch (foodChoice) {
+            case 1:
+                dogEatingKibble();
+                break;
+            case 2:
+                dogEatingTreat();
+                break;
+            case 3:
+                dogEatingPeanutButter();
+                break;
+        }
         hungerLevel = hungerLevel - 20;
         thirstLevel = thirstLevel + 5;
         boredomLevel = boredomLevel - 5;
@@ -91,7 +108,6 @@ public class Dog {
             case 3:
                 dogPlayingFrisbee();
                 break;
-
         }
         boredomLevel = boredomLevel - 20;
         thirstLevel = thirstLevel + 10;
@@ -120,16 +136,10 @@ public class Dog {
         hungerLevel = hungerLevel + randomHunger;
         thirstLevel = thirstLevel + randomThirst;
         boredomLevel = boredomLevel + randomBoredom;
-
-//        if (hungerLevel >= 75) {                             //block moved to the status method//
-//             Boolean dogIsHungry = true;
-//        }
-//        if (thirstLevel >= 75) {
-//            Boolean dogIsThirsty = true;
-//        }
-//        if (boredomLevel >= 75) {
-//            Boolean dogIsBored = true;
-//        }
+        statusCheck();
+        if (dogIsBored || dogIsThirsty || dogIsHungry) {
+            healthLevel = healthLevel - 5;
+        }
     }
 
     public void dogNeutral() {
@@ -197,14 +207,65 @@ public class Dog {
         }
     }
 
-    public void dogEating() {
+    public void dogEatingKibble() {
         clearScreen();
         System.out.println("Let's feed " + name + "!");
-        System.out.println("    ,    /-.\n" +
-                "   ((___/ __>\n" +
-                "   /      }\n" +
-                "   \\ .--.(    ___\n" +
-                " \\\\   \\\\  /___\\");
+        System.out.println("\n" +
+                "    `. ---)..(\n" +
+                "      ||||(,o)          \n" +
+                "      \"`'\" \\__/");
+        try
+        {
+            Thread.sleep(2000);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    public void dogEatingTreat() {
+        clearScreen();
+        System.out.println("Let's give " + name + " a treat!");
+        System.out.println(" ________________\n" +
+                "    '------._.------'\\\n" +
+                "      \\_______________\\\n" +
+                "     .'|            .'|\n" +
+                "   .'_____________.' .|\n" +
+                "   |              |   |\n" +
+                "   |  Scooby _.-. | . |\n" +
+                "   |  *     (_.-' |   |\n" +
+                "   |    Snacks    |  .|\n" +
+                "   | *          * |  .'\n" +
+                "   |______________|.'");
+        try
+        {
+            Thread.sleep(2000);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    public void dogEatingPeanutButter() {
+        clearScreen();
+        System.out.println("Let's give " + name + " some peanut butter!");
+        System.out.println("                        _.--\"\"\"--._\n" +
+                "                      .'       '-. `.\n" +
+                "                   __/__    (-.   `\\ \\\n" +
+                "                  /o `o \\      \\    \\ \\\n" +
+                "                 _\\__.__/ ))    |    | ;\n" +
+                "            .--;\"               |    |  \\\n" +
+                "           (    `)              |    |   \\\n" +
+                "          _|`---' .'      _,   _|    |    `\\\n" +
+                "        '`_\\  \\     '_,.-';_.-`\\|     \\     \\_\n" +
+                "        .'  '--'---;`  / /     |\\     |_..--' \\\n" +
+                "                   \\'-'.'     .--'.__/    __.-;\n" +
+                "                    `\"`      (___...---''`     \\\n" +
+                "                             _/_                \\\n" +
+                "                            /\\\n" +
+                "                            \\___/");
         try
         {
             Thread.sleep(2000);
@@ -242,26 +303,23 @@ public class Dog {
     public void statusCheck() {
         if (hungerLevel >= 75) {
             dogIsHungry = true;
-            healthLevel = healthLevel - 10;
         }else {
             dogIsHungry = false;
         }
         if (thirstLevel >= 75) {
             dogIsThirsty = true;
-            healthLevel = healthLevel - 15;
         }else {
             dogIsThirsty = false;
         }
         if (boredomLevel >= 75) {
             dogIsBored = true;
-            healthLevel = healthLevel - 3;
         }else {
             dogIsBored = false;
         }
     }
 
     public void status() {
-        LocalTime clock = LocalTime.of(LocalTime.now().getHour(), LocalTime.now().getMinute());
+        // LocalTime clock = LocalTime.of(LocalTime.now().getHour(), LocalTime.now().getMinute());
         statusCheck();
         clearScreen();
 
@@ -277,11 +335,27 @@ public class Dog {
             System.out.println("WARNING: " + name + " is withering away. Time for another meal!");
         }
 
-        System.out.println(name + "'s current stats are:              Current Time: " + clock + "\n" +
-                "Health:       " + healthLevel + "\n" +
+        System.out.println(name + "'s current stats are: \n" +
+                "Health: " + healthLevel + "\n" +
                 "Hunger Level: " + hungerLevel + "\n" +
                 "Thirst Level: " + thirstLevel + "\n" +
                 "Boredom Level: " + boredomLevel);
 
+    }
+
+    public void info() {
+        clearScreen();
+        System.out.println(name + "'s information: \n" +
+                "Name: " + name + "\n" +
+                "Breed: " + breed + "\n" +
+                "Gender: " + sex + "\n");
+        try
+        {
+            Thread.sleep(2000);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
     }
 }
