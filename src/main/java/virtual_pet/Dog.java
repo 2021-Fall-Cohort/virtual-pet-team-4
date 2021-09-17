@@ -7,8 +7,9 @@ import java.util.Scanner;
 
 public class Dog {
     private String name;
-    private String sex;                         //added sex needs display in status
-    private String breed;                       //added breed needs display in status
+    private String sex;
+    private String breed;
+    private String pronoun;
     private int healthLevel;
     private int hungerLevel;
     private int thirstLevel;
@@ -24,10 +25,11 @@ public class Dog {
     private boolean dogDiedOld;
 
     Scanner scanner = new Scanner(System.in);
-    public Dog(String name, String sex, String breed) {
+    public Dog(String name, String sex, String breed, String pronoun) {
         this.name = name;
         this.sex = sex;
         this.breed = breed;
+        this.pronoun = pronoun;
         this.healthLevel = 100;
         this.hungerLevel = 20;
         this.thirstLevel = 20;
@@ -40,10 +42,11 @@ public class Dog {
         this.age = 0;
     }
 
-    public Dog(String name, String sex, String breed, int healthLevel, int hungerLevel, int thirstLevel, int boredomLevel) {
+    public Dog(String name, String sex, String breed, String pronoun, int healthLevel, int hungerLevel, int thirstLevel, int boredomLevel) {
         this.name = name;
         this.sex = sex;
         this.breed = breed;
+        this.pronoun = pronoun;
         this.healthLevel = healthLevel;
         this.hungerLevel = hungerLevel;
         this.thirstLevel = thirstLevel;
@@ -90,6 +93,10 @@ public class Dog {
         return age;
     }
 
+    public String pronoun() {
+        return pronoun;
+    }
+
     public void feedDog() {
         clearScreen();
         System.out.println("What would you like to feed " + name + "?");
@@ -103,21 +110,21 @@ public class Dog {
                 hungerLevel = hungerLevel - 20;
                 thirstLevel = thirstLevel + 5;
                 boredomLevel = boredomLevel - 5;
-                outputMessage = (name + " ate their dinner and lost 20 hunger" + "\n");
+                outputMessage = (name + " ate " + pronoun.toLowerCase() + " dinner and lost 20 hunger" + "\n");
                 break;
             case 2:
                 dogEatingTreat();
                 hungerLevel = hungerLevel - 5;
                 thirstLevel = thirstLevel + 1;
                 boredomLevel = boredomLevel - 1;
-                outputMessage= (name + " ate their treat and lost 5 hunger" + "\n");
+                outputMessage= (name + " ate " + pronoun.toLowerCase() + " treat and lost 5 hunger" + "\n");
                 break;
             case 3:
                 dogEatingPeanutButter();
                 hungerLevel = hungerLevel - 5;
                 thirstLevel = thirstLevel + 5;
                 boredomLevel = boredomLevel - 5;
-                outputMessage = (name + " loved their peanut butter and lost 5 hunger" + "\n");
+                outputMessage = (name + " loved " + pronoun.toLowerCase() + " peanut butter and lost 5 hunger" + "\n");
                 break;
         }
     }
@@ -145,7 +152,7 @@ public class Dog {
                 break;
             case 3:
                 dogPlayingFrisbee();
-                outputMessage = (name + " really seemed to like playing with the frisbee" + "\n");
+                outputMessage = (name + " really seemed to like playing with " + pronoun.toLowerCase() + " frisbee" + "\n");
                 break;
         }
         boredomLevel = boredomLevel - 20;
@@ -401,7 +408,7 @@ public class Dog {
         }
 
         if (dogIsThirsty) {
-            System.out.println("WARNING: " + name + " is getting thirty. Better get them some water!");
+            System.out.println("WARNING: " + name + " is getting thirty. Better get " + pronoun.toLowerCase() + " water!");
         }
 
         if (dogIsHungry) {
@@ -409,7 +416,7 @@ public class Dog {
         }
 
         if (dogIsDying) {
-            System.out.println("WARNING: " + name + " is dying! Take care of their needs!!");
+            System.out.println("WARNING: " + name + " is dying! Take care of " + pronoun.toLowerCase() + " needs!!");
         }
 
         System.out.println(name + "'s current stats are: \n" +
