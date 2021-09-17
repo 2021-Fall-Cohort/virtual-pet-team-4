@@ -46,10 +46,7 @@ public class VirtualPetApplication {
             System.out.println("Enter your Dog's sex below: ");
             dogSex = scanner.nextLine();
         }
-      
         System.out.println("Enter your dogs breed below: ");
-        System.out.println("Your dog's name will be: " + randName)
-        
         String dogBreed = scanner.nextLine();
 
         Dog dog1 = new Dog(dogName, dogSex, dogBreed);
