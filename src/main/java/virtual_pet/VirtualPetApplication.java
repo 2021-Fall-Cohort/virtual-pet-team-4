@@ -24,12 +24,21 @@ public class VirtualPetApplication {
                 ":: :  :       : :  :       :: :: :       :: :: :       : :  :           :: : :       \n" +
                 "                                                                                      ");
 
+        NameGen nameGen = new NameGen();
+        String randName = nameGen.getName();
         System.out.println("Welcome to your very own Virtual Dog simulator");
-        System.out.println("Enter your Dog's name below: ");
-        // Clock clock = new Clock();    //call Clock.getTime(); to print "Time: HH:MM"   //or delete line
+        System.out.println("Enter your Dog's name below or type Random to Randomize: ");
         String dogName = scanner.nextLine();
-        Dog dog1 = new Dog(dogName);
+        if (dogName.toLowerCase().contains("random")) {                   //apply random name if asked.
+            dogName = randName;
+            System.out.println("your dogs name will be: " + randName);
+        }
+        System.out.println("Enter your Dog's sex below: ");
+        String dogSex = scanner.nextLine();
+        System.out.println("Enter your dogs breed below: ");               // added breed field.
+        String dogBreed = scanner.nextLine();
 
+        Dog dog1 = new Dog(dogName, dogSex, dogBreed);
 
         // Game Loop
         do {
