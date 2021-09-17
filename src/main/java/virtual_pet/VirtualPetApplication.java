@@ -32,29 +32,36 @@ public class VirtualPetApplication {
         String dogName = scanner.nextLine();
         String dogSex = "";
         String dogBreed = "";
+        String dogPronoun = "";
 
         // If the user chooses to have a random name, grab the random name and set the corresponding gender
 
         if (dogName.toLowerCase().contains("random")) {
             dogName = randName;
             dogBreed = randBreed;
-            System.out.println("Wow! You got a " + dogBreed + "! Their name is " + dogName);
             if (nameGen.getSex().equalsIgnoreCase("male") ) {
                 dogSex = "Male";
-                System.out.println("He's a male");
+                dogPronoun = "His";
             }
             else if (nameGen.getSex().equalsIgnoreCase("female")) {
                 dogSex = "Female";
-                System.out.println("She's a female");
+                dogPronoun = "Her";
             }
+            System.out.println("Wow! You got a " + dogBreed + "! " + dogPronoun + " name is " + dogName + " :)");
         } else {
             System.out.println("Enter your Dog's sex below: ");
             dogSex = scanner.nextLine();
             System.out.println("Enter your dogs breed below: ");
             dogBreed = scanner.nextLine();
+            if (dogSex.equalsIgnoreCase("male")) {
+                dogPronoun = "His";
+            }
+            if (dogSex.equalsIgnoreCase("female")) {
+                dogPronoun = "Her";
+            }
         }
 
-        Dog dog1 = new Dog(dogName, dogSex, dogBreed);
+        Dog dog1 = new Dog(dogName, dogSex, dogBreed, dogPronoun);
         Boolean dogLiving = dog1.getDogIsAlive();
         Boolean dogDiedOld = dog1.getDogDiedOld();
 
