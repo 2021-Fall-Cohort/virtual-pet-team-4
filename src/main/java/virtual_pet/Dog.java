@@ -16,6 +16,7 @@ public class Dog {
     private boolean dogIsBored;
     private boolean dogIsHungry;
     private boolean dogIsThirsty;
+    private String outputMessage;
 
     Scanner scanner = new Scanner(System.in);
     public Dog(String name, String sex, String breed) {
@@ -62,6 +63,9 @@ public class Dog {
     public int getBoredomLevel() {
         return boredomLevel;
     }
+    public void getOutputMessage() {
+        System.out.println(outputMessage);
+    }
 
     public void feedDog() {
         clearScreen();
@@ -73,17 +77,26 @@ public class Dog {
         switch (foodChoice) {
             case 1:
                 dogEatingKibble();
+                hungerLevel = hungerLevel - 20;
+                thirstLevel = thirstLevel + 5;
+                boredomLevel = boredomLevel - 5;
+                outputMessage = (name + " ate their dinner and lost 20 hunger" + "\n");
                 break;
             case 2:
                 dogEatingTreat();
+                hungerLevel = hungerLevel - 5;
+                thirstLevel = thirstLevel + 1;
+                boredomLevel = boredomLevel - 1;
+                outputMessage= (name + " ate their treat and lost 5 hunger" + "\n");
                 break;
             case 3:
                 dogEatingPeanutButter();
+                hungerLevel = hungerLevel - 5;
+                thirstLevel = thirstLevel + 5;
+                boredomLevel = boredomLevel - 5;
+                outputMessage = (name + " loved their peanut butter and lost 5 hunger" + "\n");
                 break;
         }
-        hungerLevel = hungerLevel - 20;
-        thirstLevel = thirstLevel + 5;
-        boredomLevel = boredomLevel - 5;
     }
 
     public void waterDog() {
@@ -101,12 +114,15 @@ public class Dog {
         switch (playChoice) {
             case 1:
                 dogPlayingFetch();
+                outputMessage = (name + " really enjoyed playing fetch with you!" + "\n");
                 break;
             case 2:
                 dogPlayingTugofWar();
+                outputMessage = (name + " had a great time playing Tug-of-War!" + "\n");
                 break;
             case 3:
                 dogPlayingFrisbee();
+                outputMessage = (name + " really seemed to like playing with the frisbee" + "\n");
                 break;
         }
         boredomLevel = boredomLevel - 20;
@@ -339,7 +355,7 @@ public class Dog {
                 "Health: " + healthLevel + "\n" +
                 "Hunger Level: " + hungerLevel + "\n" +
                 "Thirst Level: " + thirstLevel + "\n" +
-                "Boredom Level: " + boredomLevel);
+                "Boredom Level: " + boredomLevel + "\n");
 
     }
 

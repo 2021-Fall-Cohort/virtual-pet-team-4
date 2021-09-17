@@ -31,7 +31,7 @@ public class VirtualPetApplication {
         String dogName = scanner.nextLine();
         if (dogName.toLowerCase().contains("random")) {                   //apply random name if asked.
             dogName = randName;
-            System.out.println("your dog's name will be: " + randName);
+            System.out.println("Your dog's name will be: " + randName);
         }
         System.out.println("Enter your dog's sex below: ");
         String dogSex = scanner.nextLine();
@@ -57,6 +57,7 @@ public class VirtualPetApplication {
                     dog1.playWithDog();
                     dog1.tick();
                     dog1.status();
+                    dog1.getOutputMessage();
                     break;
                 case "2":
                     dog1.waterDog();
@@ -68,6 +69,7 @@ public class VirtualPetApplication {
                     dog1.feedDog();
                     dog1.tick();
                     dog1.status();
+                    dog1.getOutputMessage();
                     break;
                 case "4":
                     dog1.tick();
