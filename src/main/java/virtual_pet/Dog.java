@@ -197,7 +197,7 @@ public class Dog {
     public void tick() {
         ageInTicks++;
         int min = 1;
-        int max = 5;
+        int max = 3;
         Random random = new Random();
         int randomHunger = random.nextInt(max + min) + min;
         int randomThirst = random.nextInt(max + min) + min;
