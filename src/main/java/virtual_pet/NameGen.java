@@ -9,7 +9,9 @@ public class NameGen {
     private static String gS;
 
     public NameGen() {
-        this.name = name;
+        this.name = "NONAME";
+    }
+    public String getName() {
         Random rand = new Random();
         int r = rand.nextInt(20);
         int r2 = rand.nextInt(10);
@@ -43,8 +45,6 @@ public class NameGen {
             name = femaleNameList[r2];
             gS = "Female";
         }
-    }
-    public String getName() {
         return name;
     }
     public String getSex() {

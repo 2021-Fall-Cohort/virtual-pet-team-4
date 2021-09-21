@@ -8,6 +8,11 @@ public class VirtualPetApplication {
 
 
     public static void main(String[] args) {
+        VirtualPetApplication myApp = new VirtualPetApplication();
+        myApp.game();
+    }
+    public void game()
+    {
         Scanner scanner = new Scanner(System.in);
 
         // First Run (Establish The Shelter)
@@ -66,9 +71,10 @@ public class VirtualPetApplication {
                 dogPronoun = "Her";
             }
         }
-
-        Dog dog1 = new Dog(dogName, dogSex, dogBreed, dogPronoun);
-        VirtualPetShelter.addDog(dog1);
+        VirtualPetShelter myShelter = new VirtualPetShelter();
+        for(int i =0;i<5;i++) {
+           myShelter.addDog(new Dog(nameGen.getName(), "F", breedGen.getBreed(), "mr",i));
+        }
         Boolean dogLiving = dog1.getDogIsAlive();
         Boolean dogDiedOld = dog1.getDogDiedOld();
 
@@ -134,7 +140,7 @@ public class VirtualPetApplication {
         }
     }
 
-        public static void checkQuit(String userInput) {
+        public void checkQuit(String userInput) {
             if(userInput.equalsIgnoreCase("quit")) {
                 System.out.println("Thank you for playing Dog Simulator");
                 System.out.println("Created by William Robson and Josh Wright");

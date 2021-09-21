@@ -2,13 +2,13 @@ package virtual_pet;
 import java.util.HashMap;
 
 public class VirtualPetShelter {
-    private static HashMap<Integer, Dog> shelterDogs = new HashMap<Integer, Dog>();
+    private HashMap<Integer, Dog> shelterDogs = new HashMap<Integer, Dog>();
 
     public VirtualPetShelter() {
         shelterDogs = new HashMap<Integer, Dog>();
     }
 
-    public static void addDog(Dog dog) {
+    public void addDog(Dog dog) {
         shelterDogs.put(dog.getId(), dog);
     }
 
