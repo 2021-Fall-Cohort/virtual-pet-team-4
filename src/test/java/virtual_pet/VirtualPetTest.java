@@ -10,12 +10,12 @@ public class VirtualPetTest {
 
     @BeforeEach
     void setUp() {
-        underTest = new Dog ("Wrigley", "Female", "Lab");
+        underTest = new Dog ("Wrigley", "Female", "Lab", "Her", 1);
     }
 
     @Test
     public void doesDogClassCreate() {
-        Dog underTest = new Dog("Wrigley", "Female", "Lab");
+        Dog underTest = new Dog("Wrigley", "Female", "Lab", "Her", 1);
     }
 
     @Test

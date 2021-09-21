@@ -1,14 +1,20 @@
 package virtual_pet;
 import java.sql.SQLOutput;
 import java.time.LocalTime;
+import java.util.HashMap;
 import java.util.Scanner;
 //
 public class VirtualPetApplication {
 
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Build Your Dog / Header
+        // First Run (Establish The Shelter)
+        // Instantiate the HashMap
+        // Generate 4 dogs at random
+        // Add the 4 dogs to the shelter hashmap
+        // Enter the game loop, and prompt the user with their status
 
         System.out.println("                                                                                     \n" +
                 "@@@@@@@       @@@@@@       @@@@@@@@      @@@@@@@@      @@@@@@        @@@@@@      \n" +
@@ -62,18 +68,21 @@ public class VirtualPetApplication {
         }
 
         Dog dog1 = new Dog(dogName, dogSex, dogBreed, dogPronoun);
+        VirtualPetShelter.addDog(dog1);
         Boolean dogLiving = dog1.getDogIsAlive();
         Boolean dogDiedOld = dog1.getDogDiedOld();
 
         // Game Loop //
         do {
+            // Present the user with a picture / status of their shelter
+            // What would you like to do with your dogs?
             dog1.dogNeutral();
             System.out.println("What would you like to do with your dog " + dogName + "?");
-            System.out.println("1. Play with " + dogName);
-            System.out.println("2. Give " + dogName + " something to drink");
-            System.out.println("3. Give " + dogName + " food");
-            System.out.println("4. Get " + dogName + "'s current status");
-            System.out.println("5. Get " + dogName + "'s info");
+            System.out.println("1. Play with " + dogName); // Prompt the user to select between their dogs
+            System.out.println("2. Give " + dogName + " something to drink"); // Prompt the user to select drinks for all their dogs
+            System.out.println("3. Give " + dogName + " food"); // Prompt the user to select food for all their dogs
+            System.out.println("4. Get " + dogName + "'s current status"); // Provide the user with status after tick
+            System.out.println("5. Get " + dogName + "'s info"); // Provide the user with a table of all dog's info
             System.out.println("Type quit to quit");
             String choice = scanner.nextLine();
             checkQuit(choice);
