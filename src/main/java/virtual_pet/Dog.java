@@ -44,39 +44,6 @@ public class Dog {
         this.id = id;
     }
 
-    public Dog(String name, String sex, String breed, String pronoun) {
-        this.name = name;
-        this.sex = sex;
-        this.breed = breed;
-        this.pronoun = pronoun;
-        this.healthLevel = 100;
-        this.hungerLevel = 20;
-        this.thirstLevel = 20;
-        this.boredomLevel = 20;
-        this.dogIsBored = false;
-        this.dogIsHungry = false;
-        this.dogIsThirsty = false;
-        this.dogIsDying = false;
-        this.dogIsAlive = true;
-        this.age = 0;
-    }
-
-    public Dog(String name, String sex, String breed, String pronoun, int healthLevel, int hungerLevel, int thirstLevel, int boredomLevel) {
-        this.name = name;
-        this.sex = sex;
-        this.breed = breed;
-        this.pronoun = pronoun;
-        this.healthLevel = healthLevel;
-        this.hungerLevel = hungerLevel;
-        this.thirstLevel = thirstLevel;
-        this.boredomLevel = boredomLevel;
-        this.dogIsBored = false;
-        this.dogIsHungry = false;
-        this.dogIsThirsty = false;
-        this.dogIsDying = false;
-        this.dogIsAlive = true;
-        this.age = 0;
-    }
     public int getHealthLevel() {
         return healthLevel;
     }
