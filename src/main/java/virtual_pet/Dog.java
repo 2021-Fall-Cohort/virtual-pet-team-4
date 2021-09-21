@@ -23,8 +23,27 @@ public class Dog {
     private int age;
     private int ageInTicks;
     private boolean dogDiedOld;
+    private int id;
 
     Scanner scanner = new Scanner(System.in);
+    public Dog(String name, String sex, String breed, String pronoun, int id) {
+        this.name = name;
+        this.sex = sex;
+        this.breed = breed;
+        this.pronoun = pronoun;
+        this.healthLevel = 100;
+        this.hungerLevel = 20;
+        this.thirstLevel = 20;
+        this.boredomLevel = 20;
+        this.dogIsBored = false;
+        this.dogIsHungry = false;
+        this.dogIsThirsty = false;
+        this.dogIsDying = false;
+        this.dogIsAlive = true;
+        this.age = 0;
+        this.id = id;
+    }
+
     public Dog(String name, String sex, String breed, String pronoun) {
         this.name = name;
         this.sex = sex;
@@ -87,6 +106,10 @@ public class Dog {
 
     public boolean getDogDiedOld() {
         return dogDiedOld;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public int getAge() {
