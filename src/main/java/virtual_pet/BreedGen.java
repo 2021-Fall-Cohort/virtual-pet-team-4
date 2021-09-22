@@ -6,8 +6,11 @@ public class BreedGen {
     private static String breed;
     private String[] breedList = new String[10];
 
-    public BreedGen(){
-        this.breed = breed;
+    public BreedGen() {
+        this.breed = "NoBreed";
+    }
+    public String getBreed() {
+
         Random rand = new Random();
         int r = rand.nextInt(10);
 
@@ -21,11 +24,8 @@ public class BreedGen {
         breedList[7] = "Great Dane";
         breedList[8] = "Huskey";
         breedList[9] = "Shiba Inu";
-
         breed = breedList[r];
 
-    }
-    public String getBreed() {
         return breed;
     }
 
