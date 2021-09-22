@@ -11,7 +11,6 @@ public class BreedGen {
     }
     public String getBreed() {
 
-
         Random rand = new Random();
         int r = rand.nextInt(10);
 
