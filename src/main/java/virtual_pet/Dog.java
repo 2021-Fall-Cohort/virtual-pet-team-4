@@ -472,52 +472,18 @@ public class Dog {
         if (boredomLevel > 100) {
             boredomLevel = 100;
         }
-//        age = (ageInTicks / 5);
-//        if (age > 14) {
-//            dogIsAlive = false;
-//            dogDiedOld = true;
-        // }
     }
 
-    public void status() {
+    public String status() {
         statusCheck();
-
-//        if (dogIsBored) {
-//            System.out.println("WARNING: " + name + " is getting really bored! Maybe you guys should play.");
-//        }
-//
-//        if (dogIsThirsty) {
-//            System.out.println("WARNING: " + name + " is getting thirty. Better get " + pronoun.toLowerCase() + " water!");
-//        }
-//
-//        if (dogIsHungry) {
-//            System.out.println("WARNING: " + name + " is withering away. Time for another meal!");
-//        }
-//
-//        if (dogIsDying) {
-//            System.out.println("WARNING: " + name + " is dying! Take care of " + pronoun.toLowerCase() + " needs!!");
-//        }
-
-//        System.out.println(name + "'s current stats are: \n" +
-//                "Boredom Level: " + boredomLevel + "\n" +
-//                "Thirst Level: " + thirstLevel + "\n" +
-//                "Hunger Level: " + hungerLevel + "\n" +
-//                "Health: " + healthLevel + "\n");
-
-        System.out.println(name + " | " + hungerLevel + "     | " + thirstLevel + "     | " + boredomLevel);
+        return(name + " | " + hungerLevel + "     | " + thirstLevel + "     | " + boredomLevel);
     }
 
-    public void info() {
-//        System.out.println(name + "'s information: \n" +
-//                "Name: " + name + "\n" +
-//                "Age: " + age + "\n" +
-//                "Breed: " + breed + "\n" +
-//                "Gender: " + sex + "\n");
-        System.out.println(name + " | " + age + "   |  " + sex + "     | " + breed);
+    public String info() {
+        return(name + " | " + age + "   |  " + sex + "     | " + breed);
     }
 
-    public void adopt() {
-        System.out.println(id + " | " + name + "   |  " + age + "     | " + breed);
-
+    public String adopt() {
+        return(id + " | " + name + "   |  " + age + "     | " + breed);
     }
 }
