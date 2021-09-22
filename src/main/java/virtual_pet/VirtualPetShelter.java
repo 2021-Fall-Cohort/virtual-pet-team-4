@@ -19,5 +19,9 @@ public class VirtualPetShelter {
     public void removeDogById(int id) {
         shelterDogs.remove(id);
     }
+
+    public int numberOfDogs() {
+        return shelterDogs.size();
+    }
 }
 
