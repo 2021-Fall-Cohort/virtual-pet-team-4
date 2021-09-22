@@ -75,6 +75,7 @@ public class VirtualPetApplication {
         for(int i =0;i<5;i++) {
            myShelter.addDog(new Dog(nameGen.getName(), "F", breedGen.getBreed(), "mr",i));
         }
+
         Boolean dogLiving = dog1.getDogIsAlive();
         Boolean dogDiedOld = dog1.getDogDiedOld();
 

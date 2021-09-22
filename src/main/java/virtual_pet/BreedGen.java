@@ -7,7 +7,7 @@ public class BreedGen {
     private String[] breedList = new String[10];
 
     public BreedGen(){
-        this.breed =breed;
+        this.breed = breed;
         Random rand = new Random();
         int r = rand.nextInt(10);
 
