@@ -2,6 +2,7 @@ package virtual_pet;
 import java.sql.SQLOutput;
 import java.time.LocalTime;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 //
 public class VirtualPetApplication {
@@ -47,7 +48,6 @@ public class VirtualPetApplication {
         String randBreed = breedGen.getBreed();
         System.out.println("Welcome to the Virtual Pet Shelter simulator");
         String choice = "";
-
         Boolean isRunning = true;
 
         // If the user chooses to have a random name, grab the random name and set the corresponding gender
@@ -80,7 +80,6 @@ public class VirtualPetApplication {
             myShelter.addDog(new Dog(nameGen.getName(), nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), i, nameGen.getAge()));
         }
 
-        // When we go to create dogs later, we can run shelterDogs.numberOfDogs() + 1 to get the future IDs
 
 //        Boolean dogLiving = dog1.getDogIsAlive();
 //        Boolean dogDiedOld = dog1.getDogDiedOld();
@@ -104,6 +103,13 @@ public class VirtualPetApplication {
             checkQuit(choice);
             switch (choice) {
                 case "1":
+//                    System.out.println(" ID   | Name ");
+//                    for (int i = 0; i < myShelter.numberOfDogs(); i++) {
+//                        myShelter.retrieveDogById(i).playList();
+//                        myShelter.retrieveDogById(i).play();
+//                    }
+//                    System.out.println("Enter the id of the dog you'd like to play with:");
+
                     // Present user with list of dogs to choose from
                     // Retrieve that dog by Id? & play
                     break;
@@ -124,7 +130,7 @@ public class VirtualPetApplication {
                     System.out.println("----------------------------------");
                     for (int i = 0; i < myShelter.numberOfDogs(); i++) {
                         myShelter.retrieveDogById(i).tick();
-                        myShelter.retrieveDogById(i).status();
+                        System.out.println(myShelter.retrieveDogById(i).status());
                     }
                     break;
                 case "5":
@@ -132,7 +138,7 @@ public class VirtualPetApplication {
                     System.out.println("-----------------------------------");
                     for (int i = 0; i < myShelter.numberOfDogs(); i++) {
                         myShelter.retrieveDogById(i).tick();
-                        myShelter.retrieveDogById(i).info();
+                        System.out.println(myShelter.retrieveDogById(i));
                     }
                     break;
                 case "6":
@@ -140,7 +146,7 @@ public class VirtualPetApplication {
                     System.out.println(" ID   | Name   |  Age   |  Breed ");
                     for (int i = 0; i < myShelter.numberOfDogs(); i++) {
                         myShelter.retrieveDogById(i).tick();
-                        myShelter.retrieveDogById(i).adopt();
+                        System.out.println(myShelter.retrieveDogById(i).adopt());
                     }
                     System.out.println("Enter the ID of the dog you want to adopt out");
                     Scanner adoptionScanner = new Scanner(System.in);
