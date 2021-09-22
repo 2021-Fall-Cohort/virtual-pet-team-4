@@ -1,7 +1,5 @@
 package virtual_pet;
 
-import java.sql.Time;
-import java.time.LocalTime;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -10,23 +8,25 @@ public class Dog {
     private String sex;
     private String breed;
     private String pronoun;
+    private String outputMessage;
     private int healthLevel;
     private int hungerLevel;
     private int thirstLevel;
     private int boredomLevel;
+    private int age;
+//    private int ageInTicks;
+    private int id;
     private boolean dogIsBored;
     private boolean dogIsHungry;
     private boolean dogIsThirsty;
     private boolean dogIsDying;
     private boolean dogIsAlive;
-    private String outputMessage;
-    private int age;
-    private int ageInTicks;
     private boolean dogDiedOld;
-    private int id;
+
 
     Scanner scanner = new Scanner(System.in);
-    public Dog(String name, String sex, String breed, String pronoun, int id) {
+
+    public Dog(String name, String sex, String breed, String pronoun, int id, int age) {
         this.name = name;
         this.sex = sex;
         this.breed = breed;
@@ -40,7 +40,7 @@ public class Dog {
         this.dogIsThirsty = false;
         this.dogIsDying = false;
         this.dogIsAlive = true;
-        this.age = 0;
+        this.age = age;
         this.id = id;
     }
 
@@ -63,6 +63,7 @@ public class Dog {
     public int getBoredomLevel() {
         return boredomLevel;
     }
+
     public void getOutputMessage() {
         System.out.println(outputMessage);
     }
@@ -87,63 +88,71 @@ public class Dog {
         return pronoun;
     }
 
-    public void feedDog() {
-        clearScreen();
-        System.out.println("What would you like to feed " + name + "?");
-        System.out.println("1. Kibble");
-        System.out.println("2. Treat");
-        System.out.println("3. Peanut Butter");
-        int foodChoice = scanner.nextInt();
-        switch (foodChoice) {
-            case 1:
-                dogEatingKibble();
-                hungerLevel = hungerLevel - 20;
-                thirstLevel = thirstLevel + 5;
-                boredomLevel = boredomLevel - 5;
-                outputMessage = (name + " ate " + pronoun.toLowerCase() + " dinner and lost 20 hunger" + "\n");
-                break;
-            case 2:
-                dogEatingTreat();
-                hungerLevel = hungerLevel - 5;
-                thirstLevel = thirstLevel + 1;
-                boredomLevel = boredomLevel - 1;
-                outputMessage= (name + " ate " + pronoun.toLowerCase() + " treat and lost 5 hunger" + "\n");
-                break;
-            case 3:
-                dogEatingPeanutButter();
-                hungerLevel = hungerLevel - 5;
-                thirstLevel = thirstLevel + 5;
-                boredomLevel = boredomLevel - 5;
-                outputMessage = (name + " loved " + pronoun.toLowerCase() + " peanut butter and lost 5 hunger" + "\n");
-                break;
-        }
+//    public void feedDog() {
+//        clearScreen();
+//        System.out.println("What would you like to feed " + name + "?");
+//        System.out.println("1. Kibble");
+//        System.out.println("2. Treat");
+//        System.out.println("3. Peanut Butter");
+//        int foodChoice = scanner.nextInt();
+//        switch (foodChoice) {
+//            case 1:
+//                dogEatingKibble();
+//                hungerLevel = hungerLevel - 20;
+//                thirstLevel = thirstLevel + 5;
+//                boredomLevel = boredomLevel - 5;
+//                outputMessage = (name + " ate " + pronoun.toLowerCase() + " dinner and lost 20 hunger" + "\n");
+//                break;
+//            case 2:
+//                dogEatingTreat();
+//                hungerLevel = hungerLevel - 5;
+//                thirstLevel = thirstLevel + 1;
+//                boredomLevel = boredomLevel - 1;
+//                outputMessage= (name + " ate " + pronoun.toLowerCase() + " treat and lost 5 hunger" + "\n");
+//                break;
+//            case 3:
+//                dogEatingPeanutButter();
+//                hungerLevel = hungerLevel - 5;
+//                thirstLevel = thirstLevel + 5;
+//                boredomLevel = boredomLevel - 5;
+//                outputMessage = (name + " loved " + pronoun.toLowerCase() + " peanut butter and lost 5 hunger" + "\n");
+//                break;
+//        }
+//    }
+
+    public void feed() {
+        hungerLevel -= 20;
     }
 
-    public void waterDog() {
-        clearScreen();
-        System.out.println("What would you like to give " + name + " to drink?");
-        System.out.println("1. Water");
-        System.out.println("2. Orange Juice");
-        System.out.println("3. Milk");
-        int drinkChoice = scanner.nextInt();
-        switch (drinkChoice) {
-            case 1:
-                dogDrinkingWater();
-                thirstLevel = thirstLevel - 20;
-                outputMessage = (name + " was refreshed by " + pronoun.toLowerCase() + " water and lost 20 thirst" + "\n");
-                break;
-            case 2:
-                dogDrinkingOrangeJuice();
-                thirstLevel = thirstLevel - 10;
-                outputMessage = (name + " loved " + pronoun.toLowerCase() + " orange juice and lost 10 thirst" + "\n");
-                break;
-            case 3:
-                dogDrinkingMilk();
-                thirstLevel = thirstLevel - 15;
-                outputMessage = (name + " really enjoyed " + pronoun.toLowerCase() + " milk and lost 15 thirst" + "\n");
-                break;
-        }
-        hungerLevel++;
+//    public void waterDog() {
+//        clearScreen();
+//        System.out.println("What would you like to give " + name + " to drink?");
+//        System.out.println("1. Water");
+//        System.out.println("2. Orange Juice");
+//        System.out.println("3. Milk");
+//        int drinkChoice = scanner.nextInt();
+//        switch (drinkChoice) {
+//            case 1:
+//                dogDrinkingWater();
+//                thirstLevel = thirstLevel - 20;
+//                outputMessage = (name + " was refreshed by " + pronoun.toLowerCase() + " water and lost 20 thirst" + "\n");
+//                break;
+//            case 2:
+//                dogDrinkingOrangeJuice();
+//                thirstLevel = thirstLevel - 10;
+//                outputMessage = (name + " loved " + pronoun.toLowerCase() + " orange juice and lost 10 thirst" + "\n");
+//                break;
+//            case 3:
+//                dogDrinkingMilk();
+//                thirstLevel = thirstLevel - 15;
+//                outputMessage = (name + " really enjoyed " + pronoun.toLowerCase() + " milk and lost 15 thirst" + "\n");
+//                break;
+//        }
+//        hungerLevel++;
+//    }
+
+    public void water() {
+        thirstLevel -= 5;
     }
 
     public void playWithDog() {
@@ -185,7 +194,7 @@ public class Dog {
     }
 
     public void tick() {
-        ageInTicks++;
+//        ageInTicks++;
         int min = 1;
         int max = 3;
         Random random = new Random();
@@ -463,56 +472,52 @@ public class Dog {
         if (boredomLevel > 100) {
             boredomLevel = 100;
         }
-        age = (ageInTicks / 5);
-        if (age > 14) {
-            dogIsAlive = false;
-            dogDiedOld = true;
-        }
+//        age = (ageInTicks / 5);
+//        if (age > 14) {
+//            dogIsAlive = false;
+//            dogDiedOld = true;
+        // }
     }
 
     public void status() {
-        // LocalTime clock = LocalTime.of(LocalTime.now().getHour(), LocalTime.now().getMinute());
         statusCheck();
-        clearScreen();
 
-        if (dogIsBored) {
-            System.out.println("WARNING: " + name + " is getting really bored! Maybe you guys should play.");
-        }
+//        if (dogIsBored) {
+//            System.out.println("WARNING: " + name + " is getting really bored! Maybe you guys should play.");
+//        }
+//
+//        if (dogIsThirsty) {
+//            System.out.println("WARNING: " + name + " is getting thirty. Better get " + pronoun.toLowerCase() + " water!");
+//        }
+//
+//        if (dogIsHungry) {
+//            System.out.println("WARNING: " + name + " is withering away. Time for another meal!");
+//        }
+//
+//        if (dogIsDying) {
+//            System.out.println("WARNING: " + name + " is dying! Take care of " + pronoun.toLowerCase() + " needs!!");
+//        }
 
-        if (dogIsThirsty) {
-            System.out.println("WARNING: " + name + " is getting thirty. Better get " + pronoun.toLowerCase() + " water!");
-        }
+//        System.out.println(name + "'s current stats are: \n" +
+//                "Boredom Level: " + boredomLevel + "\n" +
+//                "Thirst Level: " + thirstLevel + "\n" +
+//                "Hunger Level: " + hungerLevel + "\n" +
+//                "Health: " + healthLevel + "\n");
 
-        if (dogIsHungry) {
-            System.out.println("WARNING: " + name + " is withering away. Time for another meal!");
-        }
-
-        if (dogIsDying) {
-            System.out.println("WARNING: " + name + " is dying! Take care of " + pronoun.toLowerCase() + " needs!!");
-        }
-
-        System.out.println(name + "'s current stats are: \n" +
-                "Boredom Level: " + boredomLevel + "\n" +
-                "Thirst Level: " + thirstLevel + "\n" +
-                "Hunger Level: " + hungerLevel + "\n" +
-                "Health: " + healthLevel + "\n");
-
+        System.out.println(name + " | " + hungerLevel + "     | " + thirstLevel + "     | " + boredomLevel);
     }
 
     public void info() {
-        clearScreen();
-        System.out.println(name + "'s information: \n" +
-                "Name: " + name + "\n" +
-                "Age: " + age + "\n" +
-                "Breed: " + breed + "\n" +
-                "Gender: " + sex + "\n");
-        try
-        {
-            Thread.sleep(2000);
-        }
-        catch(InterruptedException ex)
-        {
-            Thread.currentThread().interrupt();
-        }
+//        System.out.println(name + "'s information: \n" +
+//                "Name: " + name + "\n" +
+//                "Age: " + age + "\n" +
+//                "Breed: " + breed + "\n" +
+//                "Gender: " + sex + "\n");
+        System.out.println(name + " | " + age + "   |  " + sex + "     | " + breed);
+    }
+
+    public void adopt() {
+        System.out.println(id + " | " + name + "   |  " + age + "     | " + breed);
+
     }
 }

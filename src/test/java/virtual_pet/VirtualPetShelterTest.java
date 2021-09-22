@@ -14,8 +14,8 @@ public class VirtualPetShelterTest {
     @BeforeEach
     void setUp() {
         underTest = new VirtualPetShelter();
-        dog1 = new Dog("Wrigley", "Female", "Lab", "Her", 1);
-        dog2 = new Dog("Cam", "Female", "Lab", "Her", 2);
+        dog1 = new Dog("Wrigley", "Female", "Lab", "Her", 1, 10);
+        dog2 = new Dog("Cam", "Female", "Lab", "Her", 2, 20);
     }
 
     @Test
@@ -37,5 +37,12 @@ public class VirtualPetShelterTest {
         underTest.addDog(dog2);
         underTest.removeDogById(dog2.getId());
         assertNull(underTest.retrieveDogById(2));
+    }
+
+    @Test
+    void shouldReturnTotalAmountofDogsInShelter() {
+        underTest.addDog(dog1);
+        underTest.addDog(dog2);
+        assertEquals(2, underTest.numberOfDogs());
     }
 }
