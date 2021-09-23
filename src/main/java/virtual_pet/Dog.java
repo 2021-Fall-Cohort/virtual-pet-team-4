@@ -14,14 +14,13 @@ public class Dog {
     private int thirstLevel;
     private int boredomLevel;
     private int age;
-//    private int ageInTicks;
     private int id;
     private boolean dogIsBored;
     private boolean dogIsHungry;
     private boolean dogIsThirsty;
-    private boolean dogIsDying;
-    private boolean dogIsAlive;
-    private boolean dogDiedOld;
+//    private boolean dogIsDying;
+//    private boolean dogIsAlive;
+//    private boolean dogDiedOld;
 
 
     Scanner scanner = new Scanner(System.in);
@@ -38,8 +37,6 @@ public class Dog {
         this.dogIsBored = false;
         this.dogIsHungry = false;
         this.dogIsThirsty = false;
-        this.dogIsDying = false;
-        this.dogIsAlive = true;
         this.age = age;
         this.id = id;
     }
@@ -66,14 +63,6 @@ public class Dog {
 
     public void getOutputMessage() {
         System.out.println(outputMessage);
-    }
-
-    public boolean getDogIsAlive() {
-        return dogIsAlive;
-    }
-
-    public boolean getDogDiedOld() {
-        return dogDiedOld;
     }
 
     public int getId() {
@@ -194,7 +183,6 @@ public class Dog {
     }
 
     public void tick() {
-//        ageInTicks++;
         int min = 1;
         int max = 3;
         Random random = new Random();
@@ -209,9 +197,6 @@ public class Dog {
             healthLevel = healthLevel - 5;
         } else if (healthLevel < 100 ) {
             healthLevel = healthLevel + 5;
-        }
-        if (healthLevel <= 0) {
-            dogIsAlive = false;
         }
     }
 
@@ -448,11 +433,6 @@ public class Dog {
             dogIsBored = true;
         }else {
             dogIsBored = false;
-        }
-        if (healthLevel <= 25) {
-            dogIsDying = true;
-        } else {
-            dogIsDying = false;
         }
         if (hungerLevel < 0) {
             hungerLevel = 0;
