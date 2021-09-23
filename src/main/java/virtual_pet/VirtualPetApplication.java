@@ -88,7 +88,27 @@ public class VirtualPetApplication {
                     }
                     System.out.println("Enter the ID of the dog you want to play with");
                     Scanner playScanner = new Scanner(System.in);
-                    myShelter.retrieveDogById(playScanner.nextInt()).play();
+                    int dogToPlayId = playScanner.nextInt();
+                    idPresent = false;
+                    for (Dog currentDog: myShelter.getDogs()) {
+                        int currentId = currentDog.getId();
+                        if (currentId == dogToPlayId ) {
+                            idPresent = true;
+                        }
+                    }
+                    if (!idPresent) {
+                        System.out.println("That dog doesn't even exist!");
+                        try
+                        {
+                            Thread.sleep(1000);
+                        }
+                        catch(InterruptedException ex)
+                        {
+                            Thread.currentThread().interrupt();
+                        }
+                        break;
+                    }
+                    myShelter.retrieveDogById(dogToPlayId).play();
                     break;
                 case "2":
                     if (myShelter.numberOfDogs() == 0 ) {
@@ -188,6 +208,7 @@ public class VirtualPetApplication {
                     System.out.println("Enter the ID of the dog you want to adopt out");
                     Scanner adoptionScanner = new Scanner(System.in);
                     int dogOutId = adoptionScanner.nextInt();
+                    idPresent = false;
                     for (Dog currentDog: myShelter.getDogs()) {
                         int currentId = currentDog.getId();
                         if (currentId == dogOutId ) {
