@@ -34,6 +34,7 @@ public class VirtualPetApplication {
 
         NameGen nameGen = new NameGen();
         BreedGen breedGen = new BreedGen();
+        PeopleGen peopleGen = new PeopleGen();
         String randName = nameGen.getName();
         String randBreed = breedGen.getBreed();
         System.out.println("Welcome to the Virtual Pet Shelter simulator");
@@ -182,10 +183,19 @@ public class VirtualPetApplication {
                     }
                     System.out.println("Enter the ID of the dog you want to adopt out");
                     Scanner adoptionScanner = new Scanner(System.in);
-                    myShelter.removeDogById(adoptionScanner.nextInt());
-                    // But with more information from the status screen
-                    // Whichever they choose gets myShelter.remove()
-                    // Show ASCII of dog leaving with family
+                    int dogOutId = adoptionScanner.nextInt();
+                    String dogOut = myShelter.retrieveDogById(dogOutId).getName();
+                    myShelter.removeDogById(dogOutId);
+                    System.out.println(dogOut + " has been adopted by " + peopleGen.getPersonFirstName() + " " + peopleGen.getPersonLastName() +
+                            ". They're " + peopleGen.getPersonAge() + " years old, so they should have plenty of time for their new friend.");
+                    try
+                    {
+                        Thread.sleep(1000);
+                    }
+                    catch(InterruptedException ex)
+                    {
+                        Thread.currentThread().interrupt();
+                    }
                     break;
                 case "7":
                     // Present the user with their new randomly generated dog
