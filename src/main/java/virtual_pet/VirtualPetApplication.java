@@ -213,9 +213,17 @@ public class VirtualPetApplication {
                     }
                     break;
                 default:
-                    System.out.println("Your pets get nothing >:(");
+                    System.out.println("You made an invalid selection and now your pets get nothing >:(");
                     for(Dog currentDog: myShelter.getDogs()) {
                         currentDog.tick();
+                    }
+                    try
+                    {
+                        Thread.sleep(1000);
+                    }
+                    catch(InterruptedException ex)
+                    {
+                        Thread.currentThread().interrupt();
                     }
                     }
             }
