@@ -184,7 +184,17 @@ public class VirtualPetApplication {
                 case "7":
                     // Present the user with their new randomly generated dog
                     // Add the new dog to the HashMap
-                    myShelter.addDog(new Dog(nameGen.getName(), nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), (myShelter.numberOfDogs() + 1), nameGen.getAge()));
+                    String newDogName = nameGen.getName();
+                    myShelter.addDog(new Dog(newDogName, nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), (myShelter.numberOfDogs() + 1), nameGen.getAge()));
+                    System.out.println("Welcome " + newDogName + " to our Pet Shelter!");
+                    try
+                    {
+                        Thread.sleep(1000);
+                    }
+                    catch(InterruptedException ex)
+                    {
+                        Thread.currentThread().interrupt();
+                    }
                     break;
                 default:
                     System.out.println("Your pets get nothing >:(");
