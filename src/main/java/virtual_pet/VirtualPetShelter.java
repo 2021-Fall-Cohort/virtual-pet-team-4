@@ -23,5 +23,9 @@ public class VirtualPetShelter {
     public int numberOfDogs() {
         return shelterDogs.size();
     }
+
+    public Dog[] getDogs() {
+        return shelterDogs.values().toArray(new Dog[0]);
+    }
 }
 
