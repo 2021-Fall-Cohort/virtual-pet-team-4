@@ -217,6 +217,14 @@ public class VirtualPetApplication {
                     for(Dog currentDog: myShelter.getDogs()) {
                         currentDog.tick();
                     }
+                    try
+                    {
+                        Thread.sleep(1000);
+                    }
+                    catch(InterruptedException ex)
+                    {
+                        Thread.currentThread().interrupt();
+                    }
                     }
             }
             while (isRunning) ;
