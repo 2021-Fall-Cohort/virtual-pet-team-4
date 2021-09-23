@@ -15,8 +15,8 @@ public class NameGen {
     }
     public String getName() {
         Random rand = new Random();
-        int r = rand.nextInt(20);
-        int r2 = rand.nextInt(10);
+        int r = rand.nextInt(19);
+        int r2 = rand.nextInt(9);
         maleNameList[0] = "James";
         maleNameList[1] = "Maxie";
         maleNameList[2] = "Buddy";
@@ -39,13 +39,13 @@ public class NameGen {
         femaleNameList[8] = "Lucie";
         femaleNameList[9] = "Hazel";
 
-        if (r <= 10) {
+        if (r <= 9) {
             name = maleNameList[r];
             gS = "M";
             pronoun = "His";
             age = r2;
         }
-        else if (r >= 11) {
+        else if (r >= 10) {
             name = femaleNameList[r2];
             gS = "F";
             pronoun = "Her";

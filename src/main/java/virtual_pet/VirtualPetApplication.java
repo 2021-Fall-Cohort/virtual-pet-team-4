@@ -1,4 +1,7 @@
 package virtual_pet;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 //
 public class VirtualPetApplication {
@@ -40,6 +43,7 @@ public class VirtualPetApplication {
         System.out.println("Welcome to the Virtual Pet Shelter simulator");
         String choice = "";
         Boolean isRunning = true;
+        Boolean idPresent = false;
 
         // Start the shelter off with 4 dogs
         VirtualPetShelter myShelter = new VirtualPetShelter();
@@ -184,6 +188,24 @@ public class VirtualPetApplication {
                     System.out.println("Enter the ID of the dog you want to adopt out");
                     Scanner adoptionScanner = new Scanner(System.in);
                     int dogOutId = adoptionScanner.nextInt();
+                    for (Dog currentDog: myShelter.getDogs()) {
+                        int currentId = currentDog.getId();
+                        if (currentId == dogOutId ) {
+                            idPresent = true;
+                        }
+                    }
+                    if (!idPresent) {
+                        System.out.println("That dog doesn't even exist!");
+                        try
+                        {
+                            Thread.sleep(1000);
+                        }
+                        catch(InterruptedException ex)
+                        {
+                            Thread.currentThread().interrupt();
+                        }
+                        break;
+                    }
                     String dogOut = myShelter.retrieveDogById(dogOutId).getName();
                     myShelter.removeDogById(dogOutId);
                     System.out.println(dogOut + " has been adopted by " + peopleGen.getPersonFirstName() + " " + peopleGen.getPersonLastName() +
