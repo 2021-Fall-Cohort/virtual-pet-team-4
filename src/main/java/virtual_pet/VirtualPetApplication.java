@@ -69,29 +69,76 @@ public class VirtualPetApplication {
             checkQuit(choice);
             switch (choice) {
                 case "1":
-//                    System.out.println(" ID   | Name ");
-//                    for (int i = 0; i < myShelter.numberOfDogs(); i++) {
-//                        myShelter.retrieveDogById(i).playList();
-//                        myShelter.retrieveDogById(i).play();
-//                    }
-//                    System.out.println("Enter the id of the dog you'd like to play with:");
-
-                    // Present user with list of dogs to choose from
-                    // Retrieve that dog by Id? & play
+                    if (myShelter.numberOfDogs() == 0 ) {
+                        System.out.println("You don't have any dogs to play with!");
+                        try
+                        {
+                            Thread.sleep(1000);
+                        }
+                        catch(InterruptedException ex)
+                        {
+                            Thread.currentThread().interrupt();
+                        }
+                        break;
+                    }
+                    System.out.println(" ID   | Name   |  Age   |  Breed ");
+                    for(Dog currentDog: myShelter.getDogs()) {
+                        currentDog.tick();
+                        System.out.println(currentDog.interactionList());
+                    }
+                    System.out.println("Enter the ID of the dog you want to play with");
+                    Scanner playScanner = new Scanner(System.in);
+                    myShelter.retrieveDogById(playScanner.nextInt()).play();
                     break;
                 case "2":
+                    if (myShelter.numberOfDogs() == 0 ) {
+                        System.out.println("You don't have any dogs to give water to!");
+                        try
+                        {
+                            Thread.sleep(1000);
+                        }
+                        catch(InterruptedException ex)
+                        {
+                            Thread.currentThread().interrupt();
+                        }
+                        break;
+                    }
                     for(Dog currentDog: myShelter.getDogs()) {
                         currentDog.water();
                         currentDog.tick();
                     }
                     break;
                 case "3":
+                    if (myShelter.numberOfDogs() == 0 ) {
+                        System.out.println("You don't have any dogs to feed!");
+                        try
+                        {
+                            Thread.sleep(1000);
+                        }
+                        catch(InterruptedException ex)
+                        {
+                            Thread.currentThread().interrupt();
+                        }
+                        break;
+                    }
                     for(Dog currentDog: myShelter.getDogs()) {
                         currentDog.feed();
                         currentDog.tick();
                     }
                     break;
                 case "4":
+                    if (myShelter.numberOfDogs() == 0 ) {
+                        System.out.println("You don't have any dogs!");
+                        try
+                        {
+                            Thread.sleep(1000);
+                        }
+                        catch(InterruptedException ex)
+                        {
+                            Thread.currentThread().interrupt();
+                        }
+                        break;
+                    }
                     System.out.println("Name  | Hunger | Thirst | Boredom");
                     System.out.println("----------------------------------");
                     for(Dog currentDog: myShelter.getDogs()) {
@@ -100,6 +147,18 @@ public class VirtualPetApplication {
                     }
                     break;
                 case "5":
+                    if (myShelter.numberOfDogs() == 0 ) {
+                        System.out.println("You don't have any dogs!");
+                        try
+                        {
+                            Thread.sleep(1000);
+                        }
+                        catch(InterruptedException ex)
+                        {
+                            Thread.currentThread().interrupt();
+                        }
+                        break;
+                    }
                     System.out.println("Name  | Age | Gender | Breed");
                     System.out.println("-----------------------------------");
                     for(Dog currentDog: myShelter.getDogs()) {
@@ -109,10 +168,22 @@ public class VirtualPetApplication {
                     break;
                 case "6":
                     // Present user with a list of all their dogs (probably more similar to the info screen
+                    if (myShelter.numberOfDogs() == 0 ) {
+                        System.out.println("You don't have any dogs to give away!");
+                        try
+                        {
+                            Thread.sleep(1000);
+                        }
+                        catch(InterruptedException ex)
+                        {
+                            Thread.currentThread().interrupt();
+                        }
+                        break;
+                    }
                     System.out.println(" ID   | Name   |  Age   |  Breed ");
                     for(Dog currentDog: myShelter.getDogs()) {
                         currentDog.tick();
-                        System.out.println(currentDog.adopt());
+                        System.out.println(currentDog.interactionList());
                     }
                     System.out.println("Enter the ID of the dog you want to adopt out");
                     Scanner adoptionScanner = new Scanner(System.in);
@@ -124,7 +195,17 @@ public class VirtualPetApplication {
                 case "7":
                     // Present the user with their new randomly generated dog
                     // Add the new dog to the HashMap
-                    myShelter.addDog(new Dog(nameGen.getName(), nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), (myShelter.numberOfDogs() + 1), nameGen.getAge()));
+                    String newDogName = nameGen.getName();
+                    myShelter.addDog(new Dog(newDogName, nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), (myShelter.numberOfDogs() + 1), nameGen.getAge()));
+                    System.out.println("Welcome " + newDogName + " to our Pet Shelter!");
+                    try
+                    {
+                        Thread.sleep(1000);
+                    }
+                    catch(InterruptedException ex)
+                    {
+                        Thread.currentThread().interrupt();
+                    }
                     break;
                 default:
                     System.out.println("Your pets get nothing >:(");
