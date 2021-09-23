@@ -470,6 +470,6 @@ public class Dog {
     }
 
     public String interactionList() {
-        return(id + " | " + name + "   |  " + age + "     | " + breed);
+        return(" " + id + "    |  " + name + " |    " + age + "   |   " + breed);
     }
 }

@@ -1,8 +1,4 @@
 package virtual_pet;
-import java.sql.SQLOutput;
-import java.time.LocalTime;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 //
 public class VirtualPetApplication {
@@ -55,7 +51,6 @@ public class VirtualPetApplication {
             // Pull all dogs from the hashmap and present to user
             // Present the user with a picture / status of their shelter
             // What would you like to do with your dogs?
-//            dog1.dogNeutral();
             System.out.println("What would you like to do with your pets?");
             System.out.println("1. Play with a pet"); // Prompt the user to select between their dogs
             System.out.println("2. Give pets something to drink"); // Prompt the user to select drinks for all their dogs
