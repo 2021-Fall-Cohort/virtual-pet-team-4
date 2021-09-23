@@ -80,18 +80,54 @@ public class VirtualPetApplication {
                     // Retrieve that dog by Id? & play
                     break;
                 case "2":
+                    if (myShelter.numberOfDogs() == 0 ) {
+                        System.out.println("You don't have any dogs to give water to!");
+                        try
+                        {
+                            Thread.sleep(1000);
+                        }
+                        catch(InterruptedException ex)
+                        {
+                            Thread.currentThread().interrupt();
+                        }
+                        break;
+                    }
                     for(Dog currentDog: myShelter.getDogs()) {
                         currentDog.water();
                         currentDog.tick();
                     }
                     break;
                 case "3":
+                    if (myShelter.numberOfDogs() == 0 ) {
+                        System.out.println("You don't have any dogs to feed!");
+                        try
+                        {
+                            Thread.sleep(1000);
+                        }
+                        catch(InterruptedException ex)
+                        {
+                            Thread.currentThread().interrupt();
+                        }
+                        break;
+                    }
                     for(Dog currentDog: myShelter.getDogs()) {
                         currentDog.feed();
                         currentDog.tick();
                     }
                     break;
                 case "4":
+                    if (myShelter.numberOfDogs() == 0 ) {
+                        System.out.println("You don't have any dogs!");
+                        try
+                        {
+                            Thread.sleep(1000);
+                        }
+                        catch(InterruptedException ex)
+                        {
+                            Thread.currentThread().interrupt();
+                        }
+                        break;
+                    }
                     System.out.println("Name  | Hunger | Thirst | Boredom");
                     System.out.println("----------------------------------");
                     for(Dog currentDog: myShelter.getDogs()) {
@@ -100,6 +136,18 @@ public class VirtualPetApplication {
                     }
                     break;
                 case "5":
+                    if (myShelter.numberOfDogs() == 0 ) {
+                        System.out.println("You don't have any dogs!");
+                        try
+                        {
+                            Thread.sleep(1000);
+                        }
+                        catch(InterruptedException ex)
+                        {
+                            Thread.currentThread().interrupt();
+                        }
+                        break;
+                    }
                     System.out.println("Name  | Age | Gender | Breed");
                     System.out.println("-----------------------------------");
                     for(Dog currentDog: myShelter.getDogs()) {
@@ -109,6 +157,18 @@ public class VirtualPetApplication {
                     break;
                 case "6":
                     // Present user with a list of all their dogs (probably more similar to the info screen
+                    if (myShelter.numberOfDogs() == 0 ) {
+                        System.out.println("You don't have any dogs to give away!");
+                        try
+                        {
+                            Thread.sleep(1000);
+                        }
+                        catch(InterruptedException ex)
+                        {
+                            Thread.currentThread().interrupt();
+                        }
+                        break;
+                    }
                     System.out.println(" ID   | Name   |  Age   |  Breed ");
                     for(Dog currentDog: myShelter.getDogs()) {
                         currentDog.tick();
