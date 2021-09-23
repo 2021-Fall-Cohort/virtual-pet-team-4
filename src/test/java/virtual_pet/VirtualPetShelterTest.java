@@ -3,8 +3,10 @@ package virtual_pet;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class VirtualPetShelterTest {
     VirtualPetShelter underTest;
@@ -40,9 +42,17 @@ public class VirtualPetShelterTest {
     }
 
     @Test
-    void shouldReturnTotalAmountofDogsInShelter() {
+    void shouldReturnTotalAmountOfDogsInShelter() {
         underTest.addDog(dog1);
         underTest.addDog(dog2);
         assertEquals(2, underTest.numberOfDogs());
+    }
+
+    @Test
+    void shouldReturnAllDogsInArray() {
+        underTest.addDog(dog1);
+        underTest.addDog(dog2);
+        boolean isArray = underTest.getDogs() instanceof Dog[];
+        assertTrue(isArray);
     }
 }
