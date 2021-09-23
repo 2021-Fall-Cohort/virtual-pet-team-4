@@ -69,15 +69,26 @@ public class VirtualPetApplication {
             checkQuit(choice);
             switch (choice) {
                 case "1":
-//                    System.out.println(" ID   | Name ");
-//                    for (int i = 0; i < myShelter.numberOfDogs(); i++) {
-//                        myShelter.retrieveDogById(i).playList();
-//                        myShelter.retrieveDogById(i).play();
-//                    }
-//                    System.out.println("Enter the id of the dog you'd like to play with:");
-
-                    // Present user with list of dogs to choose from
-                    // Retrieve that dog by Id? & play
+                    if (myShelter.numberOfDogs() == 0 ) {
+                        System.out.println("You don't have any dogs to play with!");
+                        try
+                        {
+                            Thread.sleep(1000);
+                        }
+                        catch(InterruptedException ex)
+                        {
+                            Thread.currentThread().interrupt();
+                        }
+                        break;
+                    }
+                    System.out.println(" ID   | Name   |  Age   |  Breed ");
+                    for(Dog currentDog: myShelter.getDogs()) {
+                        currentDog.tick();
+                        System.out.println(currentDog.interactionList());
+                    }
+                    System.out.println("Enter the ID of the dog you want to play with");
+                    Scanner playScanner = new Scanner(System.in);
+                    myShelter.retrieveDogById(playScanner.nextInt()).play();
                     break;
                 case "2":
                     if (myShelter.numberOfDogs() == 0 ) {
@@ -172,7 +183,7 @@ public class VirtualPetApplication {
                     System.out.println(" ID   | Name   |  Age   |  Breed ");
                     for(Dog currentDog: myShelter.getDogs()) {
                         currentDog.tick();
-                        System.out.println(currentDog.adopt());
+                        System.out.println(currentDog.interactionList());
                     }
                     System.out.println("Enter the ID of the dog you want to adopt out");
                     Scanner adoptionScanner = new Scanner(System.in);

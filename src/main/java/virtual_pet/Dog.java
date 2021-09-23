@@ -170,6 +170,12 @@ public class Dog {
         hungerLevel = hungerLevel + 10;
     }
 
+    public void play() {
+        boredomLevel = boredomLevel - 20;
+        thirstLevel = thirstLevel + 10;
+        hungerLevel = hungerLevel + 10;
+    }
+
     public void addHunger() {
         hungerLevel = hungerLevel++;
     }
@@ -463,7 +469,7 @@ public class Dog {
         return(name + " | " + age + "   |  " + sex + "     | " + breed);
     }
 
-    public String adopt() {
+    public String interactionList() {
         return(id + " | " + name + "   |  " + age + "     | " + breed);
     }
 }
