@@ -18,9 +18,6 @@ public class Dog {
     private boolean dogIsBored;
     private boolean dogIsHungry;
     private boolean dogIsThirsty;
-//    private boolean dogIsDying;
-//    private boolean dogIsAlive;
-//    private boolean dogDiedOld;
 
 
     Scanner scanner = new Scanner(System.in);
@@ -141,7 +138,7 @@ public class Dog {
 //    }
 
     public void water() {
-        thirstLevel -= 5;
+        thirstLevel -= 20;
     }
 
     public void playWithDog() {
