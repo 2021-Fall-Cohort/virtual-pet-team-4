@@ -43,4 +43,16 @@ public class PeopleGen {
     public String getPerson() {
         return "First Name: " + personFirstName + " Last Name: " + personLastName + " Age: " + personAge;
     }
+
+    public String getPersonFirstName() {
+        return personFirstName;
+    }
+
+    public String getPersonLastName() {
+        return personLastName;
+    }
+
+    public int getPersonAge() {
+        return personAge;
+    }
 }
