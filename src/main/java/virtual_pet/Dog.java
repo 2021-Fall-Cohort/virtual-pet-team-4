@@ -337,10 +337,10 @@ public class Dog {
         }
     }
 
-    public String drinkingWater() {
+    public void drinkingWater() {
         clearScreen();
         System.out.println("Let's give " + name + " some water!");
-        return("    ,    /-.\n" +
+        System.out.println("    ,    /-.\n" +
                 "   ((___/ __>\n" +
                 "   /      }\n" +
                 "   \\ .--.(    ___\n" +

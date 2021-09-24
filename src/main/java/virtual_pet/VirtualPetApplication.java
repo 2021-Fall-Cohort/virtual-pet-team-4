@@ -230,7 +230,7 @@ public class VirtualPetApplication {
                     String dogOut = myShelter.retrieveDogById(dogOutId).getName();
                     myShelter.removeDogById(dogOutId);
                     System.out.println(dogOut + " has been adopted by " + peopleGen.getPersonFirstName() + " " + peopleGen.getPersonLastName() +
-                            ". They're " + peopleGen.getPersonAge() + " years old, so they should have plenty of time for their new friend.");
+                            ". "  + peopleGen.getPersonFirstName() + peopleGen.getPersonAge() + " years old, so they should have plenty of time for their new friend.");
                     try
                     {
                         Thread.sleep(1000);
