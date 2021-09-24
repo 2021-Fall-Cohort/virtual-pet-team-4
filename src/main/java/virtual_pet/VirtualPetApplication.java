@@ -37,7 +37,7 @@ public class VirtualPetApplication {
 
         NameGen nameGen = new NameGen();
         BreedGen breedGen = new BreedGen();
-        PeopleGen peopleGen = new PeopleGen();
+
         String randName = nameGen.getName();
         String randBreed = breedGen.getBreed();
         System.out.println("Welcome to the Virtual Pet Shelter simulator");
@@ -187,6 +187,7 @@ public class VirtualPetApplication {
                     }
                     break;
                 case "6":
+                    PeopleGen peopleGen = new PeopleGen();
                     // Present user with a list of all their dogs (probably more similar to the info screen
                     if (myShelter.numberOfDogs() == 0 ) {
                         System.out.println("You don't have any dogs to give away!");
@@ -230,7 +231,7 @@ public class VirtualPetApplication {
                     String dogOut = myShelter.retrieveDogById(dogOutId).getName();
                     myShelter.removeDogById(dogOutId);
                     System.out.println(dogOut + " has been adopted by " + peopleGen.getPersonFirstName() + " " + peopleGen.getPersonLastName() +
-                            ". "  + peopleGen.getPersonFirstName() + peopleGen.getPersonAge() + " years old, so they should have plenty of time for their new friend.");
+                            ". "  + peopleGen.getPersonFirstName() + " is " + peopleGen.getPersonAge() + " years old, so they should have plenty of time for their new friend.");
                     try
                     {
                         Thread.sleep(1000);
