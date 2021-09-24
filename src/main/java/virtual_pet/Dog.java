@@ -337,7 +337,7 @@ public class Dog {
         }
     }
 
-    public void dogDrinkingWater() {
+    public void drinkingWater() {
         clearScreen();
         System.out.println("Let's give " + name + " some water!");
         System.out.println("    ,    /-.\n" +
