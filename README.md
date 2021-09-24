@@ -1,15 +1,33 @@
 # Required Tasks
 ## VirtualPetShelterApp Class
 - Create a main method that...
-- [x] implements a game loop
-- [ ] asks for user input
-- [ ] writes output to the console
-- [ ] calls VirtualPetShelter's tick method after each interaction
+  - [x] implements a game loop
+  - [x] asks for user input
+  - [x] writes output to the console
+  - [x] calls VirtualPetShelter's tick method after each interaction
+- Avaliable user interface actions should include (at minimum)
+  - [x] feeding all the pets
+  - [x] watering all the pets
+  - [x] playing with an individual pet, which should display a list of pet names and descriptions, allowing a user to select one
+  - [x] allow adoption of a pet, which should display a list of pet names and descriptions, allowing a user to select one
+  - [x] allow intake of a pet. prompting the user for the pet's information
+
+## VirtualPetSheleter Class
+- [x] include appropriate instance variables to store the pets who reside at the shelter
+- [ ] include methods that:
+  - [x] return a collection of all the pets in the shelter
+  - [ ] return a specific pet given its name
+  - [ ] allow intake of a homeless pet
+  - [ ] feed all of the pets in the shelter
+  - [ ] water all of the pets in the shelter
+  - [ ] plays with an individual pet in the shelter
+
 ## VirtualPet class
 - [x] You will need to create a VirtualPet class.
 - [x] Create at least three instance variables (aka attributes aka properties aka fields).
 - [x] Create at least three methods (messages you send to your pet).
 - [x] Create a tick() method that represents the passage of time.
+
 ## VirtualPetApp class
 - [x] Create a main method.
 - [x] implements a game loop.
