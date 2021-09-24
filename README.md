@@ -1,4 +1,10 @@
 # Required Tasks
+## VirtualPetShelterApp Class
+- Create a main method that...
+- [x] implements a game loop
+- [ ] asks for user input
+- [ ] writes output to the console
+- [ ] calls VirtualPetShelter's tick method after each interaction
 ## VirtualPet class
 - [x] You will need to create a VirtualPet class.
 - [x] Create at least three instance variables (aka attributes aka properties aka fields).
