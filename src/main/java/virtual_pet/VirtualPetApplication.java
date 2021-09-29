@@ -57,14 +57,17 @@ public class VirtualPetApplication {
             // Pull all dogs from the hashmap and present to user
             // Present the user with a picture / status of their shelter
             // What would you like to do with your dogs?
+
+            // Start user off with an Organic Dog & Cat, and a Robotic Dog & Cat
+            //
             System.out.println("What would you like to do with your pets?");
-            System.out.println("1. Play with a pet"); // Prompt the user to select between their dogs
-            System.out.println("2. Give pets something to drink"); // Prompt the user to select drinks for all their dogs
-            System.out.println("3. Give pets some food"); // Prompt the user to select food for all their dogs
+            System.out.println("1. Play with a pet"); // Prompt the user to select a pet, and then take them to a menu specific to that animal
+            System.out.println("2. Give pets something to drink"); // Gives all pets water
+            System.out.println("3. Give pets some food"); // Gives all pets food
             System.out.println("4. Get your pets' current status"); // Provide the user with status after tick
             System.out.println("5. Get your pets' info"); // Provide the user with a table of all dog's info
             System.out.println("6. Adopt a pet out");
-            System.out.println("7. Admit a pet in");
+            System.out.println("7. Admit a pet in"); // Prompt the user to create the animal they want to bring in
             System.out.println("Type quit to quit");
             choice = scanner.nextLine();
             checkQuit(choice);
@@ -143,7 +146,9 @@ public class VirtualPetApplication {
                         break;
                     }
                     for(VirtualPet currentPet: myShelter.getPets()) {
-                        currentPet.feed();
+                        if (currentPet instanceof OrganicPet) {
+                            ((OrganicPet) currentPet).feed();
+                        }
                         currentPet.tick();
                     }
                     break;

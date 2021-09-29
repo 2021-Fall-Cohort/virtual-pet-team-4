@@ -5,18 +5,18 @@ public class VirtualPetShelter {
     private HashMap<Integer, VirtualPet> shelterPets = new HashMap<Integer, VirtualPet>();
 
     public VirtualPetShelter() {
-        shelterPets = new HashMap<Integer, VirtualPet>();
+        shelterPets = new HashMap<Integer, VirtualPet>( );
     }
 
-    public void addPet(OrganicCat dog) {
-        shelterPets.put(dog.getId(), dog);
+    public void addPet(VirtualPet pet) {
+        shelterPets.put(pet.getId(), pet);
     }
 
     public VirtualPet retrievePetById(int id) {
         return shelterPets.get(id);
     }
 
-    public void removeDPetById(int id) {
+    public void removePetById(int id) {
         shelterPets.remove(id);
     }
 
