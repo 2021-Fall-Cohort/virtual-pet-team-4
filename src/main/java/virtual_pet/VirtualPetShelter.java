@@ -2,30 +2,30 @@ package virtual_pet;
 import java.util.HashMap;
 
 public class VirtualPetShelter {
-    private HashMap<Integer, Dog> shelterDogs = new HashMap<Integer, Dog>();
+    private HashMap<Integer, VirtualPet> shelterPets = new HashMap<Integer, VirtualPet>();
 
     public VirtualPetShelter() {
-        shelterDogs = new HashMap<Integer, Dog>();
+        shelterPets = new HashMap<Integer, VirtualPet>();
     }
 
-    public void addDog(Dog dog) {
-        shelterDogs.put(dog.getId(), dog);
+    public void addPet(OrganicCat dog) {
+        shelterPets.put(dog.getId(), dog);
     }
 
-    public Dog retrieveDogById(int id) {
-        return shelterDogs.get(id);
+    public VirtualPet retrievePetById(int id) {
+        return shelterPets.get(id);
     }
 
-    public void removeDogById(int id) {
-        shelterDogs.remove(id);
+    public void removeDPetById(int id) {
+        shelterPets.remove(id);
     }
 
-    public int numberOfDogs() {
-        return shelterDogs.size();
+    public int numberOfPets() {
+        return shelterPets.size();
     }
 
-    public Dog[] getDogs() {
-        return shelterDogs.values().toArray(new Dog[0]);
+    public VirtualPet[] getPets() {
+        return shelterPets.values().toArray(new VirtualPet[0]);
     }
 }
 
