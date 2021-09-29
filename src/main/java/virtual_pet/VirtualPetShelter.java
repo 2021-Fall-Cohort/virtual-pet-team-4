@@ -27,9 +27,5 @@ public class VirtualPetShelter {
     public Dog[] getDogs() {
         return shelterDogs.values().toArray(new Dog[0]);
     }
-
-    public Dog[] getDogIds() {
-        return shelterDogs.keySet().toArray(new Dog[0]);
-    }
 }
 
