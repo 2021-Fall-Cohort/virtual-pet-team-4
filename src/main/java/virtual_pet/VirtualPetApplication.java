@@ -62,8 +62,8 @@ public class VirtualPetApplication {
             System.out.println("3. Give pets some food"); // Prompt the user to select food for all their dogs
             System.out.println("4. Get your pets' current status"); // Provide the user with status after tick
             System.out.println("5. Get your pets' info"); // Provide the user with a table of all dog's info
-            System.out.println("6. Adopt a dog out");
-            System.out.println("7. Admit a dog in");
+            System.out.println("6. Adopt a pet out");
+            System.out.println("7. Admit a pet in");
             System.out.println("Type quit to quit");
             choice = scanner.nextLine();
             checkQuit(choice);
