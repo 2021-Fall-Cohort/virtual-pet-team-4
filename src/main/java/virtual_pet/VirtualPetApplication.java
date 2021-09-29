@@ -48,7 +48,8 @@ public class VirtualPetApplication {
         // Start the shelter off with 4 dogs
         VirtualPetShelter myShelter = new VirtualPetShelter();
         for (int i = 0; i < 4; i++) {
-            myShelter.addDog(new Dog(nameGen.getName(), nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), i, nameGen.getAge()));
+            myShelter.addPet(new OrganicCat(nameGen.getName(), nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), nameGen.getAge(), 0, 0, 0, false));
+
         }
 
         // Game Loop //
@@ -72,7 +73,7 @@ public class VirtualPetApplication {
             checkQuit(choice);
             switch (choice) {
                 case "1":
-                    if (myShelter.numberOfDogs() == 0 ) {
+                    if (myShelter.numberOfPets() == 0 ) {
                         System.out.println("You don't have any dogs to play with!");
                         try
                         {
@@ -85,16 +86,16 @@ public class VirtualPetApplication {
                         break;
                     }
                     System.out.println(" ID   | Name   |  Age   |  Breed ");
-                    for(Dog currentDog: myShelter.getDogs()) {
-                        currentDog.tick();
-                        System.out.println(currentDog.interactionList());
+                    for(VirtualPet currentPet: myShelter.getPets()) {
+                        currentPet.tick();
+                        System.out.println(currentPet.interactionList());
                     }
                     System.out.println("Enter the ID of the dog you want to play with");
                     Scanner playScanner = new Scanner(System.in);
                     int dogToPlayId = playScanner.nextInt();
                     idPresent = false;
-                    for (Dog currentDog: myShelter.getDogs()) {
-                        int currentId = currentDog.getId();
+                    for (VirtualPet currentPet: myShelter.getPets()) {
+                        int currentId = currentPet.getId();
                         if (currentId == dogToPlayId ) {
                             idPresent = true;
                         }
@@ -111,10 +112,10 @@ public class VirtualPetApplication {
                         }
                         break;
                     }
-                    myShelter.retrieveDogById(dogToPlayId).play();
+                    myShelter.retrievePetById(dogToPlayId).play();
                     break;
                 case "2":
-                    if (myShelter.numberOfDogs() == 0 ) {
+                    if (myShelter.numberOfPets() == 0 ) {
                         System.out.println("You don't have any dogs to give water to!");
                         try
                         {
@@ -126,13 +127,13 @@ public class VirtualPetApplication {
                         }
                         break;
                     }
-                    for(Dog currentDog: myShelter.getDogs()) {
-                        currentDog.water();
-                        currentDog.tick();
+                    for(VirtualPet currentPet: myShelter.getPets()) {
+                        currentPet.water();
+                        currentPet.tick();
                     }
                     break;
                 case "3":
-                    if (myShelter.numberOfDogs() == 0 ) {
+                    if (myShelter.numberOfPets() == 0 ) {
                         System.out.println("You don't have any dogs to feed!");
                         try
                         {
@@ -144,13 +145,13 @@ public class VirtualPetApplication {
                         }
                         break;
                     }
-                    for(Dog currentDog: myShelter.getDogs()) {
-                        currentDog.feed();
-                        currentDog.tick();
+                    for(VirtualPet currentPet: myShelter.getPets()) {
+                        currentPet.feed();
+                        currentPet.tick();
                     }
                     break;
                 case "4":
-                    if (myShelter.numberOfDogs() == 0 ) {
+                    if (myShelter.numberOfPets() == 0 ) {
                         System.out.println("You don't have any dogs!");
                         try
                         {
@@ -164,13 +165,13 @@ public class VirtualPetApplication {
                     }
                     System.out.println("Name  | Hunger | Thirst | Boredom");
                     System.out.println("----------------------------------");
-                    for(Dog currentDog: myShelter.getDogs()) {
-                        currentDog.tick();
-                        System.out.println(currentDog.status());
+                    for(VirtualPet currentPet: myShelter.getPets()) {
+                        currentPet.tick();
+                        System.out.println(currentPet.status());
                     }
                     break;
                 case "5":
-                    if (myShelter.numberOfDogs() == 0 ) {
+                    if (myShelter.numberOfPets() == 0 ) {
                         System.out.println("You don't have any dogs!");
                         try
                         {
@@ -184,15 +185,15 @@ public class VirtualPetApplication {
                     }
                     System.out.println("Name  | Age | Gender | Breed");
                     System.out.println("-----------------------------------");
-                    for(Dog currentDog: myShelter.getDogs()) {
-                        currentDog.tick();
-                        System.out.println(currentDog.info());
+                    for(VirtualPet currentPet: myShelter.getPets()) {
+                        currentPet.tick();
+                        System.out.println(currentPet.info());
                     }
                     break;
                 case "6":
                     PeopleGen peopleGen = new PeopleGen();
                     // Present user with a list of all their dogs (probably more similar to the info screen
-                    if (myShelter.numberOfDogs() == 0 ) {
+                    if (myShelter.numberOfPets() == 0 ) {
                         System.out.println("You don't have any dogs to give away!");
                         try
                         {
@@ -205,16 +206,16 @@ public class VirtualPetApplication {
                         break;
                     }
                     System.out.println(" ID   | Name   |  Age   |  Breed ");
-                    for(Dog currentDog: myShelter.getDogs()) {
-                        currentDog.tick();
-                        System.out.println(currentDog.interactionList());
+                    for(VirtualPet currentPet: myShelter.getPets()) {
+                        currentPet.tick();
+                        System.out.println(currentPet.interactionList());
                     }
                     System.out.println("Enter the ID of the dog you want to adopt out");
                     Scanner adoptionScanner = new Scanner(System.in);
                     int dogOutId = adoptionScanner.nextInt();
                     idPresent = false;
-                    for (Dog currentDog: myShelter.getDogs()) {
-                        int currentId = currentDog.getId();
+                    for (VirtualPet currentPet: myShelter.getPets()) {
+                        int currentId = currentPet.getId();
                         if (currentId == dogOutId ) {
                             idPresent = true;
                         }
@@ -231,8 +232,8 @@ public class VirtualPetApplication {
                         }
                         break;
                     }
-                    String dogOut = myShelter.retrieveDogById(dogOutId).getName();
-                    myShelter.removeDogById(dogOutId);
+                    String dogOut = myShelter.retrievePetById(dogOutId).getName();
+                    myShelter.removePetById(dogOutId);
                     System.out.println(dogOut + " has been adopted by " + peopleGen.getPersonFirstName() + " " + peopleGen.getPersonLastName() +
                             ". "  + peopleGen.getPersonFirstName() + " is " + peopleGen.getPersonAge() + " years old, so they should have plenty of time for their new friend.");
                     try
@@ -248,7 +249,7 @@ public class VirtualPetApplication {
                     // Present the user with their new randomly generated dog
                     // Add the new dog to the HashMap
                     String newDogName = nameGen.getName();
-                    myShelter.addDog(new Dog(newDogName, nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), (myShelter.numberOfDogs() + 1), nameGen.getAge()));
+                    myShelter.addDog(new Dog(newDogName, nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), (myShelter.numberOfPets() + 1), nameGen.getAge()));
                     System.out.println("Welcome " + newDogName + " to our Pet Shelter!");
                     try
                     {
@@ -261,8 +262,8 @@ public class VirtualPetApplication {
                     break;
                 default:
                     System.out.println("You made an invalid selection and now your pets get nothing >:(");
-                    for(Dog currentDog: myShelter.getDogs()) {
-                        currentDog.tick();
+                    for(VirtualPet currentPet: myShelter.getPets()) {
+                        currentPet.tick();
                     }
                     try
                     {
