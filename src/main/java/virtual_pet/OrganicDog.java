@@ -4,8 +4,16 @@ import java.util.Random;
 
 public class OrganicDog extends OrganicPet{
 
-    public OrganicDog(String name, String sex, String breed, String pronoun, int age, int id, int bathroomNeeds, int hungerLevel, boolean isHungry) {
-        super(name, sex, breed, pronoun, age, id, bathroomNeeds, hungerLevel, isHungry);
+
+
+    public OrganicDog(String name, String sex, String breed, String pronoun, int age, int id) {
+        super(name, sex, breed, pronoun, age, id);
+        this.name = name;
+        this.sex = sex;
+        this.breed = breed;
+        this.pronoun = pronoun;
+        this.age = age;
+        this.id = id;
     }
 
     @Override

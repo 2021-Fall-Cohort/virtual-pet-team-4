@@ -5,11 +5,10 @@ public abstract class OrganicPet extends VirtualPet {
     protected int hungerLevel;
     protected boolean isHungry;
 
-    public OrganicPet(String name, String sex, String breed, String pronoun, int age, int id, int bathroomNeeds, int hungerLevel, boolean isHungry) {
+    public OrganicPet(String name, String sex, String breed, String pronoun, int age, int id) {
         super(name, sex, breed, pronoun, age, id);
-        this.bathroomNeeds = bathroomNeeds;
-        this.hungerLevel = hungerLevel;
-        this.isHungry = isHungry;
+        this.bathroomNeeds = 0;
+        this.hungerLevel = 20;
     }
 
     abstract public void feed();
