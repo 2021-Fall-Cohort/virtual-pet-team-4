@@ -15,7 +15,7 @@ public class PeopleGen {
     public PeopleGen() {
         this.personFirstName = personFirstName;
         this.personLastName = personLastName;
-        this. personAge = personAge;
+        this.personAge = personAge;
         Random rand = new Random();
 
         /// First name gen
@@ -38,6 +38,10 @@ public class PeopleGen {
         }
         /// Age gen
         personAge = rand.nextInt(65);
+        if (personAge < 18) {
+            personAge = 18;
+        }
+
     }
     // Returns a person
     public String getPerson() {
@@ -45,14 +49,17 @@ public class PeopleGen {
     }
 
     public String getPersonFirstName() {
+
         return personFirstName;
     }
 
     public String getPersonLastName() {
+
         return personLastName;
     }
 
     public int getPersonAge() {
+
         return personAge;
     }
 }

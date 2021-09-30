@@ -143,7 +143,9 @@ public class VirtualPetApplication {
                         break;
                     }
                     for(VirtualPet currentPet: myShelter.getPets()) {
-                        currentPet.feed();
+                        if (currentPet instanceof OrganicPet){
+                            ((OrganicPet) currentPet).feed();
+                        }
                         currentPet.tick();
                     }
                     break;
