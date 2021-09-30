@@ -5,7 +5,7 @@ public class VirtualPetShelter {
     private HashMap<Integer, VirtualPet> shelterPets = new HashMap<Integer, VirtualPet>();
 
     public VirtualPetShelter() {
-        shelterPets = new HashMap<Integer, VirtualPet>();
+        shelterPets = new HashMap<Integer, VirtualPet>( );
     }
 
     public void addPet(VirtualPet pet) {
@@ -16,7 +16,7 @@ public class VirtualPetShelter {
         return shelterPets.get(id);
     }
 
-    public void removeDPetById(int id) {
+    public void removePetById(int id) {
         shelterPets.remove(id);
     }
 
