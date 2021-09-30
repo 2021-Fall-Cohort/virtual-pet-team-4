@@ -36,7 +36,7 @@ public class VirtualPetApplication {
         }
 
         NameGen nameGen = new NameGen();
-        BreedGen breedGen = new BreedGen();
+        DogBreedGen breedGen = new DogBreedGen();
 
         String randName = nameGen.getName();
         String randBreed = breedGen.getBreed();
@@ -246,9 +246,18 @@ public class VirtualPetApplication {
                     break;
                 case "7":
                     // Present the user with their new randomly generated pet
-                    // Add the new dog to the HashMap
-                    String newDogName = nameGen.getName();
-                    myShelter.addPet(new OrganicDog(), nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), (myShelter.numberOfPets() + 1), nameGen.getAge()));
+                    Scanner petInScanner = new Scanner(System.in);
+                    System.out.println("enter name of pet to adopt and press enter");
+                    String petAdoptionName = petInScanner.nextLine();
+                    System.out.println("enter sex of animal to admit ");
+                    String petAdoptionSex = petInScanner.nextLine();
+                    System.out.println("enter Breed of animal to admit ");
+                    String petAdoptionBreed = petInScanner.nextLine();
+                    System.out.println("enter age of animal to admit ");
+                    String petAdoptionAge = petInScanner.nextLine();
+
+                    String newPetName = nameGen.getName();
+                    myShelter.addPet(new OrganicPet(), nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), (myShelter.numberOfPets() + 1), nameGen.getAge()));
                     System.out.println("Welcome " + newDogName + " to our Pet Shelter!");
                     try
                     {
