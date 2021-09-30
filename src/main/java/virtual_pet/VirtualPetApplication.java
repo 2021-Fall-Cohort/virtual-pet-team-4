@@ -242,8 +242,8 @@ public class VirtualPetApplication {
                     }
                     break;
                 case "7":
-                    // Present the user with their new randomly generated dog
-                    // Add the new dog to the HashMap
+                    // Present the user with their new randomly generated pet
+                    // Add the new pet to the HashMap
                     String newDogName = nameGen.getName();
                     myShelter.addDog(new Dog(newDogName, nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), (myShelter.numberOfDogs() + 1), nameGen.getAge()));
                     System.out.println("Welcome " + newDogName + " to our Pet Shelter!");
