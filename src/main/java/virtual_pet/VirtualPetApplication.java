@@ -143,7 +143,7 @@ public class VirtualPetApplication {
                         break;
                     }
                     for(VirtualPet currentPet: myShelter.getPets()) {
-                        if (currentPet instanceof OrganicPet){
+                        if (currentPet instanceof OrganicPet) {
                             ((OrganicPet) currentPet).feed();
                         }
                         currentPet.tick();
@@ -248,7 +248,7 @@ public class VirtualPetApplication {
                     // Present the user with their new randomly generated pet
                     // Add the new dog to the HashMap
                     String newDogName = nameGen.getName();
-                    myShelter.addDog(new Dog(newDogName, nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), (myShelter.numberOfPets() + 1), nameGen.getAge()));
+                    myShelter.addPet(new OrganicDog(), nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), (myShelter.numberOfPets() + 1), nameGen.getAge()));
                     System.out.println("Welcome " + newDogName + " to our Pet Shelter!");
                     try
                     {
