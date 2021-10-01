@@ -117,6 +117,16 @@ public class OrganicDog extends OrganicPet{
     }
 
     @Override
+    public int getHunger() {
+        return hungerLevel;
+    }
+
+    @Override
+    public int getBathroomNeeds() {
+        return bathroomNeeds;
+    }
+
+    @Override
     public void addThirst() {
         thirstLevel++;
     }
@@ -134,5 +144,9 @@ public class OrganicDog extends OrganicPet{
 
     public void cleanCage() {
         cageCleanliness = 0;
+    }
+
+    public int getCageCleanliness() {
+        return cageCleanliness;
     }
 }

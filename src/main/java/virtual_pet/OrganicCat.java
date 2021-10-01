@@ -26,6 +26,20 @@ public class OrganicCat extends OrganicPet{
         hungerLevel++;
     }
 
+    public int getLitterBoxCleanliness() {
+        return litterBoxCleanliness;
+    }
+
+    @Override
+    public int getHunger() {
+        return hungerLevel;
+    }
+
+    @Override
+    public int getBathroomNeeds() {
+        return bathroomNeeds;
+    }
+
     @Override
     public void water() {
         thirstLevel -= 20;
