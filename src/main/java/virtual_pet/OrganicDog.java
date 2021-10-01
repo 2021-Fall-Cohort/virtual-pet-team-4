@@ -13,6 +13,7 @@ public class OrganicDog extends OrganicPet{
         this.pronoun = pronoun;
         this.age = age;
         this.id = id;
+        cageCleanliness = 0;
     }
 
     @Override
@@ -46,6 +47,14 @@ public class OrganicDog extends OrganicPet{
             healthLevel = healthLevel - 5;
         } else if (healthLevel < 100 ) {
             healthLevel = healthLevel + 5;
+        }
+        bathroomNeeds++;
+        if (bathroomNeeds < 5) {
+            cageCleanliness++;
+        } else if (bathroomNeeds < 10) {
+            cageCleanliness += 2;
+        } else if (bathroomNeeds < 20) {
+            cageCleanliness += 3;
         }
     }
 
@@ -119,6 +128,11 @@ public class OrganicDog extends OrganicPet{
 
     @Override
     public void walk() {
+        bathroomNeeds = 0;
+        boredomLevel -= 20;
+    }
 
+    public void cleanCage() {
+        cageCleanliness = 0;
     }
 }

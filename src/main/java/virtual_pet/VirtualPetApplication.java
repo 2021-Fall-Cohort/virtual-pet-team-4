@@ -271,6 +271,9 @@ public class VirtualPetApplication {
                         if (currentPet instanceof OrganicCat) {
                             ((OrganicCat) currentPet).cleanLitterBox();
                         }
+                        if (currentPet instanceof OrganicDog) {
+                            ((OrganicDog) currentPet).cleanCage();
+                        }
                         currentPet.tick();
                     }
                     break;
