@@ -13,6 +13,7 @@ public class OrganicCat extends OrganicPet{
         this.pronoun = pronoun;
         this.age = age;
         this.id = id;
+        litterBoxCleanliness = 0;
     }
 
     @Override
