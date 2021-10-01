@@ -36,7 +36,7 @@ public class VirtualPetApplication {
         }
 
         NameGen nameGen = new NameGen();
-        BreedGen breedGen = new BreedGen();
+        DogBreedGen breedGen = new DogBreedGen();
 
         String randName = nameGen.getName();
         String randBreed = breedGen.getBreed();
@@ -310,6 +310,10 @@ public class VirtualPetApplication {
                     {
                         Thread.currentThread().interrupt();
                     }
+                case "8":
+                    // option to clean cages / litter
+
+                    break;
                     }
             }
             while (isRunning) ;
