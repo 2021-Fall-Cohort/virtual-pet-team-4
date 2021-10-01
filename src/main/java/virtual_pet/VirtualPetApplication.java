@@ -26,20 +26,17 @@ public class VirtualPetApplication {
                 " :::: ::     ::::: ::      ::: ::::      ::: ::::     ::::: ::      :::: ::      \n" +
                 ":: :  :       : :  :       :: :: :       :: :: :       : :  :       :: : :       \n" +
                 "                                                                                      ");
-        try
-        {
+        try {
             Thread.sleep(3000);
-        }
-        catch(InterruptedException ex)
-        {
+        } catch (InterruptedException ex) {
             Thread.currentThread().interrupt();
         }
 
         NameGen nameGen = new NameGen();
-        DogBreedGen breedGen = new DogBreedGen();
+        DogBreedGen dogBreedGen = new DogBreedGen();
+        CatBreedGen catBreedGen = new CatBreedGen();
 
         String randName = nameGen.getName();
-        String randBreed = breedGen.getBreed();
         System.out.println("Welcome to the Virtual Pet Shelter simulator");
         String choice = "";
         Boolean isRunning = true;
@@ -47,10 +44,10 @@ public class VirtualPetApplication {
 
         // Start the shelter off with 4 pets, one of each type
         VirtualPetShelter myShelter = new VirtualPetShelter();
-        myShelter.addPet(new OrganicDog(nameGen.getName(), nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), nameGen.getAge(), 0));
-        myShelter.addPet(new OrganicCat(nameGen.getName(), nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), nameGen.getAge(), 1));
-        myShelter.addPet(new RoboticDog(nameGen.getName(), nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), nameGen.getAge(), 2));
-        myShelter.addPet(new RoboticCat(nameGen.getName(), nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), nameGen.getAge(), 3));
+        myShelter.addPet(new OrganicDog(nameGen.getName(), nameGen.getSex(), dogBreedGen.getDogBreed(), nameGen.getPronoun(), nameGen.getAge(), 0));
+        myShelter.addPet(new OrganicCat(nameGen.getName(), nameGen.getSex(), catBreedGen.getCatBreed(), nameGen.getPronoun(), nameGen.getAge(), 1));
+        myShelter.addPet(new RoboticDog(nameGen.getName(), nameGen.getSex(), dogBreedGen.getDogBreed(), nameGen.getPronoun(), nameGen.getAge(), 2));
+        myShelter.addPet(new RoboticCat(nameGen.getName(), nameGen.getSex(), catBreedGen.getCatBreed(), nameGen.getPronoun(), nameGen.getAge(), 3));
 
         // Game Loop //
         do {
@@ -65,25 +62,23 @@ public class VirtualPetApplication {
             System.out.println("5. Get your pets' info"); // Provide the user with a table of all dog's info
             System.out.println("6. Adopt a pet out");
             System.out.println("7. Admit a pet in");
+            System.out.println("8. Clean cages / litterboxes");
             System.out.println("Type quit to quit");
             choice = scanner.nextLine();
             checkQuit(choice);
             switch (choice) {
                 case "1":
-                    if (myShelter.numberOfPets() == 0 ) {
+                    if (myShelter.numberOfPets() == 0) {
                         System.out.println("You don't have any pets to play with!");
-                        try
-                        {
+                        try {
                             Thread.sleep(1000);
-                        }
-                        catch(InterruptedException ex)
-                        {
+                        } catch (InterruptedException ex) {
                             Thread.currentThread().interrupt();
                         }
                         break;
                     }
                     System.out.println(" ID   | Name   |  Age   |  Breed ");
-                    for(VirtualPet currentPet: myShelter.getPets()) {
+                    for (VirtualPet currentPet : myShelter.getPets()) {
                         currentPet.tick();
                         System.out.println(currentPet.interactionList());
                     }
@@ -91,20 +86,17 @@ public class VirtualPetApplication {
                     Scanner playScanner = new Scanner(System.in);
                     int petToPlayId = playScanner.nextInt();
                     idPresent = false;
-                    for (VirtualPet currentPet: myShelter.getPets()) {
+                    for (VirtualPet currentPet : myShelter.getPets()) {
                         int currentId = currentPet.getId();
-                        if (currentId == petToPlayId ) {
+                        if (currentId == petToPlayId) {
                             idPresent = true;
                         }
                     }
                     if (!idPresent) {
                         System.out.println("That pet doesn't even exist!");
-                        try
-                        {
+                        try {
                             Thread.sleep(1000);
-                        }
-                        catch(InterruptedException ex)
-                        {
+                        } catch (InterruptedException ex) {
                             Thread.currentThread().interrupt();
                         }
                         break;
@@ -112,37 +104,31 @@ public class VirtualPetApplication {
                     myShelter.retrievePetById(petToPlayId).play();
                     break;
                 case "2":
-                    if (myShelter.numberOfPets() == 0 ) {
+                    if (myShelter.numberOfPets() == 0) {
                         System.out.println("You don't have any pets to give water to!");
-                        try
-                        {
+                        try {
                             Thread.sleep(1000);
-                        }
-                        catch(InterruptedException ex)
-                        {
+                        } catch (InterruptedException ex) {
                             Thread.currentThread().interrupt();
                         }
                         break;
                     }
-                    for(VirtualPet currentPet: myShelter.getPets()) {
+                    for (VirtualPet currentPet : myShelter.getPets()) {
                         currentPet.water();
                         currentPet.tick();
                     }
                     break;
                 case "3":
-                    if (myShelter.numberOfPets() == 0 ) {
+                    if (myShelter.numberOfPets() == 0) {
                         System.out.println("You don't have any pets to feed!");
-                        try
-                        {
+                        try {
                             Thread.sleep(1000);
-                        }
-                        catch(InterruptedException ex)
-                        {
+                        } catch (InterruptedException ex) {
                             Thread.currentThread().interrupt();
                         }
                         break;
                     }
-                    for(VirtualPet currentPet: myShelter.getPets()) {
+                    for (VirtualPet currentPet : myShelter.getPets()) {
                         if (currentPet instanceof OrganicPet) {
                             ((OrganicPet) currentPet).feed();
                         }
@@ -150,41 +136,35 @@ public class VirtualPetApplication {
                     }
                     break;
                 case "4":
-                    if (myShelter.numberOfPets() == 0 ) {
+                    if (myShelter.numberOfPets() == 0) {
                         System.out.println("You don't have any pets!");
-                        try
-                        {
+                        try {
                             Thread.sleep(1000);
-                        }
-                        catch(InterruptedException ex)
-                        {
+                        } catch (InterruptedException ex) {
                             Thread.currentThread().interrupt();
                         }
                         break;
                     }
                     System.out.println("Name  | Hunger | Thirst | Boredom");
                     System.out.println("----------------------------------");
-                    for(VirtualPet currentPet: myShelter.getPets()) {
+                    for (VirtualPet currentPet : myShelter.getPets()) {
                         currentPet.tick();
                         System.out.println(currentPet.status());
                     }
                     break;
                 case "5":
-                    if (myShelter.numberOfPets() == 0 ) {
+                    if (myShelter.numberOfPets() == 0) {
                         System.out.println("You don't have any pets!");
-                        try
-                        {
+                        try {
                             Thread.sleep(1000);
-                        }
-                        catch(InterruptedException ex)
-                        {
+                        } catch (InterruptedException ex) {
                             Thread.currentThread().interrupt();
                         }
                         break;
                     }
                     System.out.println("Name  | Age | Gender | Breed");
                     System.out.println("-----------------------------------");
-                    for(VirtualPet currentPet: myShelter.getPets()) {
+                    for (VirtualPet currentPet : myShelter.getPets()) {
                         currentPet.tick();
                         System.out.println(currentPet.info());
                     }
@@ -192,20 +172,17 @@ public class VirtualPetApplication {
                 case "6":
                     PeopleGen peopleGen = new PeopleGen();
                     // Present user with a list of all their pets (probably more similar to the info screen
-                    if (myShelter.numberOfPets() == 0 ) {
+                    if (myShelter.numberOfPets() == 0) {
                         System.out.println("You don't have any pets to give away!");
-                        try
-                        {
+                        try {
                             Thread.sleep(1000);
-                        }
-                        catch(InterruptedException ex)
-                        {
+                        } catch (InterruptedException ex) {
                             Thread.currentThread().interrupt();
                         }
                         break;
                     }
                     System.out.println(" ID   | Name   |  Age   |  Breed ");
-                    for(VirtualPet currentPet: myShelter.getPets()) {
+                    for (VirtualPet currentPet : myShelter.getPets()) {
                         currentPet.tick();
                         System.out.println(currentPet.interactionList());
                     }
@@ -213,20 +190,17 @@ public class VirtualPetApplication {
                     Scanner adoptionScanner = new Scanner(System.in);
                     int petOutId = adoptionScanner.nextInt();
                     idPresent = false;
-                    for (VirtualPet currentPet: myShelter.getPets()) {
+                    for (VirtualPet currentPet : myShelter.getPets()) {
                         int currentId = currentPet.getId();
-                        if (currentId == petOutId ) {
+                        if (currentId == petOutId) {
                             idPresent = true;
                         }
                     }
                     if (!idPresent) {
                         System.out.println("That pet doesn't even exist!");
-                        try
-                        {
+                        try {
                             Thread.sleep(1000);
-                        }
-                        catch(InterruptedException ex)
-                        {
+                        } catch (InterruptedException ex) {
                             Thread.currentThread().interrupt();
                         }
                         break;
@@ -234,13 +208,10 @@ public class VirtualPetApplication {
                     String petOut = myShelter.retrievePetById(petOutId).getName();
                     myShelter.removePetById(petOutId);
                     System.out.println(petOut + " has been adopted by " + peopleGen.getPersonFirstName() + " " + peopleGen.getPersonLastName() +
-                            ". "  + peopleGen.getPersonFirstName() + " is " + peopleGen.getPersonAge() + " years old, so they should have plenty of time for their new friend.");
-                    try
-                    {
+                            ". " + peopleGen.getPersonFirstName() + " is " + peopleGen.getPersonAge() + " years old, so they should have plenty of time for their new friend.");
+                    try {
                         Thread.sleep(1000);
-                    }
-                    catch(InterruptedException ex)
-                    {
+                    } catch (InterruptedException ex) {
                         Thread.currentThread().interrupt();
                     }
                     break;
@@ -288,34 +259,33 @@ public class VirtualPetApplication {
                             break;
                     }
                     System.out.println("Welcome " + admitName + " to our Pet Shelter!");
-                    try
-                    {
+                    try {
                         Thread.sleep(1000);
-                    }
-                    catch(InterruptedException ex)
-                    {
+                    } catch (InterruptedException ex) {
                         Thread.currentThread().interrupt();
+                    }
+                    break;
+                case "8":
+                    // option to clean cages / litter boxes
+                    for (VirtualPet currentPet : myShelter.getPets()) {
+                        if (currentPet instanceof OrganicCat) {
+                            ((OrganicCat) currentPet).cleanLitterBox();
+                        }
+                        currentPet.tick();
                     }
                     break;
                 default:
                     System.out.println("You made an invalid selection and now your pets get nothing >:(");
-                    for(VirtualPet currentPet: myShelter.getPets()) {
+                    for (VirtualPet currentPet : myShelter.getPets()) {
                         currentPet.tick();
                     }
-                    try
-                    {
+                    try {
                         Thread.sleep(1000);
-                    }
-                    catch(InterruptedException ex)
-                    {
+                    } catch (InterruptedException ex) {
                         Thread.currentThread().interrupt();
                     }
-                case "8":
-                    // option to clean cages / litter
-
-                    break;
-                    }
             }
+        }
             while (isRunning) ;
     }
 
