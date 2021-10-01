@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Formatter;
 //
 public class VirtualPetApplication {
 
@@ -64,6 +65,7 @@ public class VirtualPetApplication {
             System.out.println("6. Adopt a pet out");
             System.out.println("7. Admit a pet in");
             System.out.println("8. Clean cages / litterboxes");
+            System.out.println("9. Take pets for a walk");
             System.out.println("Type quit to quit");
             choice = scanner.nextLine();
             checkQuit(choice);
@@ -137,6 +139,7 @@ public class VirtualPetApplication {
                     }
                     break;
                 case "4":
+                    clearScreen();
                     if (myShelter.numberOfPets() == 0) {
                         System.out.println("You don't have any pets!");
                         try {
@@ -146,12 +149,62 @@ public class VirtualPetApplication {
                         }
                         break;
                     }
-                    System.out.println("Name  | Hunger | Thirst | Boredom");
-                    System.out.println("----------------------------------");
+                    String organicDogFormat = "| %-10s |   %-5d|   %-5d|   %-5d |       %-5d      |       %-5d    |%n";
+                    System.out.println("Status of Organic Dogs");
+                    System.out.format("+------------+--------+--------+---------+------------------+----------------+%n");
+                    System.out.format("| Name       | Hunger | Thirst | Boredom | Cage Cleanliness | Bathroom Needs |%n");
+                    System.out.format("+------------+--------+--------+---------+------------------+----------------+%n");
                     for (VirtualPet currentPet : myShelter.getPets()) {
-                        currentPet.tick();
-                        System.out.println(currentPet.status());
+                        if (currentPet instanceof OrganicDog) {
+                            System.out.format(organicDogFormat, currentPet.getName(), ((OrganicPet) currentPet).getHunger(), currentPet.getThirstLevel(), currentPet.getBoredomLevel(),
+                                    ((OrganicDog) currentPet).getCageCleanliness(), ((OrganicPet) currentPet).getBathroomNeeds());
+                            currentPet.tick();
+                        }
                     }
+                    System.out.format("+------------+--------+--------+---------+------------------+----------------+%n");
+                    System.out.println(" ");
+                    String organicCatFormat = "| %-10s |   %-5d|   %-5d|   %-5d |          %-5d        |       %-5d    |%n";
+                    System.out.println("Status of Organic Cats");
+                    System.out.format("+------------+--------+--------+---------+-----------------------+----------------+%n");
+                    System.out.format("| Name       | Hunger | Thirst | Boredom | Litterbox Cleanliness | Bathroom Needs |%n");
+                    System.out.format("+------------+--------+--------+---------+-----------------------+----------------+%n");
+                    for (VirtualPet currentPet : myShelter.getPets()) {
+                        if (currentPet instanceof OrganicCat) {
+                            System.out.format(organicCatFormat, currentPet.getName(), ((OrganicPet) currentPet).getHunger(), currentPet.getThirstLevel(), currentPet.getBoredomLevel(),
+                                    ((OrganicCat) currentPet).getLitterBoxCleanliness(), ((OrganicPet) currentPet).getBathroomNeeds());
+                            currentPet.tick();
+                        }
+                    }
+                    System.out.format("+------------+--------+--------+---------+-----------------------+----------------+%n");
+                    System.out.println(" ");
+                    String roboticDogFormat = "| %-10s |   %-5d|   %-5d |    %-5d  |          %-5d    |%n";
+                    System.out.println("Status of Robotic Dogs");
+                    System.out.format("+------------+--------+---------+-----------+-------------------+%n");
+                    System.out.format("| Name       | Thirst | Boredom | Oil Level | Maintenance Level |%n");
+                    System.out.format("+------------+--------+---------+-----------+-------------------+%n");
+                    for (VirtualPet currentPet : myShelter.getPets()) {
+                        if (currentPet instanceof RoboticDog) {
+                            System.out.format(roboticDogFormat, currentPet.getName(), currentPet.getThirstLevel(), currentPet.getBoredomLevel(),
+                                    ((RoboticPet) currentPet).getOilLevel(), ((RoboticPet) currentPet).getMaintenanceLevel());
+                            currentPet.tick();
+                        }
+                    }
+                    System.out.format("+------------+--------+---------+-----------+-------------------+%n");
+                    System.out.println(" ");
+                    String roboticCatFormat = "| %-10s |   %-5d|   %-5d |    %-5d  |          %-5d    |%n";
+                    System.out.println("Status of Robotic Dogs");
+                    System.out.format("+------------+--------+---------+-----------+-------------------+%n");
+                    System.out.format("| Name       | Thirst | Boredom | Oil Level | Maintenance Level |%n");
+                    System.out.format("+------------+--------+---------+-----------+-------------------+%n");
+                    for (VirtualPet currentPet : myShelter.getPets()) {
+                        if (currentPet instanceof RoboticCat) {
+                            System.out.format(roboticCatFormat, currentPet.getName(), currentPet.getThirstLevel(), currentPet.getBoredomLevel(),
+                                    ((RoboticPet) currentPet).getOilLevel(), ((RoboticPet) currentPet).getMaintenanceLevel());
+                            currentPet.tick();
+                        }
+                    }
+                    System.out.format("+------------+--------+---------+-----------+-------------------+%n");
+                    System.out.println(" ");
                     break;
                 case "5":
                     if (myShelter.numberOfPets() == 0) {
@@ -276,6 +329,16 @@ public class VirtualPetApplication {
                         if (currentPet instanceof OrganicCat) {
                             ((OrganicCat) currentPet).cleanLitterBox();
                         }
+                        if (currentPet instanceof OrganicDog) {
+                            ((OrganicDog) currentPet).cleanCage();
+                        }
+                        currentPet.tick();
+                    }
+                    break;
+                case "9":
+                    // walk
+                    for (VirtualPet currentPet : myShelter.getPets()) {
+                        currentPet.walk();
                         currentPet.tick();
                     }
                     break;

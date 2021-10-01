@@ -28,6 +28,16 @@ public class RoboticDog extends RoboticPet{
     }
 
     @Override
+    public int getOilLevel() {
+        return oilLevel;
+    }
+
+    @Override
+    public int getMaintenanceLevel() {
+        return maintenanceLevel;
+    }
+
+    @Override
     public void water() {
         thirstLevel -= 20;
     }

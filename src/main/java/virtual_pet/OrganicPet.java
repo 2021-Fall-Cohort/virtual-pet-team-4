@@ -14,4 +14,8 @@ public abstract class OrganicPet extends VirtualPet {
     abstract public void feed();
 
     abstract public void addHunger();
+
+    abstract public int getHunger();
+
+    abstract public int getBathroomNeeds();
 }

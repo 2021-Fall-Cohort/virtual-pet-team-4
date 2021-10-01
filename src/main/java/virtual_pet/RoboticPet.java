@@ -15,4 +15,8 @@ public abstract class RoboticPet extends VirtualPet{
     abstract public void giveOil();
 
     abstract public void doMaintenance();
+
+    abstract public int getOilLevel();
+
+    abstract public int getMaintenanceLevel();
 }

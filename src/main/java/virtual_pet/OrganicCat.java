@@ -14,6 +14,7 @@ public class OrganicCat extends OrganicPet{
         this.pronoun = pronoun;
         this.age = age;
         this.id = id;
+        litterBoxCleanliness = 0;
     }
 
     @Override
@@ -26,6 +27,20 @@ public class OrganicCat extends OrganicPet{
     @Override
     public void addHunger() {
         hungerLevel++;
+    }
+
+    public int getLitterBoxCleanliness() {
+        return litterBoxCleanliness;
+    }
+
+    @Override
+    public int getHunger() {
+        return hungerLevel;
+    }
+
+    @Override
+    public int getBathroomNeeds() {
+        return bathroomNeeds;
     }
 
     @Override
