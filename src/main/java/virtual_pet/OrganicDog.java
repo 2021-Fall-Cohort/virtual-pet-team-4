@@ -1,23 +1,26 @@
 package virtual_pet;
-
+import java.util.Scanner;
 import java.util.Random;
 
 public class OrganicDog extends OrganicPet{
     private int cageCleanliness;
 
-    public OrganicDog(String name, String sex, String breed, String pronoun, int age, int id) {
-        super(name, sex, breed, pronoun, age, id);
+    public OrganicDog(String name, String sex, String breed, String pronoun, int age, int id, int favoriteFood, int favoriteToy) {
+        super(name, sex, breed, pronoun, age, id, favoriteFood, favoriteToy);
         this.name = name;
         this.sex = sex;
         this.breed = breed;
         this.pronoun = pronoun;
         this.age = age;
         this.id = id;
+        this.favoriteFood = favoriteFood;
+        this.favoriteToy = favoriteToy;
     }
 
     @Override
     public void feed() {
         hungerLevel -= 20;
+
     }
 
     @Override
@@ -28,6 +31,21 @@ public class OrganicDog extends OrganicPet{
     @Override
     public void play() {
         boredomLevel -= 20;
+        System.out.println("Toy options: \n" +
+                "1. Chew toy \n" +
+                "2. Ball \n" +
+                "3. String \n");
+        Scanner favScanner = new Scanner(System.in);
+        int toySelection = favScanner.nextInt();
+        if (toySelection == 1)
+            toySelection = 0;
+        if (toySelection == 2)
+            toySelection = 1;
+        if (toySelection == 3)
+            toySelection = 2;
+        if (toySelection == favoriteToy) {
+            boredomLevel -= 10;
+        }
     }
 
     @Override

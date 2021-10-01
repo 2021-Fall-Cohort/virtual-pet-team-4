@@ -5,6 +5,8 @@ public abstract class VirtualPet {
     protected String sex;
     protected String breed;
     protected String pronoun;
+    protected int favoriteFood;
+    protected int favoriteToy;
     protected int healthLevel;
     protected int thirstLevel;
     protected int boredomLevel;
@@ -13,13 +15,15 @@ public abstract class VirtualPet {
     protected boolean isBored;
     protected boolean isThirsty;
 
-    public VirtualPet(String name, String sex, String breed, String pronoun, int age, int id) {
+    public VirtualPet(String name, String sex, String breed, String pronoun, int age, int id, int favoriteFood, int favoriteToy ) {
         this.name = name;
         this.sex = sex;
         this.breed = breed;
         this.pronoun = pronoun;
         this.age = age;
         this.id = id;
+        this.favoriteFood = favoriteFood;
+        this.favoriteToy = favoriteToy;
     }
 
     public String getName() {
@@ -57,6 +61,10 @@ public abstract class VirtualPet {
     public int getId() {
         return id;
     }
+
+    public int getFavoriteFood() {return favoriteFood; }
+
+    public int getFavoriteToy() {return favoriteToy; }
 
     public boolean isBored() {
         return isBored;

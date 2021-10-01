@@ -35,6 +35,7 @@ public class VirtualPetApplication {
         NameGen nameGen = new NameGen();
         DogBreedGen dogBreedGen = new DogBreedGen();
         CatBreedGen catBreedGen = new CatBreedGen();
+        PersonalityGen personalityGen = new PersonalityGen();
 
         String randName = nameGen.getName();
         System.out.println("Welcome to the Virtual Pet Shelter simulator");
@@ -44,10 +45,10 @@ public class VirtualPetApplication {
 
         // Start the shelter off with 4 pets, one of each type
         VirtualPetShelter myShelter = new VirtualPetShelter();
-        myShelter.addPet(new OrganicDog(nameGen.getName(), nameGen.getSex(), dogBreedGen.getDogBreed(), nameGen.getPronoun(), nameGen.getAge(), 0));
-        myShelter.addPet(new OrganicCat(nameGen.getName(), nameGen.getSex(), catBreedGen.getCatBreed(), nameGen.getPronoun(), nameGen.getAge(), 1));
-        myShelter.addPet(new RoboticDog(nameGen.getName(), nameGen.getSex(), dogBreedGen.getDogBreed(), nameGen.getPronoun(), nameGen.getAge(), 2));
-        myShelter.addPet(new RoboticCat(nameGen.getName(), nameGen.getSex(), catBreedGen.getCatBreed(), nameGen.getPronoun(), nameGen.getAge(), 3));
+        myShelter.addPet(new OrganicDog(nameGen.getName(), nameGen.getSex(), dogBreedGen.getDogBreed(), nameGen.getPronoun(), nameGen.getAge(), 0, personalityGen.getFavoriteFood(),personalityGen.getFavoriteToy()));
+        myShelter.addPet(new OrganicCat(nameGen.getName(), nameGen.getSex(), catBreedGen.getCatBreed(), nameGen.getPronoun(), nameGen.getAge(), 1,personalityGen.getFavoriteFood(),personalityGen.getFavoriteToy()));
+        myShelter.addPet(new RoboticDog(nameGen.getName(), nameGen.getSex(), dogBreedGen.getDogBreed(), nameGen.getPronoun(), nameGen.getAge(), 2,personalityGen.getFavoriteFood(),personalityGen.getFavoriteToy()));
+        myShelter.addPet(new RoboticCat(nameGen.getName(), nameGen.getSex(), catBreedGen.getCatBreed(), nameGen.getPronoun(), nameGen.getAge(), 3,personalityGen.getFavoriteFood(),personalityGen.getFavoriteToy()));
 
         // Game Loop //
         do {
@@ -244,18 +245,22 @@ public class VirtualPetApplication {
                     String admitBreed = admitScanner.nextLine();
                     System.out.println("How old is your pet?");
                     int admitAge = admitScanner.nextInt();
+                    System.out.println("Pick your pets favorite FOOD (numbers 0, 1, or 2) and press enter.");
+                    int admitFavFood = admitScanner.nextInt();
+                    System.out.println("Pick your pets favorite TOY (number 0, 1, or 2) and press enter.");
+                    int admitFavToy = admitScanner.nextInt();
                     switch (admitChoice) {
                         case 1:
-                            myShelter.addPet(new OrganicDog(admitName, admitSex, admitBreed, admitPronoun, (myShelter.numberOfPets() + 1), admitAge));
+                            myShelter.addPet(new OrganicDog(admitName, admitSex, admitBreed, admitPronoun, (myShelter.numberOfPets() + 1), admitAge, admitFavFood, admitFavToy));
                             break;
                         case 2:
-                            myShelter.addPet(new OrganicCat(admitName, admitSex, admitBreed, admitPronoun, (myShelter.numberOfPets() + 1), admitAge));
+                            myShelter.addPet(new OrganicCat(admitName, admitSex, admitBreed, admitPronoun, (myShelter.numberOfPets() + 1), admitAge, admitFavFood, admitFavToy));
                             break;
                         case 3:
-                            myShelter.addPet(new RoboticDog(admitName, admitSex, admitBreed, admitPronoun, (myShelter.numberOfPets() + 1), admitAge));
+                            myShelter.addPet(new RoboticDog(admitName, admitSex, admitBreed, admitPronoun, (myShelter.numberOfPets() + 1), admitAge, admitFavFood, admitFavToy));
                             break;
                         case 4:
-                            myShelter.addPet(new RoboticCat(admitName, admitSex, admitBreed, admitPronoun, (myShelter.numberOfPets() + 1), admitAge));
+                            myShelter.addPet(new RoboticCat(admitName, admitSex, admitBreed, admitPronoun, (myShelter.numberOfPets() + 1), admitAge, admitFavFood, admitFavToy));
                             break;
                     }
                     System.out.println("Welcome " + admitName + " to our Pet Shelter!");
