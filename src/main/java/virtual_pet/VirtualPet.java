@@ -83,4 +83,6 @@ public abstract class VirtualPet {
     abstract public void addThirst();
 
     abstract public void addBoredom();
+
+    abstract public void walk();
 }

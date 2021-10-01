@@ -102,4 +102,10 @@ public class RoboticDog extends RoboticPet{
     public void addBoredom() {
         boredomLevel++;
     }
+
+    @Override
+    public void walk() {
+        oilLevel -= 20;
+        maintenanceLevel -= 20;
+    }
 }

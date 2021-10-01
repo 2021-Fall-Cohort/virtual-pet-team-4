@@ -4,8 +4,6 @@ import java.util.Random;
 
 public class OrganicDog extends OrganicPet{
 
-
-
     public OrganicDog(String name, String sex, String breed, String pronoun, int age, int id) {
         super(name, sex, breed, pronoun, age, id);
         this.name = name;
@@ -116,5 +114,10 @@ public class OrganicDog extends OrganicPet{
     @Override
     public void addBoredom() {
         boredomLevel++;
+    }
+
+    @Override
+    public void walk() {
+
     }
 }
