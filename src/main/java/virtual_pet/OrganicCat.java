@@ -3,9 +3,16 @@ package virtual_pet;
 import java.util.Random;
 
 public class OrganicCat extends OrganicPet{
+    private int litterBoxCleanliness;
 
-    public OrganicCat(String name, String sex, String breed, String pronoun, int age, int id, int bathroomNeeds, int hungerLevel, boolean isHungry) {
-        super(name, sex, breed, pronoun, age, id, bathroomNeeds, hungerLevel, isHungry);
+    public OrganicCat(String name, String sex, String breed, String pronoun, int age, int id) {
+        super(name, sex, breed, pronoun, age, id);
+        this.name = name;
+        this.sex = sex;
+        this.breed = breed;
+        this.pronoun = pronoun;
+        this.age = age;
+        this.id = id;
     }
 
     @Override
@@ -44,6 +51,14 @@ public class OrganicCat extends OrganicPet{
             healthLevel = healthLevel - 5;
         } else if (healthLevel < 100 ) {
             healthLevel = healthLevel + 5;
+        }
+        bathroomNeeds++;
+        if (bathroomNeeds < 5) {
+            litterBoxCleanliness++;
+        } else if (bathroomNeeds < 10) {
+            litterBoxCleanliness += 2;
+        } else if (bathroomNeeds < 20) {
+            litterBoxCleanliness += 3;
         }
     }
 
@@ -108,5 +123,15 @@ public class OrganicCat extends OrganicPet{
     @Override
     public void addBoredom() {
         boredomLevel++;
+    }
+
+    @Override
+    public void walk() {
+        bathroomNeeds = 0;
+        boredomLevel -= 20;
+    }
+
+    public void cleanLitterBox() {
+        litterBoxCleanliness = 0;
     }
 }

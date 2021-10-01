@@ -4,8 +4,14 @@ import java.util.Random;
 
 public class RoboticCat extends RoboticPet{
 
-    public RoboticCat(String name, String sex, String breed, String pronoun, int age, int id, int oilLevel, int maintenanceLevel) {
-        super(name, sex, breed, pronoun, age, id, oilLevel, maintenanceLevel);
+    public RoboticCat(String name, String sex, String breed, String pronoun, int age, int id) {
+        super(name, sex, breed, pronoun, age, id);
+        this.name = name;
+        this.sex = sex;
+        this.breed = breed;
+        this.pronoun = pronoun;
+        this.age = age;
+        this.id = id;
     }
 
     @Override
@@ -95,5 +101,11 @@ public class RoboticCat extends RoboticPet{
     @Override
     public void addBoredom() {
         boredomLevel++;
+    }
+
+    @Override
+    public void walk() {
+        oilLevel -= 20;
+        maintenanceLevel -= 20;
     }
 }

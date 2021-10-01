@@ -45,12 +45,12 @@ public class VirtualPetApplication {
         Boolean isRunning = true;
         Boolean idPresent = false;
 
-        // Start the shelter off with 4 dogs
+        // Start the shelter off with 4 pets, one of each type
         VirtualPetShelter myShelter = new VirtualPetShelter();
-        for (int i = 0; i < 4; i++) {
-            myShelter.addPet(new OrganicCat(nameGen.getName(), nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), nameGen.getAge(), 0, 0, 0, false));
-
-        }
+        myShelter.addPet(new OrganicDog(nameGen.getName(), nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), nameGen.getAge(), 0));
+        myShelter.addPet(new OrganicCat(nameGen.getName(), nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), nameGen.getAge(), 1));
+        myShelter.addPet(new RoboticDog(nameGen.getName(), nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), nameGen.getAge(), 2));
+        myShelter.addPet(new RoboticCat(nameGen.getName(), nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), nameGen.getAge(), 3));
 
         // Game Loop //
         do {
@@ -245,20 +245,49 @@ public class VirtualPetApplication {
                     }
                     break;
                 case "7":
-                    // Present the user with their new randomly generated pet
-                    Scanner petInScanner = new Scanner(System.in);
-                    System.out.println("enter name of pet to adopt and press enter");
-                    String petAdoptionName = petInScanner.nextLine();
-                    System.out.println("enter sex of animal to admit ");
-                    String petAdoptionSex = petInScanner.nextLine();
-                    System.out.println("enter Breed of animal to admit ");
-                    String petAdoptionBreed = petInScanner.nextLine();
-                    System.out.println("enter age of animal to admit ");
-                    String petAdoptionAge = petInScanner.nextLine();
+                    // Prompt the user asking them which animal type they would like
+                    // Then ask the user for name, sex, breed, and age
+                    // Add the new pet to the Hashmap
+                    System.out.println("What new animal would you like to admit?");
+                    System.out.println("1. Organic Dog");
+                    System.out.println("2. Organic Cat");
+                    System.out.println("3. Robotic Dog");
+                    System.out.println("4. Robotic Cat");
+                    Scanner admitScanner = new Scanner(System.in);
+                    int admitChoice = admitScanner.nextInt();
+                    admitScanner.nextLine();
+                    System.out.println("What would you like to name it?");
+                    String admitName = admitScanner.nextLine();
+                    System.out.println("What gender is your pet?");
+                    String admitSex = admitScanner.nextLine();
 
-                    String newPetName = nameGen.getName();
-                    myShelter.addPet(new OrganicPet(), nameGen.getSex(), breedGen.getBreed(), nameGen.getPronoun(), (myShelter.numberOfPets() + 1), nameGen.getAge()));
-                    System.out.println("Welcome " + newDogName + " to our Pet Shelter!");
+                    String admitPronoun = "";
+                    if (admitSex.equalsIgnoreCase("male")) {
+                        admitPronoun = "His";
+                        admitSex = "M";
+                    } else if (admitSex.equalsIgnoreCase("female")) {
+                        admitPronoun = "Her";
+                        admitSex = "F";
+                    }
+                    System.out.println("What breed is your pet?");
+                    String admitBreed = admitScanner.nextLine();
+                    System.out.println("How old is your pet?");
+                    int admitAge = admitScanner.nextInt();
+                    switch (admitChoice) {
+                        case 1:
+                            myShelter.addPet(new OrganicDog(admitName, admitSex, admitBreed, admitPronoun, (myShelter.numberOfPets() + 1), admitAge));
+                            break;
+                        case 2:
+                            myShelter.addPet(new OrganicCat(admitName, admitSex, admitBreed, admitPronoun, (myShelter.numberOfPets() + 1), admitAge));
+                            break;
+                        case 3:
+                            myShelter.addPet(new RoboticDog(admitName, admitSex, admitBreed, admitPronoun, (myShelter.numberOfPets() + 1), admitAge));
+                            break;
+                        case 4:
+                            myShelter.addPet(new RoboticCat(admitName, admitSex, admitBreed, admitPronoun, (myShelter.numberOfPets() + 1), admitAge));
+                            break;
+                    }
+                    System.out.println("Welcome " + admitName + " to our Pet Shelter!");
                     try
                     {
                         Thread.sleep(1000);
@@ -295,6 +324,12 @@ public class VirtualPetApplication {
             System.out.println("Thank you for playing Virtual Pet Simulator");
             System.out.println("Created by William Robson and Josh Wright");
             System.exit(0);
+        }
+    }
+
+    public void clearScreen() {
+        for (int i = 0; i < 50; i++) {
+            System.out.println("\n");
         }
     }
 }

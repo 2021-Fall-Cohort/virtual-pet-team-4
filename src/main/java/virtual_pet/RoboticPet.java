@@ -4,10 +4,10 @@ public abstract class RoboticPet extends VirtualPet{
     protected int oilLevel;
     protected int maintenanceLevel;
 
-    public RoboticPet(String name, String sex, String breed, String pronoun, int age, int id, int oilLevel, int maintenanceLevel) {
+    public RoboticPet(String name, String sex, String breed, String pronoun, int age, int id) {
         super(name, sex, breed, pronoun, age, id);
-        this.oilLevel = oilLevel;
-        this.maintenanceLevel = maintenanceLevel;
+        this.oilLevel = 0;
+        this.maintenanceLevel = 0;
     }
 
     abstract public void giveOil();
