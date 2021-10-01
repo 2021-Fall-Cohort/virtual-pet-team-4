@@ -107,22 +107,6 @@ public class RoboticDog extends RoboticPet{
     }
 
     @Override
-    public String status() {
-        statusCheck();
-        return(name + " | " + thirstLevel + "     | " + boredomLevel);
-    }
-
-    @Override
-    public String info() {
-        return(name + " | " + age + "   |  " + sex + "     | " + breed);
-    }
-
-    @Override
-    public String interactionList() {
-        return(" " + id + "    |  " + name + " |    " + age + "   |   " + breed);
-    }
-
-    @Override
     public void addThirst() {
         thirstLevel++;
     }

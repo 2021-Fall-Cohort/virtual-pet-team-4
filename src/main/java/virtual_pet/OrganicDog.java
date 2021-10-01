@@ -113,22 +113,6 @@ public class OrganicDog extends OrganicPet{
     }
 
     @Override
-    public String status() {
-        statusCheck();
-        return(name + " | " + hungerLevel + "     | " + thirstLevel + "     | " + boredomLevel);
-    }
-
-    @Override
-    public String info() {
-        return(name + " | " + age + "   |  " + sex + "     | " + breed);
-    }
-
-    @Override
-    public String interactionList() {
-        return(" " + id + "    |  " + name + " |    " + age + "   |   " + breed);
-    }
-
-    @Override
     public void addHunger() {
         hungerLevel++;
     }

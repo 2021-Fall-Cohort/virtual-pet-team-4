@@ -82,12 +82,6 @@ public abstract class VirtualPet {
 
     abstract public void statusCheck();
 
-    abstract public String status();
-
-    abstract public String info();
-
-    abstract public String interactionList();
-
     abstract public void addThirst();
 
     abstract public void addBoredom();
