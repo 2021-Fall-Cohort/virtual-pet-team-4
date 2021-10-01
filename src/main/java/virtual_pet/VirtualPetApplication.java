@@ -71,6 +71,7 @@ public class VirtualPetApplication {
             checkQuit(choice);
             switch (choice) {
                 case "1":
+                    clearScreen();
                     if (myShelter.numberOfPets() == 0) {
                         System.out.println("You don't have any pets to play with!");
                         try {
@@ -80,11 +81,16 @@ public class VirtualPetApplication {
                         }
                         break;
                     }
-                    System.out.println(" ID   | Name   |  Age   |  Breed ");
+                    String interactionFormat = "| %-5d | %-10s  | %-5d  | %-20s  |%n";
+                    System.out.format("+-------+-------------+--------+-----------------------+%n");
+                    System.out.format("| ID    |    Name     |  Age   |        Breed          |%n");
+                    System.out.format("+-------+-------------+--------+-----------------------+%n");
                     for (VirtualPet currentPet : myShelter.getPets()) {
+                        System.out.format(interactionFormat, currentPet.getId(), currentPet.getName(), currentPet.getAge(), currentPet.getBreed());
                         currentPet.tick();
-                        System.out.println(currentPet.interactionList());
                     }
+                    System.out.format("+-------+-------------+--------+-----------------------+%n");
+                    System.out.println(" ");
                     System.out.println("Enter the ID of the pet you want to play with");
                     Scanner playScanner = new Scanner(System.in);
                     int petToPlayId = playScanner.nextInt();
@@ -150,7 +156,8 @@ public class VirtualPetApplication {
                         break;
                     }
                     String organicDogFormat = "| %-10s |   %-5d|   %-5d|   %-5d |       %-5d      |       %-5d    |%n";
-                    System.out.println("Status of Organic Dogs");
+                    System.out.format("+------------------------+----------------------+----------------------------+%n");
+                    System.out.format("|                          Organic Dogs' Status                              |%n");
                     System.out.format("+------------+--------+--------+---------+------------------+----------------+%n");
                     System.out.format("| Name       | Hunger | Thirst | Boredom | Cage Cleanliness | Bathroom Needs |%n");
                     System.out.format("+------------+--------+--------+---------+------------------+----------------+%n");
@@ -164,7 +171,8 @@ public class VirtualPetApplication {
                     System.out.format("+------------+--------+--------+---------+------------------+----------------+%n");
                     System.out.println(" ");
                     String organicCatFormat = "| %-10s |   %-5d|   %-5d|   %-5d |          %-5d        |       %-5d    |%n";
-                    System.out.println("Status of Organic Cats");
+                    System.out.format("+----------------------------+----------------------+-----------------------------+%n");
+                    System.out.format("|                              Organic Cats' Status                               |%n");
                     System.out.format("+------------+--------+--------+---------+-----------------------+----------------+%n");
                     System.out.format("| Name       | Hunger | Thirst | Boredom | Litterbox Cleanliness | Bathroom Needs |%n");
                     System.out.format("+------------+--------+--------+---------+-----------------------+----------------+%n");
@@ -178,7 +186,8 @@ public class VirtualPetApplication {
                     System.out.format("+------------+--------+--------+---------+-----------------------+----------------+%n");
                     System.out.println(" ");
                     String roboticDogFormat = "| %-10s |   %-5d|   %-5d |    %-5d  |          %-5d    |%n";
-                    System.out.println("Status of Robotic Dogs");
+                    System.out.format("+--------------------+----------------------+-------------------+%n");
+                    System.out.format("|                      Robotic Dogs' Status                     |%n");
                     System.out.format("+------------+--------+---------+-----------+-------------------+%n");
                     System.out.format("| Name       | Thirst | Boredom | Oil Level | Maintenance Level |%n");
                     System.out.format("+------------+--------+---------+-----------+-------------------+%n");
@@ -192,7 +201,8 @@ public class VirtualPetApplication {
                     System.out.format("+------------+--------+---------+-----------+-------------------+%n");
                     System.out.println(" ");
                     String roboticCatFormat = "| %-10s |   %-5d|   %-5d |    %-5d  |          %-5d    |%n";
-                    System.out.println("Status of Robotic Dogs");
+                    System.out.format("+--------------------+----------------------+-------------------+%n");
+                    System.out.format("|                      Robotic Cats' Status                     |%n");
                     System.out.format("+------------+--------+---------+-----------+-------------------+%n");
                     System.out.format("| Name       | Thirst | Boredom | Oil Level | Maintenance Level |%n");
                     System.out.format("+------------+--------+---------+-----------+-------------------+%n");
@@ -207,6 +217,7 @@ public class VirtualPetApplication {
                     System.out.println(" ");
                     break;
                 case "5":
+                    clearScreen();
                     if (myShelter.numberOfPets() == 0) {
                         System.out.println("You don't have any pets!");
                         try {
@@ -216,12 +227,16 @@ public class VirtualPetApplication {
                         }
                         break;
                     }
-                    System.out.println("Name  | Age | Gender | Breed");
-                    System.out.println("-----------------------------------");
+                    String infoFormat = "| %-10s | %-5d  | %-5s  | %-20s  |%n";
+                    System.out.format("+------------+--------+--------+-----------------------+%n");
+                    System.out.format("|  Name      |  Age   | Gender |         Breed         |%n");
+                    System.out.format("+------------+--------+--------+-----------------------+%n");
                     for (VirtualPet currentPet : myShelter.getPets()) {
+                        System.out.format(infoFormat, currentPet.getName(), currentPet.getAge(), currentPet.getSex(), currentPet.getBreed());
                         currentPet.tick();
-                        System.out.println(currentPet.info());
                     }
+                    System.out.format("+------------+--------+--------+-----------------------+%n");
+                    System.out.println(" ");
                     break;
                 case "6":
                     PeopleGen peopleGen = new PeopleGen();
@@ -235,11 +250,16 @@ public class VirtualPetApplication {
                         }
                         break;
                     }
-                    System.out.println(" ID   | Name   |  Age   |  Breed ");
+                    interactionFormat = "| %-5d | %-10s  | %-5d  | %-20s  |%n";
+                    System.out.format("+-------+-------------+--------+-----------------------+%n");
+                    System.out.format("| ID    |    Name     |  Age   |        Breed          |%n");
+                    System.out.format("+-------+-------------+--------+-----------------------+%n");
                     for (VirtualPet currentPet : myShelter.getPets()) {
+                        System.out.format(interactionFormat, currentPet.getId(), currentPet.getName(), currentPet.getAge(), currentPet.getBreed());
                         currentPet.tick();
-                        System.out.println(currentPet.interactionList());
                     }
+                    System.out.format("+-------+-------------+--------+-----------------------+%n");
+                    System.out.println(" ");
                     System.out.println("Enter the ID of the pet you want to adopt out");
                     Scanner adoptionScanner = new Scanner(System.in);
                     int petOutId = adoptionScanner.nextInt();
