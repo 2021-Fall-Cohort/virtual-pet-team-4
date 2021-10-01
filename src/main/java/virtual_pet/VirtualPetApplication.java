@@ -63,6 +63,7 @@ public class VirtualPetApplication {
             System.out.println("6. Adopt a pet out");
             System.out.println("7. Admit a pet in");
             System.out.println("8. Clean cages / litterboxes");
+            System.out.println("9. Take pets for a walk");
             System.out.println("Type quit to quit");
             choice = scanner.nextLine();
             checkQuit(choice);
@@ -274,6 +275,13 @@ public class VirtualPetApplication {
                         if (currentPet instanceof OrganicDog) {
                             ((OrganicDog) currentPet).cleanCage();
                         }
+                        currentPet.tick();
+                    }
+                    break;
+                case "9":
+                    // walk
+                    for (VirtualPet currentPet : myShelter.getPets()) {
+                        currentPet.walk();
                         currentPet.tick();
                     }
                     break;
