@@ -162,6 +162,7 @@ public class VirtualPetApplication {
                     System.out.format("| Name       | Hunger | Thirst | Boredom | Cage Cleanliness | Bathroom Needs |%n");
                     System.out.format("+------------+--------+--------+---------+------------------+----------------+%n");
                     for (VirtualPet currentPet : myShelter.getPets()) {
+                        currentPet.statusCheck();
                         if (currentPet instanceof OrganicDog) {
                             System.out.format(organicDogFormat, currentPet.getName(), ((OrganicPet) currentPet).getHunger(), currentPet.getThirstLevel(), currentPet.getBoredomLevel(),
                                     ((OrganicDog) currentPet).getCageCleanliness(), ((OrganicPet) currentPet).getBathroomNeeds());
@@ -177,6 +178,7 @@ public class VirtualPetApplication {
                     System.out.format("| Name       | Hunger | Thirst | Boredom | Litterbox Cleanliness | Bathroom Needs |%n");
                     System.out.format("+------------+--------+--------+---------+-----------------------+----------------+%n");
                     for (VirtualPet currentPet : myShelter.getPets()) {
+                        currentPet.statusCheck();
                         if (currentPet instanceof OrganicCat) {
                             System.out.format(organicCatFormat, currentPet.getName(), ((OrganicPet) currentPet).getHunger(), currentPet.getThirstLevel(), currentPet.getBoredomLevel(),
                                     ((OrganicCat) currentPet).getLitterBoxCleanliness(), ((OrganicPet) currentPet).getBathroomNeeds());
@@ -193,6 +195,7 @@ public class VirtualPetApplication {
                     System.out.format("+------------+--------+---------+-----------+-------------------+%n");
                     for (VirtualPet currentPet : myShelter.getPets()) {
                         if (currentPet instanceof RoboticDog) {
+                            currentPet.statusCheck();
                             System.out.format(roboticDogFormat, currentPet.getName(), currentPet.getThirstLevel(), currentPet.getBoredomLevel(),
                                     ((RoboticPet) currentPet).getOilLevel(), ((RoboticPet) currentPet).getMaintenanceLevel());
                             currentPet.tick();
@@ -207,6 +210,7 @@ public class VirtualPetApplication {
                     System.out.format("| Name       | Thirst | Boredom | Oil Level | Maintenance Level |%n");
                     System.out.format("+------------+--------+---------+-----------+-------------------+%n");
                     for (VirtualPet currentPet : myShelter.getPets()) {
+                        currentPet.statusCheck();
                         if (currentPet instanceof RoboticCat) {
                             System.out.format(roboticCatFormat, currentPet.getName(), currentPet.getThirstLevel(), currentPet.getBoredomLevel(),
                                     ((RoboticPet) currentPet).getOilLevel(), ((RoboticPet) currentPet).getMaintenanceLevel());
