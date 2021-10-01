@@ -3,6 +3,7 @@ package virtual_pet;
 import java.util.Random;
 
 public class OrganicDog extends OrganicPet{
+    private int cageCleanliness;
 
     public OrganicDog(String name, String sex, String breed, String pronoun, int age, int id) {
         super(name, sex, breed, pronoun, age, id);
