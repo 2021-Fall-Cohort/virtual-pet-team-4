@@ -115,4 +115,9 @@ public class OrganicCat extends OrganicPet{
     public void addBoredom() {
         boredomLevel++;
     }
+
+    @Override
+    public void walk() {
+
+    }
 }
