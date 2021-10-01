@@ -281,6 +281,10 @@ public class VirtualPetApplication {
                     {
                         Thread.currentThread().interrupt();
                     }
+                case "8":
+                    // option to clean cages / litter
+
+                    break;
                     }
             }
             while (isRunning) ;
