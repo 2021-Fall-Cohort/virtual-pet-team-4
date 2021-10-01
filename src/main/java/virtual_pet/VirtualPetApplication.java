@@ -137,6 +137,7 @@ public class VirtualPetApplication {
                     }
                     break;
                 case "4":
+                    clearScreen();
                     if (myShelter.numberOfPets() == 0) {
                         System.out.println("You don't have any pets!");
                         try {
@@ -146,12 +147,47 @@ public class VirtualPetApplication {
                         }
                         break;
                     }
+                    System.out.println("Status of Organic Dogs");
                     System.out.println("Name  | Hunger | Thirst | Boredom");
                     System.out.println("----------------------------------");
                     for (VirtualPet currentPet : myShelter.getPets()) {
-                        currentPet.tick();
-                        System.out.println(currentPet.status());
+                        if (currentPet instanceof OrganicDog) {
+
+                            System.out.println(currentPet.status());
+                            currentPet.tick();
+                        }
                     }
+                    System.out.println(" ");
+                    System.out.println("Status of Organic Cats");
+                    System.out.println("Name  | Hunger | Thirst | Boredom");
+                    System.out.println("----------------------------------");
+                    for (VirtualPet currentPet : myShelter.getPets()) {
+                        if (currentPet instanceof OrganicCat) {
+                            System.out.println(currentPet.status());
+                            currentPet.tick();
+                        }
+                    }
+                    System.out.println(" ");
+                    System.out.println("Status of Robotic Dogs");
+                    System.out.println("Name  | Hunger | Thirst | Boredom");
+                    System.out.println("----------------------------------");
+                    for (VirtualPet currentPet : myShelter.getPets()) {
+                        if (currentPet instanceof RoboticDog) {
+                            System.out.println(currentPet.status());
+                            currentPet.tick();
+                        }
+                    }
+                    System.out.println(" ");
+                    System.out.println("Status of Robotic Cats");
+                    System.out.println("Name  | Hunger | Thirst | Boredom");
+                    System.out.println("----------------------------------");
+                    for (VirtualPet currentPet : myShelter.getPets()) {
+                        if (currentPet instanceof RoboticCat) {
+                            System.out.println(currentPet.status());
+                            currentPet.tick();
+                        }
+                    }
+                    System.out.println(" ");
                     break;
                 case "5":
                     if (myShelter.numberOfPets() == 0) {
