@@ -7,9 +7,9 @@ public class CatBreedGen {
     private String[] catBreedList = new String[10];
 
     public CatBreedGen() {
-
         this.catBreed = "NoBreed";
     }
+
     public String getCatBreed() {
 
         Random rand = new Random();
