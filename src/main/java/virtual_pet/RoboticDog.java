@@ -5,15 +5,14 @@ import java.util.Scanner;
 
 public class RoboticDog extends RoboticPet{
 
-    public RoboticDog(String name, String sex, String breed, String pronoun, int age, int id, int favoriteFood, int favoriteToy) {
-        super(name, sex, breed, pronoun, age, id, favoriteFood, favoriteToy);
+    public RoboticDog(String name, String sex, String breed, String pronoun, int age, int id, int favoriteToy) {
+        super(name, sex, breed, pronoun, age, id, favoriteToy);
         this.name = name;
         this.sex = sex;
         this.breed = breed;
         this.pronoun = pronoun;
         this.age = age;
         this.id = id;
-        this.favoriteFood = favoriteFood;
         this.favoriteToy = favoriteToy;
     }
 

@@ -15,14 +15,13 @@ public abstract class VirtualPet {
     protected boolean isBored;
     protected boolean isThirsty;
 
-    public VirtualPet(String name, String sex, String breed, String pronoun, int age, int id, int favoriteFood, int favoriteToy ) {
+    public VirtualPet(String name, String sex, String breed, String pronoun, int age, int id, int favoriteToy ) {
         this.name = name;
         this.sex = sex;
         this.breed = breed;
         this.pronoun = pronoun;
         this.age = age;
         this.id = id;
-        this.favoriteFood = favoriteFood;
         this.favoriteToy = favoriteToy;
     }
 
@@ -61,8 +60,6 @@ public abstract class VirtualPet {
     public int getId() {
         return id;
     }
-
-    public int getFavoriteFood() {return favoriteFood; }
 
     public int getFavoriteToy() {return favoriteToy; }
 
