@@ -42,8 +42,8 @@ public class VirtualPetApplication {
         String randName = nameGen.getName();
         System.out.println("Welcome to the Virtual Pet Shelter simulator");
         String choice = "";
-        Boolean isRunning = true;
-        Boolean idPresent = false;
+        boolean isRunning = true;
+        boolean idPresent = false;
 
         // Start the shelter off with 4 pets, one of each type
         VirtualPetShelter myShelter = new VirtualPetShelter();
@@ -298,6 +298,9 @@ public class VirtualPetApplication {
                     clearScreen();
                     System.out.println(petOut + " has been adopted by " + peopleGen.getPersonFirstName() + " " + peopleGen.getPersonLastName() +
                             ". " + peopleGen.getPersonFirstName() + " is " + peopleGen.getPersonAge() + " years old, so they should have plenty of time for their new friend.");
+                    String toAdoptionList = petOut + " Was Adopted by " + peopleGen.getPersonFirstName() + " " + peopleGen.getPersonLastName() +
+                            " Age: " + String.valueOf(peopleGen.getPersonAge());
+                    adoptionList.add(toAdoptionList); /// Send current pet and person info to "adoption list"
                     System.out.println(" ");
                     break;
                 case "7":
@@ -381,6 +384,7 @@ public class VirtualPetApplication {
                 case "10":
                     // Print previous adoption list.
                     adoptionList.getList();
+                    break;
                 default:
                     System.out.println("You made an invalid selection and now your pets get nothing >:(");
                     for (VirtualPet currentPet : myShelter.getPets()) {
