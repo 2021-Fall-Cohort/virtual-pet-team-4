@@ -111,6 +111,9 @@ public class VirtualPetApplication {
                         break;
                     }
                     myShelter.retrievePetById(petToPlayId).play();
+                    clearScreen();
+                    System.out.println(myShelter.retrievePetById(petToPlayId).getName() + " really enjoyed playing with you and lost 20 boredom!");
+                    System.out.println(" ");
                     break;
                 case "2":
                     if (myShelter.numberOfPets() == 0) {
@@ -126,6 +129,9 @@ public class VirtualPetApplication {
                         currentPet.water();
                         currentPet.tick();
                     }
+                    clearScreen();
+                    System.out.println("The pets loved their water, and lost 20 thirst!");
+                    System.out.println(" ");
                     break;
                 case "3":
                     if (myShelter.numberOfPets() == 0) {
@@ -143,6 +149,9 @@ public class VirtualPetApplication {
                         }
                         currentPet.tick();
                     }
+                    clearScreen();
+                    System.out.println("The pets ravaged their dinners, subtracting 20 hunger");
+                    System.out.println(" ");
                     break;
                 case "4":
                     clearScreen();
@@ -284,13 +293,10 @@ public class VirtualPetApplication {
                     }
                     String petOut = myShelter.retrievePetById(petOutId).getName();
                     myShelter.removePetById(petOutId);
+                    clearScreen();
                     System.out.println(petOut + " has been adopted by " + peopleGen.getPersonFirstName() + " " + peopleGen.getPersonLastName() +
                             ". " + peopleGen.getPersonFirstName() + " is " + peopleGen.getPersonAge() + " years old, so they should have plenty of time for their new friend.");
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException ex) {
-                        Thread.currentThread().interrupt();
-                    }
+                    System.out.println(" ");
                     break;
                 case "7":
                     // Prompt the user asking them which animal type they would like
@@ -358,6 +364,9 @@ public class VirtualPetApplication {
                         }
                         currentPet.tick();
                     }
+                    clearScreen();
+                    System.out.println("All your cages and litterboxes are sparkling clean!");
+                    System.out.println(" ");
                     break;
                 case "9":
                     // walk
@@ -365,6 +374,9 @@ public class VirtualPetApplication {
                         currentPet.walk();
                         currentPet.tick();
                     }
+                    clearScreen();
+                    System.out.println("Your pets loved exploring outside!");
+                    System.out.println(" ");
                     break;
                 default:
                     System.out.println("You made an invalid selection and now your pets get nothing >:(");
