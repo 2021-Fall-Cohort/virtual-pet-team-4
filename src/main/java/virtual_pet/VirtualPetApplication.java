@@ -67,7 +67,7 @@ public class VirtualPetApplication {
             System.out.println("7. Admit a pet in");
             System.out.println("8. Clean cages / litterboxes");
             System.out.println("9. Take pets for a walk");
-            System.out.println("10, Print previous client List");
+            System.out.println("10. Print previous client List");
             System.out.println("Type quit to quit");
             choice = scanner.nextLine();
             checkQuit(choice);
