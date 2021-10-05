@@ -325,18 +325,19 @@ public class VirtualPetApplication {
                     int admitFavFood = admitScanner.nextInt();
                     System.out.println("Pick your pets favorite TOY (number 0, 1, or 2) and press enter.");
                     int admitFavToy = admitScanner.nextInt();
+                    int nextID = myShelter.numberOfPets() + 1;
                     switch (admitChoice) {
                         case 1:
-                            myShelter.addPet(new OrganicDog(admitName, admitSex, admitBreed, admitPronoun, (myShelter.numberOfPets() + 1), admitAge, admitFavFood, admitFavToy));
+                            myShelter.addPet(new OrganicDog(admitName, admitSex, admitBreed, admitPronoun, admitAge, myShelter.numberOfPets(), admitFavFood, admitFavToy));
                             break;
                         case 2:
-                            myShelter.addPet(new OrganicCat(admitName, admitSex, admitBreed, admitPronoun, (myShelter.numberOfPets() + 1), admitAge, admitFavFood, admitFavToy));
+                            myShelter.addPet(new OrganicCat(admitName, admitSex, admitBreed, admitPronoun, admitAge, myShelter.numberOfPets(), admitFavFood, admitFavToy));
                             break;
                         case 3:
-                            myShelter.addPet(new RoboticDog(admitName, admitSex, admitBreed, admitPronoun, (myShelter.numberOfPets() + 1), admitAge, admitFavFood, admitFavToy));
+                            myShelter.addPet(new RoboticDog(admitName, admitSex, admitBreed, admitPronoun, admitAge, myShelter.numberOfPets(), admitFavFood, admitFavToy));
                             break;
                         case 4:
-                            myShelter.addPet(new RoboticCat(admitName, admitSex, admitBreed, admitPronoun, (myShelter.numberOfPets() + 1), admitAge, admitFavFood, admitFavToy));
+                            myShelter.addPet(new RoboticCat(admitName, admitSex, admitBreed, admitPronoun, admitAge, myShelter.numberOfPets(), admitFavFood, admitFavToy));
                             break;
                     }
                     System.out.println("Welcome " + admitName + " to our Pet Shelter!");
